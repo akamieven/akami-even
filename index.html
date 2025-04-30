@@ -7,17 +7,17 @@
   <style>
     body {
       background-color: #7b1e1e; /* لون خمري */
-      color: #FFD700;
+      color: #FFD700; /* ذهبي */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
       text-align: center;
+      margin: 0;
+      padding: 40px 20px;
       animation: fadeIn 1s ease-in;
     }
 
     h1 {
       font-size: 48px;
-      margin-top: 40px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -57,7 +57,6 @@
       border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
-      margin-top: 30px;
     }
 
     button:hover {
@@ -65,89 +64,68 @@
       transform: scale(1.05);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .spacer {
-      height: 100vh; /* تجعل الاقتباسات بعيدة للأسفل */
-    }
-
-    #quotes {
-      padding: 60px 20px;
-      background-color: #5a1212;
+    .character-section {
+      margin-top: 100vh; /* يجعل القسم أسفل الصفحة */
+      padding-top: 60px;
     }
 
     .character {
-      margin-bottom: 60px;
+      margin: 50px 0;
     }
 
     .character img {
-      width: 180px;
-      height: auto;
+      width: 150px;
       border-radius: 10px;
-      border: 3px solid #FFD700;
-      margin-bottom: 15px;
+      border: 2px solid #FFD700;
     }
 
     .character h2 {
-      margin-bottom: 10px;
+      margin-top: 15px;
+      font-size: 28px;
     }
 
-    .quote {
-      font-size: 20px;
-      font-style: italic;
-      margin: 10px auto;
-      max-width: 700px;
+    .quote-container {
+      background-color: rgba(255, 215, 0, 0.1);
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: right;
+      position: relative;
+    }
+
+    .quote-container button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: #FFD700;
+      color: #7b1e1e;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .quote-container button:hover {
+      background-color: #e6c200;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
   <h1>Akami Even</h1>
+  <p>إقتباسات عالم أغنية الجليد والنَّار باللغة العربية</p>
 
-  <p>إقتباسات عالم أغنية الجليد والنار باللغة العربية</p>
-
-  <button onclick="location.href='#quotes'">الإقتباسات</button>
+  <button onclick="document.getElementById('quotes').scrollIntoView({behavior: 'smooth'})">
+    الإقتباسات
+  </button>
 
   <ul>
-    <li><a href="https://youtube.com/@akamievenamjade-n817zjqcs?si=fQIpAUOhGK9oU4Lm" target="_blank">يوتيوب</a></li>
-    <li><a href="https://boxd.it/6mPTZ" target="_blank">ليتربوكسد</a></li>
-    <li><a href="https://www.facebook.com/Akami.Even" target="_blank">فيسبوك</a></li>
-  </ul>
-
-  <!-- فاصل لزيادة المسافة قبل قسم الاقتباسات -->
-  <div class="spacer"></div>
-
-  <div id="quotes">
-    <h2>إقتباسات شخصيات أغنية الجليد والنار</h2>
-
-    <!-- شخصية: تيريون لانستر -->
-    <div class="character">
-      <img src="https://upload.wikimedia.org/wikipedia/en/5/50/Tyrion_Lannister-Peter_Dinklage.jpg" alt="Tyrion Lannister">
-      <h2>تيريون لانستر</h2>
-      <div class="quote">"العقل يحتاج إلى كتب كما يحتاج السيف إلى حجر شحذ."</div>
-      <div class="quote">"أنا أشرب وأعرف أشياء."</div>
-    </div>
-
-    <!-- شخصية: جون سنو -->
-    <div class="character">
-      <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/Jon_Snow_Season_8.png" alt="Jon Snow">
-      <h2>جون سنو</h2>
-      <div class="quote">"الشتاء قادم."</div>
-      <div class="quote">"إذا لم نقاتل معًا، سنموت وحدنا."</div>
-    </div>
-
-    <!-- شخصية: سيرسي لانستر -->
-    <div class="character">
-      <img src="https://upload.wikimedia.org/wikipedia/en/9/94/Cersei_Lannister-Lena_Headey.jpg" alt="Cersei Lannister">
-      <h2>سيرسي لانستر</h2>
-      <div class="quote">"في لعبة العروش، إما أن تربح أو تموت. لا يوجد خيار آخر."</div>
-    </div>
-
-    <!-- أضف المزيد من الشخصيات بنفس الطريقة -->
-  </div>
-
-</body>
-</html>
+    <li><a
