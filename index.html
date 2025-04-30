@@ -69,6 +69,11 @@
       background-color: #c51d2e;
       transform: scale(1.05);
     }
+
+    /* إخفاء الفيديو عند تحميل الصفحة */
+    iframe {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -91,14 +96,18 @@
 ذات يوم كان أحد زبائن المكتبة يقول: «لا شيء قادر على التأثير في القارئ أكثر من الكتاب الأول الذي يمس قلبه حقا. إذ أن صدى الكلمات التى نظن بأننا نسيناها يرافقنا طوال الحياة، ويشيد في ذاكرتنا منزلا سنعود إليه عاجلا أم آجلا. لا يهمّ حشد الكتب الأخرى التي سوف نقرؤها، ولا عدد العوالم التي سوف نكتشفها، ولا حتى مقدار الأمور التي سوف نتعلمها ثم ننساها". أما بالنسبة إلي، فسيبقى ذلك هو الكتاب الذي أنقذته من ظلمات مقبرة الكتب المنسية.
   </p>
 <hr>
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/BTICpPmf1yA" 
-title="YouTube video player" frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-allowfullscreen></iframe>
+
+  <!-- إخفاء الفيديو في البداية -->
+  <iframe id="video" width="560" height="315" 
+    src="https://www.youtube.com/embed/BTICpPmf1yA" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen></iframe>
 <hr>
+  
   <img src="https://i.postimg.cc/2jbMhsGk/IMG-20250426-191319.jpg" alt="just a view">
 <hr>
+
   <ul>
     <li><a href="https://youtube.com/@akamievenamjade-n817zjqcs?si=fQIpAUOhGK9oU4Lm" target="_blank">يوتيوب</a></li>
     <li><a href="https://boxd.it/6mPTZ" target="_blank">ليتربوكسد</a></li>
@@ -109,12 +118,13 @@ allowfullscreen></iframe>
   <button onclick="playVideo()">فيروز</button>
 
   <script>
-    // دالة لتشغيل الفيديو
+    // دالة لتشغيل الفيديو وإظهاره عند الضغط على الزر
     function playVideo() {
-      let video = document.querySelector('iframe');
+      let video = document.getElementById('video');
+      video.style.display = 'block'; // إظهار الفيديو
       video.src += "?autoplay=1"; // إضافة autoplay لتشغيل الفيديو
     }
   </script>
-  
+
 </body>
 </html>
