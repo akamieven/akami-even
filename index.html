@@ -7,17 +7,17 @@
   <style>
     body {
       background-color: #7b1e1e; /* لون خمري */
-      color: #FFD700; /* ذهبي */
+      color: #FFD700;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      text-align: center;
       animation: fadeIn 1s ease-in;
     }
 
     h1 {
       font-size: 48px;
-      margin-bottom: 20px;
+      margin-top: 40px;
     }
 
     p {
@@ -57,6 +57,7 @@
       border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
+      margin-top: 30px;
     }
 
     button:hover {
@@ -69,29 +70,44 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* إضافة تنسيق لقسم الاقتباسات */
+    .spacer {
+      height: 100vh; /* تجعل الاقتباسات بعيدة للأسفل */
+    }
+
     #quotes {
+      padding: 60px 20px;
       background-color: #5a1212;
-      padding: 30px;
-      margin-top: 50px;
+    }
+
+    .character {
+      margin-bottom: 60px;
+    }
+
+    .character img {
+      width: 180px;
+      height: auto;
       border-radius: 10px;
+      border: 3px solid #FFD700;
+      margin-bottom: 15px;
+    }
+
+    .character h2 {
+      margin-bottom: 10px;
     }
 
     .quote {
-      margin-bottom: 20px;
-      font-size: 22px;
+      font-size: 20px;
       font-style: italic;
+      margin: 10px auto;
+      max-width: 700px;
     }
-
   </style>
 </head>
 <body>
 
   <h1>Akami Even</h1>
 
-  <p>
-    إقتباسات عالم أغنية الجليد والنَّار باللغة العربية
-  </p>
+  <p>إقتباسات عالم أغنية الجليد والنار باللغة العربية</p>
 
   <button onclick="location.href='#quotes'">الإقتباسات</button>
 
@@ -101,24 +117,36 @@
     <li><a href="https://www.facebook.com/Akami.Even" target="_blank">فيسبوك</a></li>
   </ul>
 
-  <!-- قسم الإقتباسات الذي سيظهر عند الضغط على الزر -->
+  <!-- فاصل لزيادة المسافة قبل قسم الاقتباسات -->
+  <div class="spacer"></div>
+
   <div id="quotes">
     <h2>إقتباسات شخصيات أغنية الجليد والنار</h2>
 
-    <!-- إقتباسات متعددة -->
-    <div class="quote">
-      <p>جايمي لانستر: "القتال ليس دائماً كما يتصوره الناس. إنه ليس عن الشجاعة أو البطولة، بل عن البقاء على قيد الحياة."</p>
+    <!-- شخصية: تيريون لانستر -->
+    <div class="character">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/50/Tyrion_Lannister-Peter_Dinklage.jpg" alt="Tyrion Lannister">
+      <h2>تيريون لانستر</h2>
+      <div class="quote">"العقل يحتاج إلى كتب كما يحتاج السيف إلى حجر شحذ."</div>
+      <div class="quote">"أنا أشرب وأعرف أشياء."</div>
     </div>
 
-    <div class="quote">
-      <p>تيريون لانستر: "أنت لا تختار من تحب، لكنك تختار من تعيش معك في هذه الحياة."</p>
+    <!-- شخصية: جون سنو -->
+    <div class="character">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/Jon_Snow_Season_8.png" alt="Jon Snow">
+      <h2>جون سنو</h2>
+      <div class="quote">"الشتاء قادم."</div>
+      <div class="quote">"إذا لم نقاتل معًا، سنموت وحدنا."</div>
     </div>
 
-    <div class="quote">
-      <p>جون سنو: "إذا لم تقاتل من أجل شيء، ستسقط في النهاية من أجل أي شيء."</p>
+    <!-- شخصية: سيرسي لانستر -->
+    <div class="character">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/94/Cersei_Lannister-Lena_Headey.jpg" alt="Cersei Lannister">
+      <h2>سيرسي لانستر</h2>
+      <div class="quote">"في لعبة العروش، إما أن تربح أو تموت. لا يوجد خيار آخر."</div>
     </div>
 
-    <!-- يمكنك إضافة المزيد من الاقتباسات هنا -->
+    <!-- أضف المزيد من الشخصيات بنفس الطريقة -->
   </div>
 
 </body>
