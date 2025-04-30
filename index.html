@@ -52,20 +52,24 @@
       color: #e44d26;
       text-decoration: underline;
     }
+
+    /* تخصيص الزر */
+    button {
+      background-color: #e32636;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #c51d2e;
+      transform: scale(1.05);
+    }
   </style>
-<style>
-  button {
-    background-color: #e32636;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-<button onclick="playVideo()">فيروز</button>
-</style>
 </head>
 <body>
 
@@ -98,9 +102,19 @@ allowfullscreen></iframe>
   <ul>
     <li><a href="https://youtube.com/@akamievenamjade-n817zjqcs?si=fQIpAUOhGK9oU4Lm" target="_blank">يوتيوب</a></li>
     <li><a href="https://boxd.it/6mPTZ" target="_blank">ليتربوكسد</a></li>
-<li><a   href="https://www.facebook.com/Akami.Even"
-target="_blank">فيسبوك</a></li>
-</ul>
+    <li><a href="https://www.facebook.com/Akami.Even" target="_blank">فيسبوك</a></li>
+  </ul>
 
+  <!-- زر لتشغيل الفيديو -->
+  <button onclick="playVideo()">فيروز</button>
+
+  <script>
+    // دالة لتشغيل الفيديو
+    function playVideo() {
+      let video = document.querySelector('iframe');
+      video.src += "?autoplay=1"; // إضافة autoplay لتشغيل الفيديو
+    }
+  </script>
+  
 </body>
 </html>
