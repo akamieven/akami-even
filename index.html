@@ -151,11 +151,13 @@
   outline: none;
   box-shadow: none;
   overflow-x: hidden;
-  display: none;
 }
 
+.sidebar.hidden {
+  right: -260px;
+}
 .sidebar.visible {
-  right: 0; /* يُظهرها */
+  right: 0;
 }
 
 /* تصنيف الروابط داخل السايد بار */
@@ -287,33 +289,36 @@
 </script>
   </div> 
 <script>
-  function toggleSidebar() {
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
     const sidebar = document.getElementById('sidebar');
+    
+    // تبديل الكلاسات بين "visible" و "hidden"
     sidebar.classList.toggle('visible');
-  }
+    sidebar.classList.toggle('hidden');
+  });
 
-  // لتجنب تعارض class "hidden"
+  // لتجنب تعارض مع كلاس "hidden" عند تحميل الصفحة
   window.onload = function() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.remove('hidden');
   };
-</script>
-<script>
-document.querySelectorAll('.dropbtn').forEach(button => {
-  button.addEventListener('click', function () {
-    const dropdown = this.nextElementSibling;
 
-    // إغلاق جميع القوائم المنسدلة الأخرى
-    document.querySelectorAll('.dropdown-content').forEach(content => {
-      if (content !== dropdown) {
-        content.style.display = 'none'; // إخفاء القوائم الأخرى
-      }
+  // القائمة المنسدلة
+  document.querySelectorAll('.dropbtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const dropdown = this.nextElementSibling;
+
+      // إغلاق جميع القوائم المنسدلة الأخرى
+      document.querySelectorAll('.dropdown-content').forEach(content => {
+        if (content !== dropdown) {
+          content.style.display = 'none'; // إخفاء القوائم الأخرى
+        }
+      });
+
+      // تبديل العرض (إظهار أو إخفاء القائمة التي تم الضغط عليها)
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     });
-
-    // تبديل العرض (إظهار أو إخفاء القائمة التي تم الضغط عليها)
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
   });
-});
 </script>
  </body>
 </html>
