@@ -123,10 +123,38 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: rgba(255, 215, 0, 0.1);
+  padding: 20px 10px;
+  border-radius: 0 10px 10px 0;
+  z-index: 1000;
+}
 
+.sidebar a {
+  display: block;
+  margin: 15px 0;
+  color: #FFD700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #fff;
+}
   </style>
 </head>
 <body>
+<div class="sidebar">
+  <a href="#jaime">چايمي لانستر</a>
+  <a href="#tyrion">تيريون لانستر</a>
+  <a href="#cersei">سرسي لانستر</a>
+  <a href="#ned">إدارد ستارك</a>
+</div>
   <h1>Akami Even</h1>
   <p>إقتباسات رواية أغنية الجليد والنَّار باللغة العربية</p>
   <button onclick="document.getElementById('quotes').scrollIntoView({ behavior: 'smooth' })">الإقتباسات</button>
@@ -136,7 +164,7 @@
     <li><a href="https://www.facebook.com/Akami.Even" target="_blank">فيسبوك</a></li>
   </ul> 
 <hr> <div class="character-section" id="quotes">
-    <div class="character">
+    <div class="character"  id="jaime">
       <img src="https://i.postimg.cc/MTb2msrd/a55fb4f630dc5670131938a46305c3dd.jpg" alt="جايمي لانستر">
       <h2>چايمي لانستر</h2>
       <div class="quote">
@@ -155,7 +183,7 @@
 
       </div>
 <hr>
-    </div><div class="character">
+    </div><div class="character"  id="tyrion">
   <img src="https://i.postimg.cc/Zn7QwXPF/IMG-20250501-015354.jpg" alt="تيريون لانستر">
   <h2>تيريون لانستر</h2>
   <div class="quote">
@@ -164,7 +192,7 @@
   </div>
 </div>
 <hr>
-<div class="character">
+<div class="character"  id="cersie">
   <img src="https://i.postimg.cc/rFHbxXwq/21aa5dc90a1972e2aec5b788c4d215ea.jpg" alt="سرسي لانستر">
   <h2>سرسي لانستر</h2>
   <div class="quote">
@@ -174,7 +202,7 @@
   </div>
 </div>
 <hr>
-<div class="character">
+<div class="character"  id="ned">
   <img src="https://i.postimg.cc/TPVHzKqP/a6e077396325eddf195f67ba79badab5.jpg" alt="ادارد ستارك">
   <h2>إدارد ستارك</h2>
   <div class="quote">
