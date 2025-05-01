@@ -123,37 +123,79 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #FFD700;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
 .sidebar {
   position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  background-color: rgba(255, 215, 0, 0.1);
-  padding: 20px 10px;
-  border-radius: 0 10px 10px 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background: #222;
+  color: white;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar.visible {
+  transform: translateX(0);
 }
 
 .sidebar a {
   display: block;
-  margin: 15px 0;
   color: #FFD700;
-  font-size: 16px;
+  margin: 10px 0;
   text-decoration: none;
-  transition: color 0.3s;
 }
 
-.sidebar a:hover {
+.sidebar h3 {
   color: #fff;
+  margin-top: 20px;
 }
+
+.hidden {
+  display: none;
+}
+
+
   </style>
 </head>
 <body>
-<div class="sidebar">
-  <a href="#jaime">چايمي لانستر</a>
-  <a href="#tyrion">تيريون لانستر</a>
-  <a href="#cersei">سرسي لانستر</a>
-  <a href="#ned">إدارد ستارك</a>
+<!-- زر الثلاث نقاط -->
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+<!-- القائمة الجانبية -->
+<div id="sidebar" class="sidebar hidden">
+  <div class="house">
+    <h3>آل لانستر</h3>
+    <a href="#cersei">سيرسي لانستر</a>
+    <a href="#jaime">جايمي لانستر</a>
+    <a href="#tyrion">تيريون لانستر</a>
+  </div>
+  <div class="house">
+    <h3>آل ستارك</h3>
+    <a href="#eddard">إدارد ستارك</a>
+    <!-- أضف المزيد حسب الحاجة -->
+  </div>
+  <div class="house">
+    <h3>شخصيات أخرى</h3>
+    <a href="#baelish">بيتر بيليش «الإصبع الصغير»</a>
+  </div>
 </div>
   <h1>Akami Even</h1>
   <p>إقتباسات رواية أغنية الجليد والنَّار باللغة العربية</p>
