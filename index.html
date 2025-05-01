@@ -164,7 +164,58 @@
 .sidebar a:hover {
   color: #f1f1f1;
 }
+/* تنسيق السايدبار */
+#sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+}
 
+/* تنسيق القائمة المنسدلة */
+.family {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* تنسيق الأزرار لعرض العائلة */
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* تنسيق محتوى القائمة المنسدلة */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* عرض القائمة عند المرور عليها */
+.family:hover .dropdown-content {
+  display: block;
+}
+
+/* تغيير اللون عند التمرير على العنصر */
+.dropdown-content a:hover {
+  background-color: #575757;
+}
   </style>
 </head>
 <body>
@@ -175,19 +226,29 @@
 <!-- القائمة الجانبية -->
 <div id="sidebar" class="sidebar hidden">
   <div class="house">
-    <h3>آل لانستر</h3>
-    <a href="lannister.html#cersei">سيرسي لانستر</a>
-    <a href="lannister.html#jaime">جايمي لانستر</a>
-    <a href="lannister.html#tyrion">تيريون لانستر</a>
-  </div>
-  <div class="house">
-    <h3>آل ستارك</h3>
-    <a href="#eddard">إدارد ستارك</a>
-    <!-- أضف المزيد حسب الحاجة -->
-  </div>
-  <div class="house">
-    <h3>شخصيات أخرى</h3>
-    <a href="#baelish">بيتر بيليش «الإصبع الصغير»</a>
+    <h3>العوائل</h3>
+    <div class="family">
+      <button class="dropbtn">آل لانستر</button>
+      <div class="dropdown-content">
+        <a href="lannister.html#cersei">سيرسي لانستر</a>
+        <a href="lannister.html#jaime">چايمي لانستر</a>
+        <a href="lannister.html#tyrion">تيريون لانستر</a>
+      </div>
+    </div>
+    <div class="family">
+      <button class="dropbtn">آل ستارك</button>
+      <div class="dropdown-content">
+        <a href="stark.html#eddard">إدارد ستارك</a>
+        <!-- أضف المزيد حسب الحاجة -->
+      </div>
+    </div>
+    <div class="family">
+      <button class="dropbtn">شخصيات أخرى</button>
+      <div class="dropdown-content">
+        <a href="other.html#baelish">بيتر بيليش «الإصبع الصغير»</a>
+        <!-- أضف المزيد حسب الحاجة -->
+      </div>
+    </div>
   </div>
 </div>
   <h1>Akami Even</h1>
@@ -230,6 +291,15 @@
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.remove('hidden');
   };
+</script>
+<script>
+// الكود الذي يقوم بفتح أو إغلاق القائمة المنسدلة عند الضغط
+document.querySelectorAll('.dropbtn').forEach(button => {
+  button.addEventListener('click', function () {
+    const dropdown = this.nextElementSibling;
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+});
 </script>
  </body>
 </html>
