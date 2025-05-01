@@ -293,10 +293,18 @@
   };
 </script>
 <script>
-// الكود الذي يقوم بفتح أو إغلاق القائمة المنسدلة عند الضغط
 document.querySelectorAll('.dropbtn').forEach(button => {
   button.addEventListener('click', function () {
     const dropdown = this.nextElementSibling;
+
+    // إغلاق جميع القوائم المنسدلة الأخرى
+    document.querySelectorAll('.dropdown-content').forEach(content => {
+      if (content !== dropdown) {
+        content.style.display = 'none'; // إخفاء القوائم الأخرى
+      }
+    });
+
+    // تبديل العرض (إظهار أو إخفاء القائمة التي تم الضغط عليها)
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
   });
 });
