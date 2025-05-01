@@ -135,48 +135,44 @@
   z-index: 1100;
 }
 
+/* إخفاء السايد بار بشكل افتراضي */
 .sidebar {
+  display: none;
   position: fixed;
   top: 0;
-  right: 0;
-  height: 100%;
+  left: 0;
   width: 250px;
-  background: #222;
-  color: white;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000;
-  overflow-y: auto;
+  height: 100%;
+  background-color: #111;
+  padding-top: 60px;
+  transition: 0.3s;
 }
 
+/* عندما يكون السايد بار مرئيًا */
 .sidebar.visible {
-  transform: translateX(0);
-}
-
-.sidebar a {
   display: block;
-  color: #FFD700;
-  margin: 10px 0;
+}
+
+/* تصنيف الروابط داخل السايد بار */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
   text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.sidebar h3 {
-  color: #fff;
-  margin-top: 20px;
+.sidebar a:hover {
+  color: #f1f1f1;
 }
-
-.hidden {
-  display: none;
-}
-
 
   </style>
 </head>
 <body>
-<!-- زر الثلاث نقاط -->
+<!-- زر الثلاث نقاط --> <header>
 <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+</header>
 
 <!-- القائمة الجانبية -->
 <div id="sidebar" class="sidebar hidden">
