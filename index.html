@@ -135,22 +135,20 @@
   z-index: 1100;
 }
 
-/* إخفاء السايد بار بشكل افتراضي */
 .sidebar {
-  display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  right: -260px; /* خارج الشاشة */
   width: 250px;
   height: 100%;
   background-color: #111;
   padding-top: 60px;
-  transition: 0.3s;
+  transition: right 0.3s ease;
+  z-index: 1000;
 }
 
-/* عندما يكون السايد بار مرئيًا */
 .sidebar.visible {
-  display: block;
+  right: 0; /* يُظهرها */
 }
 
 /* تصنيف الروابط داخل السايد بار */
@@ -258,5 +256,18 @@
     });
   }
 </script>
-  </div>  </body>
+  </div> 
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('visible');
+  }
+
+  // لتجنب تعارض class "hidden"
+  window.onload = function() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('hidden');
+  };
+</script>
+ </body>
 </html>
