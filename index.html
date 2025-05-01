@@ -137,10 +137,11 @@
 
 }
 
+/* حالة السايد بار المخفي */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -260px; /* خارج الشاشة */
+  right: -250px; /* خارج الشاشة */
   width: 250px;
   height: 100%;
   background-color: #111;
@@ -153,12 +154,16 @@
   overflow-x: hidden;
 }
 
-.sidebar.hidden {
-  right: -260px;
-}
+/* عندما يكون السايد بار مرئيًا */
 .sidebar.visible {
-  right: 0;
+  right: 0; /* يجعل السايد بار يظهر */
 }
+
+/* حالة السايد بار المخفي */
+.sidebar.hidden {
+  right: -250px;
+}
+
 
 /* تصنيف الروابط داخل السايد بار */
 .sidebar a {
