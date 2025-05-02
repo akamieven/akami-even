@@ -324,12 +324,9 @@
 <script>
   document.querySelector('.menu-toggle').addEventListener('click', function () {
     const sidebar = document.getElementById('sidebar');
-    
-    // تبديل الكلاسات بين "visible" و "hidden"
     sidebar.classList.toggle('visible');
     sidebar.classList.toggle('hidden');
   });
-
   // القائمة المنسدلة
   document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function () {
