@@ -34,10 +34,10 @@
 
 .content {
   text-align: center;
-  direction: rtl;
-display: flex;
-  justify-content: center; /* هذا يضمن أن المحتوى يكون في المنتصف */
-  align-items: center; /* هذا يضمن أن المحتوى يكون عموديًا في المنتصف */
+  flex-direction: column; /* تأكد من أن العناصر ستكون عمودية */
+  justify-content: center; /* لضمان تمركز العناصر أفقياً */
+  align-items: center; /* لضمان تمركز العناصر عموديًا */
+  direction: rtl; /* وضع الاتجاه من اليمين لليسار */
   position: relative;
   z-index: 1;
   color: #C0C0C0;
