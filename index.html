@@ -177,16 +177,17 @@ body {
 }
 
 /* حالة السايد بار المخفي */
+/* السايدبار بشكل افتراضي خارج الشاشة */
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0; /* خارج الشاشة */
+  right: 0;
   width: 180px;
-  transform: translateX(100%);
+  transform: translateX(100%); /* السايدبار يبدأ خارج الشاشة */
   height: 100%;
   background-color: #C0C0C0;
   padding-top: 60px;
-  transition: right 0.3s ease;
+  transition: transform 0.3s ease; /* انتقال سلس عند التحرك */
   z-index: 1200;
   border: none;
   outline: none;
@@ -194,14 +195,9 @@ body {
   overflow-x: hidden;
 }
 
-/* عندما يكون السايد بار مرئيًا */
+/* عندما يكون السايدبار مرئيًا */
 .sidebar.visible {
-  right: 0; /* يجعل السايد بار يظهر */
-}
-
-/* حالة السايد بار المخفي */
-.sidebar.hidden {
-  transform: translateX(0);
+  transform: translateX(0); /* السايدبار يظهر داخل الشاشة */
 }
 
 
