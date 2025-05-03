@@ -243,14 +243,14 @@ body {
 
 /* تنسيق محتوى القائمة المنسدلة */
 .dropdown-content {
-  display: block; /* اجعلها ظاهرة بدايةً */
+  display: none; /* إخفاء المحتوى في البداية */
   position: absolute;
   background-color: #28282B;
   min-width: 160px;
   z-index: 1;
-  max-height: 0; /* يبدأ بإخفاء المحتوى */
+  max-height: 0; /* يبدأ المحتوى مخفيًا */
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out; /* تأثير التحرك */
+  transition: max-height 0.3s ease-in-out; /* تأثير الانميشن */
 }
 
 .dropdown-content a {
@@ -262,7 +262,8 @@ body {
 
 /* عرض القائمة عند التفاعل مع الزر */
 .family:hover .dropdown-content {
-  max-height: 500px; /* قم بتحديد الحجم الذي ترغب فيه عند عرض القائمة */
+  display: block; /* تغيير display للظهور */
+  max-height: 500px; /* تحديد الحجم العلوي للقائمة عند التفاعل */
 }
 
 /* تغيير اللون عند التمرير على العنصر */
