@@ -160,6 +160,21 @@ body {
     .copy-btn:hover {
       background-color: #ddd;
     }
+   .stars {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .star {
+      font-size: 30px;
+      cursor: pointer;
+      color: #d3d3d3;
+    }
+
+    .star.selected {
+      color: #FFD700;
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -353,6 +368,14 @@ body {
       <div class="quote">
         "كان العالم أبسط آنذاك، والرِّجال كالسُّيوف، مصنوعين من فولاذٍ أنقى. أم أن السَّبب أنه كان صبيًّا في الخامسة عشرة؟ جميعهم في قبورهم الآن؛ سيف الصَّباح والفارس الباسم، والثَّور الأبيض والأمير ليوين، والسير أوزويل وِنت بروح دُعابته السَّوداء وچون داري بسجيَّته الجادَّة، وسيمون توين وإخوانه في عصابة غابة الملوك وسَمنر كراكهول العجوز الفَظ. وأنا، ذلك الصَّبي الذي كنته... متى ماتَ يا تُرى؟ حين ارتديتُ المعطف الأبيض؟ حين شققتُ حَلق إيرس؟ ذلك الصَّبي أرادَ أن يُصبِح السير آرثر داين، لكنه في مكانٍ ما في أثناء رحلته صارَ الفارس الباسم.."
    <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+  <div class="stars-container">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <div class="rating-result">تقييمك: 0</div>
 </div>
 
 <div class="quote">
@@ -363,6 +386,14 @@ body {
 - «بسبب أمثالك من الرِّجال».
 - «ليس هناك رجال مِثلي، هناك أنا فقط».
         <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+  <div class="stars-container">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <div class="rating-result">تقييمك: 0</div>
 
       </div>
 <hr>
@@ -372,6 +403,14 @@ body {
   <div class="quote">
     " «لم يكن حُلمًا». إنها حقيقة، كلُّ هذا حقيقة، الحروب والدَّسائس ولُعبة العروش الدَّامية، وأنا في مركزها بالضَّبط... أنا، القزم، الوحش، الذي تهكَّموا عليه وضحكوا منه، لكني أملكُ كلَّ شيءٍ الآن، السَّطوة والمدينة والفتاة. هذا ما خُلِقتُ من أجله، ولتُسامِحني الآلهة، هذا ما أحبُّه... وأحبُّها... وأحبُّها.."
     <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+  <div class="stars-container">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <div class="rating-result">تقييمك: 0</div>
   </div>
 </div>
 <hr>
@@ -381,12 +420,78 @@ body {
   <div class="quote">
     "طفا وجه سرسي لانستر أمامه في الظَّلام وقد أضاءَ شَعرها كنور الشَّمس وحملَت شفتاها ابتسامةً ساخرةً وهي تهمس: «عندما تلعب لُعبة العروش، إمَّا أن تربح أو  تموت »."
     <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
-
+  <div class="stars-container">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <div class="rating-result">تقييمك: 0</div>
   </div>
 </div>
 <hr>
 </div>
 <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // استهداف جميع العناصر التي تحتوي على تقييمات
+    const quoteElements = document.querySelectorAll('.quote');
+  
+    quoteElements.forEach((quoteElement, index) => {
+        const starsContainer = quoteElement.querySelector('.stars-container');
+        const rating = quoteElement.querySelector('.rating');
+        
+        // عند تغيير التقييم
+        starsContainer.addEventListener('click', function(e) {
+            const clickedStar = e.target;
+            if (clickedStar.classList.contains('star')) {
+                // التقييم هو عدد النجوم التي تم النقر عليها
+                const ratingValue = parseInt(clickedStar.getAttribute('data-value'));
+
+                // تحديث النجوم في الواجهة الأمامية
+                updateStars(starsContainer, ratingValue);
+
+                // تخزين التقييم في Firebase
+                const quoteText = quoteElement.querySelector('.quote-text').innerText;
+                storeRatingInFirebase(quoteText, ratingValue);
+            }
+        });
+    });
+
+    // وظيفة لتحديث النجوم في الواجهة الأمامية
+    function updateStars(starsContainer, ratingValue) {
+        const stars = starsContainer.querySelectorAll('.star');
+        stars.forEach(star => {
+            const starValue = parseInt(star.getAttribute('data-value'));
+            if (starValue <= ratingValue) {
+                star.classList.add('filled');
+            } else {
+                star.classList.remove('filled');
+            }
+        });
+    }
+
+    // وظيفة لتخزين التقييم في Firebase
+    function storeRatingInFirebase(quoteText, ratingValue) {
+        const quoteId = generateQuoteId(quoteText);  // إنشاء ID فريد للاقتباس
+        const database = firebase.firestore();
+
+        // حفظ التقييم في Firebase
+        database.collection('quotes').doc(quoteId).set({
+            rating: ratingValue
+        }).then(() => {
+            console.log(`تم حفظ التقييم للاقتباس: ${quoteId}`);
+        }).catch((error) => {
+            console.error('خطأ في حفظ التقييم:', error);
+        });
+    }
+
+    // وظيفة لتوليد معرف فريد لكل اقتباس
+    function generateQuoteId(quoteText) {
+        return btoa(quoteText);  // تحويل النص إلى Base64 لتوليد ID فريد
+    }
+});
   function copyToClipboard(button) {
     const quoteText = button.parentElement.textContent.replace("نسخ", "").trim();
     navigator.clipboard.writeText(quoteText).then(() => {
@@ -417,6 +522,7 @@ body {
       family.classList.toggle('open');
     });
   });
+
 </script>
  </body>
 </html>
