@@ -243,11 +243,14 @@ body {
 
 /* تنسيق محتوى القائمة المنسدلة */
 .dropdown-content {
-  display: none;
+  display: block; /* اجعلها ظاهرة بدايةً */
   position: absolute;
   background-color: #28282B;
   min-width: 160px;
   z-index: 1;
+  max-height: 0; /* يبدأ بإخفاء المحتوى */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* تأثير التحرك */
 }
 
 .dropdown-content a {
@@ -257,9 +260,9 @@ body {
   display: block;
 }
 
-/* عرض القائمة عند المرور عليها */
+/* عرض القائمة عند التفاعل مع الزر */
 .family:hover .dropdown-content {
-  display: block;
+  max-height: 500px; /* قم بتحديد الحجم الذي ترغب فيه عند عرض القائمة */
 }
 
 /* تغيير اللون عند التمرير على العنصر */
@@ -340,13 +343,14 @@ body {
     });
   }
 </script>
-  </div> 
+
 <script>
   document.querySelector('.menu-toggle').addEventListener('click', function () {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('visible');
     sidebar.classList.toggle('hidden');
   });
+
   // القائمة المنسدلة
   document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function () {
@@ -355,12 +359,16 @@ body {
       // إغلاق جميع القوائم المنسدلة الأخرى
       document.querySelectorAll('.dropdown-content').forEach(content => {
         if (content !== dropdown) {
-          content.style.display = 'none'; // إخفاء القوائم الأخرى
+          content.style.maxHeight = null; // إخفاء القوائم الأخرى
         }
       });
 
       // تبديل العرض (إظهار أو إخفاء القائمة التي تم الضغط عليها)
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      if (dropdown.style.maxHeight) {
+        dropdown.style.maxHeight = null; // إخفاء القائمة إذا كانت مفتوحة
+      } else {
+        dropdown.style.maxHeight = dropdown.scrollHeight + "px"; // إظهار القائمة مع تأثير
+      }
     });
   });
 </script>
