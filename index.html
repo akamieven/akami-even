@@ -222,35 +222,31 @@ body {
   padding: 15px;
 }
 
-/* تنسيق القائمة المنسدلة */
 .family {
   position: relative;
-  display: inline-block;
   width: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
-/* تنسيق الأزرار لعرض العائلة */
 .dropbtn {
   background-color: rgba(40, 40, 43, 0.9);
   color: white;
   padding: 10px;
   font-size: 16px;
   border: none;
-  text-align: left;
+  text-align: right;
   width: 100%;
   cursor: pointer;
 }
 
-/* تنسيق محتوى القائمة المنسدلة */
 .dropdown-content {
-  display: none; /* إخفاء المحتوى في البداية */
-  position: absolute;
-  background-color: #28282B;
-  min-width: 160px;
-  z-index: 1;
-  max-height: 0; /* يبدأ المحتوى مخفيًا */
+  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out; /* تأثير الانميشن */
+  background-color: #28282B;
+  transition: max-height 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-content a {
@@ -260,15 +256,13 @@ body {
   display: block;
 }
 
-/* عرض القائمة عند التفاعل مع الزر */
-.family:hover .dropdown-content {
-  display: block; /* تغيير display للظهور */
-  max-height: 500px; /* تحديد الحجم العلوي للقائمة عند التفاعل */
-}
-
-/* تغيير اللون عند التمرير على العنصر */
 .dropdown-content a:hover {
   background-color: #002366;
+}
+
+/* عند الفتح */
+.family.open .dropdown-content {
+  max-height: 500px;
 }
   </style>
 </head>
@@ -355,21 +349,15 @@ body {
   // القائمة المنسدلة
   document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function () {
-      const dropdown = this.nextElementSibling;
+      const family = this.parentElement;
 
-      // إغلاق جميع القوائم المنسدلة الأخرى
-      document.querySelectorAll('.dropdown-content').forEach(content => {
-        if (content !== dropdown) {
-          content.style.maxHeight = null; // إخفاء القوائم الأخرى
-        }
+      // إغلاق كل القوائم الأخرى
+      document.querySelectorAll('.family').forEach(f => {
+        if (f !== family) f.classList.remove('open');
       });
 
-      // تبديل العرض (إظهار أو إخفاء القائمة التي تم الضغط عليها)
-      if (dropdown.style.maxHeight) {
-        dropdown.style.maxHeight = null; // إخفاء القائمة إذا كانت مفتوحة
-      } else {
-        dropdown.style.maxHeight = dropdown.scrollHeight + "px"; // إظهار القائمة مع تأثير
-      }
+      // تبديل الفتح والإغلاق للعائلة الحالية
+      family.classList.toggle('open');
     });
   });
 </script>
