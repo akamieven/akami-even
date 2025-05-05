@@ -39,10 +39,17 @@ body {
   display: block;
   pointer-events: none; /* هذا هو الأهم: يمنع الطبقة من اعتراض الضغط */
 }
+@font-face {
+  font-family: 'GameOfThrones';
+  src: url('justafont.otf') format('truetype');
+}
 .text {
   position: relative;
   z-index: 1000;
   color: #C0C0C0;
+}
+.text:lang(en) {
+  font-family: 'GameOfThrones', serif;
 }
 
 .content {
