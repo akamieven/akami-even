@@ -39,10 +39,17 @@ body {
   display: block;
   pointer-events: none; /* هذا هو الأهم: يمنع الطبقة من اعتراض الضغط */
 }
+@font-face {
+  font-family: 'GameOfThrones';
+  src: url('justafont.otf') format('truetype');
+}
 .text {
   position: relative;
   z-index: 1000;
   color: #FFD700;
+}
+.text:lang(en) {
+  font-family: 'GameOfThrones', serif;
 }
 
 .content {
@@ -331,7 +338,7 @@ body {
     </div>
   </div>
 </div>
-  <h1 class="text"><strong>Akami Even</strong></h1>
+  <h1 class="text" lang="en"><strong>Akami Even</strong></h1>
    <p class="text">آل لانستر</p>
  <ul>
     <li><a href="index.html"><strong>الصفحة الرئيسية</strong></a></li> 
