@@ -376,5 +376,14 @@ body {
     });
   });
 </script>
+
+<script>
+  document.querySelectorAll("p, li, a, span").forEach(function(el) {
+    var strong = document.createElement("strong");
+    strong.innerHTML = el.innerHTML;
+    el.innerHTML = "";
+    el.appendChild(strong);
+  });
+</script>
  </body>
 </html>
