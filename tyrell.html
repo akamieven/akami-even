@@ -52,12 +52,12 @@ body {
   pointer-events: none;
 }
 
-/* السايد بار الجديد والكامل */
+/* السايد بار الكامل (أبيض) */
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
   background: rgba(0, 0, 0, 0.2);
-  color: white;
+  color: white; /* أبيض كما طلبت */
   border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 28px;
   width: 50px; height: 50px;
@@ -71,14 +71,14 @@ body {
   position: fixed;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: rgba(5, 5, 20, 0.95);
+  background: rgba(5, 15, 5, 0.98); /* لمحة خضراء داكنة جداً */
   backdrop-filter: blur(15px);
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
   padding-top: 80px;
   overflow-y: auto;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(0, 128, 0, 0.3);
 }
 
 .sidebar.visible { transform: translateX(0); }
@@ -90,6 +90,8 @@ body {
   color: white; font-size: 35px; cursor: pointer;
 }
 
+.sidebar h3 { padding: 0 25px 20px; color: white; } /* أبيض كما طلبت */
+
 .dropbtn {
   background: transparent; color: #eee;
   padding: 18px 25px; font-size: 18px;
@@ -98,28 +100,21 @@ body {
   cursor: pointer; display: flex; justify-content: space-between;
 }
 
-.dropdown-content {
-  max-height: 0; overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: max-height 0.4s ease-out;
-}
-
 .dropdown-content a {
   color: #bbb; padding: 12px 40px;
   text-decoration: none; display: block; font-size: 16px;
 }
-.dropdown-content a:hover { color: #FFD700; }
+.dropdown-content a:hover { color: #008000; }
 
-.family.open .dropdown-content { max-height: 600px; }
 .family.open .arrow { transform: rotate(180deg); color: white; }
 
-/* المحتوى */
+/* المحتوى بالأخضر التايريلى */
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
 .character img { 
   width: 150px; border-radius: 10px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
-  border: 1px solid #FFD700; 
+  box-shadow: 0 4px 15px rgba(0, 128, 0, 0.4); 
+  border: 1px solid #008000; 
 }
 .character h2 { font-size: 28px; margin-top: 15px; color: #008000; }
 
@@ -133,10 +128,8 @@ body {
   position: relative;
   text-align: right;
   line-height: 1.8;
-  border-right: 3px solid #008000;
+  border-right: 3px solid #008000; /* خط أخضر */
 }
-contenr h1{
-color: #008000;
 
 .home-link {
   color: #C0C0C0;
@@ -148,21 +141,22 @@ color: #008000;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px); 
-  border: 1px solid rgba(255, 215, 0, 0.2); 
+  border: 1px solid rgba(0, 128, 0, 0.3); 
   transition: 0.3s;
 }
 .home-link:hover {
-  background: rgba(255, 215, 0, 0.1);
+  background: rgba(0, 128, 0, 0.1);
   border-color: #008000;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
 }
 
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
   background-color: black; color: #C0C0C0;
-  border: none; padding: 4px 10px; border-radius: 4px;
+  border: 1px solid rgba(0, 128, 0, 0.4); padding: 4px 10px; border-radius: 4px;
   font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
 }
+.copy-btn:hover { background-color: #008000; color: #fff; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
@@ -178,7 +172,7 @@ color: #008000;
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3 style="padding: 0 25px 20px; color: #008000;">العوائل</h3>
+      <h3>العوائل</h3>
 
       <div class="family">
         <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
@@ -231,7 +225,7 @@ color: #008000;
 
   <div class="content">
     <h1 lang="en">Akami Even</h1>
-    <p style="font-size: 35px; color: #FFD700;">آل تايريل</p>
+    <p style="font-size: 35px; color: #008000;">آل تايريل</p>
     <a href="index.html" class="home-link"><strong>الصفحة الرئيسية</strong></a>
 
     <div class="character-section" style="margin-top: 50px;">
