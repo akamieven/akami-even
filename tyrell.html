@@ -52,13 +52,12 @@ body {
   pointer-events: none;
 }
 
-/* السايد بار الكامل (أبيض) */
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
   background: rgba(0, 0, 0, 0.2);
-  color: white; /* أبيض كما طلبت */
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #008000;
+  border: 1px #C0C0C0;
   font-size: 28px;
   width: 50px; height: 50px;
   border-radius: 50%;
@@ -71,14 +70,14 @@ body {
   position: fixed;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: rgba(5, 15, 5, 0.98); /* لمحة خضراء داكنة جداً */
+  background: rgba(5, 5, 20, 0.95);
   backdrop-filter: blur(15px);
+  border-left: 2px #C0C0C0;
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
   padding-top: 80px;
   overflow-y: auto;
-  border-left: 1px solid rgba(0, 128, 0, 0.3);
 }
 
 .sidebar.visible { transform: translateX(0); }
@@ -90,8 +89,6 @@ body {
   color: white; font-size: 35px; cursor: pointer;
 }
 
-.sidebar h3 { padding: 0 25px 20px; color: white; } /* أبيض كما طلبت */
-
 .dropbtn {
   background: transparent; color: #eee;
   padding: 18px 25px; font-size: 18px;
@@ -100,15 +97,20 @@ body {
   cursor: pointer; display: flex; justify-content: space-between;
 }
 
+.dropdown-content {
+  max-height: 0; overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.4s ease-out;
+}
+
 .dropdown-content a {
   color: #bbb; padding: 12px 40px;
   text-decoration: none; display: block; font-size: 16px;
 }
-.dropdown-content a:hover { color: #008000; }
 
-.family.open .arrow { transform: rotate(180deg); color: white; }
+.family.open .dropdown-content { max-height: 600px; }
+.family.open .arrow { transform: rotate(180deg); color: #f1d279; }
 
-/* المحتوى بالأخضر التايريلى */
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
 .character img { 
