@@ -12,7 +12,21 @@
   <!-- إضافة الأيقونة -->
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
-  <style>
+<style>
+/* 1. تعريف الخط العربي (الموجود مسبقاً في كودك) */
+@font-face {
+  font-family: 'GameOfThrones';
+  src: url('booksfont.ttf') format('truetype');
+}
+
+/* 2. تعريف الخط الإنجليزي الجديد */
+@font-face {
+  font-family: 'EnglishFont';
+  src: url('IMFellDWPica-Italic.ttf') format('truetype');
+  /* اختياري: لضمان أنه يعمل فقط مع الأحرف اللاتينية */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 body {
   background-color: #000036;
   background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg');
@@ -24,7 +38,8 @@ body {
   padding: 0;
   text-align: center;
   direction: rtl;
-  font-family: 'GameOfThrones', serif;
+  /* 3. ترتيب الخطوط: الإنجليزي أولاً ثم العربي */
+  font-family: 'EnglishFont', 'GameOfThrones', serif;
   color: white;
 }
 
@@ -34,143 +49,145 @@ body {
   left: 0;
   width: 200%;
   height: 200%;
-  background-color: rgba(0, 0, 0, 0.7); /* أسود شفاف */
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
   display: block;
-  pointer-events: none; /* هذا هو الأهم: يمنع الطبقة من اعتراض الضغط */
+  pointer-events: none;
 }
 
-@font-face {
-  font-family: 'GameOfThrones';
-  src: url('booksfont.ttf') format('truetype');
-} 
 .text {
   position: relative;
   z-index: 1000;
   color: white;
 }
-.text:lang(ar) {
+
+/* 4. التأكيد على استخدام خط GameOfThrones للعربي */
+.text:lang(ar), body:lang(ar) {
   font-family: 'GameOfThrones', serif;
 }
+
 .content {
   position: relative;
   text-align: center;
-  flex-direction: column; /* تأكد من أن العناصر ستكون عمودية */
-  justify-content: center; /* لضمان تمركز العناصر أفقياً */
-  align-items: center; /* لضمان تمركز العناصر عموديًا */
-  direction: rtl; /* وضع الاتجاه من اليمين لليسار */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
   z-index: 2;
   color: white;
   padding: 40px 20px;
-  font-family: 'GameOfThrones', Tahoma, Geneva, Verdana, sans-serif;
+  /* 5. تحديث الخط هنا أيضاً */
+  font-family: 'EnglishFont', 'GameOfThrones', Tahoma, Geneva, Verdana, sans-serif;
   animation: fadeIn 1s ease-in;
 }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
 
-    p {
-      font-size: 20px;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.8;
-    }
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 30px;
-    }
+p {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
 
-    li {
-      margin: 15px 0;
-    }
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
-      position: relative;
-      z-index: 10;
-    }
+li {
+  margin: 15px 0;
+}
 
-    a:hover {
-      color: #C0C0C0;
-    }
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+  position: relative;
+  z-index: 10;
+}
 
-    button {
-      background-color: #000000;
-      color: #C0C0C0;
-      border: none;
-      padding: 14px 28px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
+a:hover {
+  color: #C0C0C0;
+}
 
-    button:hover {
-      background-color: #000000;
-      transform: scale(1.05);
-    }
+button {
+  background-color: #000000;
+  color: #C0C0C0;
+  border: none;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
-    .character-section {
-      margin-top: 120vh;
-      padding: 40px 0;
-    }
+button:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
 
-    .character {
-      margin-bottom: 50px;
-    }
+.character-section {
+  margin-top: 120vh;
+  padding: 40px 0;
+}
 
-    .character img {
-      z-index: 5;
-      position: relative;
-      width: 150px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+.character {
+  margin-bottom: 50px;
+}
 
-    .character h2 {
-      font-size: 28px;
-      margin-top: 10px;
-    }
+.character img {
+  z-index: 5;
+  position: relative;
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
-    .quote {
-      background-color: rgba(255, 255, 255, 0.1);
-      margin: 20px auto;
-      padding: 15px;
-      border-radius: 10px;
-      max-width: 600px;
-      position: relative;
-      text-align: right;
-      z-index: 20
-    }
+.character h2 {
+  font-size: 28px;
+  margin-top: 10px;
+}
 
-    .copy-btn {
-      position: absolute;
-      bottom: -10px; /* يبعد الزر عن أسفل الإقتباس */
-      left: 10px;  /* يضع الزر في الزاوية اليسرى */
-      background-color: white;
-      color: #7b1e1e;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-    }
+.quote {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 600px;
+  position: relative;
+  text-align: right;
+  z-index: 20;
+}
 
-    .copy-btn:hover {
-      background-color: #ddd;
-    }
+.copy-btn {
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  background-color: white;
+  color: #7b1e1e;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.copy-btn:hover {
+  background-color: #ddd;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .menu-toggle {
   position: fixed;
   top: 20px;
@@ -182,66 +199,39 @@ body {
   border-radius: 5px;
   cursor: pointer;
   z-index: 2000;
-
-}
-.menu-toggle:active, menu-toggle:focus{
-
- background-color: rgba(0, 0, 0, 0.2);
- outline: none;
 }
 
-/* حالة السايد بار المخفي */
-/* السايدبار بشكل افتراضي خارج الشاشة */
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
-  width: 150x;
-  transform: translateX(100%); /* السايدبار يبدأ خارج الشاشة */
+  width: 150px;
+  transform: translateX(100%);
   height: 100%;
   background-color: black;
   padding-top: 60px;
-  transition: transform 0.3s ease; /* انتقال سلس عند التحرك */
+  transition: transform 0.3s ease;
   z-index: 1200;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  overflow-x: hidden;
 }
 
-/* عندما يكون السايدبار مرئيًا */
 .sidebar.visible {
-  transform: translateX(0); /* السايدبار يظهر داخل الشاشة */
+  transform: translateX(0);
 }
 
-
-/* تصنيف الروابط داخل السايد بار */
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  font-family: 'GameOfThrones', serif;
+  font-family: 'EnglishFont', 'GameOfThrones', serif;
   color: #C0C0C0;
   display: block;
   transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-/* تنسيق السايدبار */
-#sidebar {
-  width: 150px;
-  background-color: black;
-  color: white;
-  padding: 15px;
 }
 
 .family {
   position: relative;
   width: 100%;
   margin-bottom: 10px;
-  overflow: hidden;
 }
 
 .dropbtn {
@@ -249,7 +239,7 @@ body {
   color: white;
   padding: 10px;
   font-size: 16px;
-  font-family: 'GameOfThrones', serif;
+  font-family: 'EnglishFont', 'GameOfThrones', serif;
   border: none;
   text-align: right;
   width: 100%;
@@ -265,22 +255,10 @@ body {
   flex-direction: column;
 }
 
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #002366;
-}
-
-/* عند الفتح */
 .family.open .dropdown-content {
   max-height: 500px;
 }
-  </style>
+</style>
 </head>
 <body>
 
