@@ -19,7 +19,6 @@
 
 @font-face {
   font-family: 'EnglishFont';
-  /* تأكد من أن اسم الملف مطابق تماماً لما هو موجود في جهازك */
   src: url('IMFellDWPica-Regular.ttf') format('truetype');
   font-display: swap;
 }
@@ -35,17 +34,16 @@ body {
   padding: 0;
   text-align: center;
   direction: rtl;
-  /* الترتيب هنا يضمن عمل الإنجليزي أولاً */
   font-family: 'EnglishFont', 'GameOfThrones', serif;
   color: white;
+  overflow-x: hidden;
 }
 
-/* حل مشكلة طغيان الخط العربي */
+/* ضمان عمل الخط الإنجليزي */
 [lang="en"] {
   font-family: 'EnglishFont', serif !important;
 }
 
-/* جعل الخط العربي يعمل فقط للنصوص العربية */
 :lang(ar) {
   font-family: 'GameOfThrones', serif;
 }
@@ -74,38 +72,13 @@ body {
   color: white;
 }
 
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
+h1 { font-size: 48px; margin-bottom: 20px; }
+p { font-size: 20px; max-width: 600px; margin: 0 auto 30px; line-height: 1.8; }
 
-p {
-  font-size: 20px;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  line-height: 1.8;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 30px;
-}
-
-li {
-  margin: 15px 0;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #C0C0C0;
-}
+ul { list-style: none; padding: 0; margin-top: 30px; }
+li { margin: 15px 0; }
+a { color: white; text-decoration: none; font-size: 18px; transition: 0.3s; }
+a:hover { color: #C0C0C0; }
 
 /* تنسيق السايد بار */
 .menu-toggle {
@@ -133,36 +106,51 @@ a:hover {
   transition: transform 0.3s ease;
   z-index: 1200;
   padding-top: 60px;
-  text-align: right;
+  overflow-y: auto;
 }
 
-.sidebar.visible {
-  transform: translateX(0);
-}
+.sidebar.visible { transform: translateX(0); }
 
-.sidebar a, .dropbtn {
-  font-family: 'GameOfThrones', serif;
-  color: #C0C0C0;
-  padding: 15px;
-  display: block;
-  width: 100%;
-  border: none;
+.house h3 { color: white; padding: 10px 20px; border-bottom: 1px solid #333; }
+
+.family { border-bottom: 1px solid #222; }
+
+.dropbtn {
   background: none;
+  color: white;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-family: 'GameOfThrones', serif;
+  border: none;
   text-align: right;
+  width: 100%;
   cursor: pointer;
-  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background-color: #111;
   transition: max-height 0.3s ease;
 }
 
-.family.open .dropdown-content {
-  max-height: 500px;
+.dropdown-content a {
+  color: #C0C0C0;
+  padding: 12px 25px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
 }
+
+.dropdown-content a:hover { background-color: #1a1a1a; color: white; }
+
+.family.open .dropdown-content { max-height: 500px; }
+.family.open .arrow { transform: rotate(180deg); }
+
+.arrow { transition: transform 0.3s; font-size: 12px; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -180,16 +168,56 @@ a:hover {
 
   <div id="sidebar" class="sidebar">
     <div class="house">
-      <h3 style="padding: 20px;">العوائل</h3>
+      <h3>العوائل</h3>
+      
       <div class="family">
-        <button class="dropbtn">آل لانستر ▼</button>
+        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="lannister.html#cersei">سيرسي لانستر</a>
           <a href="lannister.html#jaime">چايمي لانستر</a>
           <a href="lannister.html#tyrion">تيريون لانستر</a>
         </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="stark.html#eddard">إدارد ستارك</a>
+          <a href="stark.html#jon">جون سنو</a>
+          <a href="stark.html#arya">آريا ستارك</a>
+        </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="targaryen.html#dany">دنيريس تارجارين</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="baratheon.html#stannis">ستانيس براثيون</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="tyrell.html#olenna">أولينا تايريل</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="other.html#baelish">بيتر بيليش</a>
+          <a href="other.html#varys">فاريس</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="content">
@@ -204,7 +232,7 @@ a:hover {
       <li><a href="tyrell.html"><b>آل تايريل</b></a></li>
     </ul>
     
-    <hr style="width: 50%; border: 0.5px solid rgba(255,255,255,0.2);">
+    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px auto;">
     
     <ul>
       <li><a href="https://youtube.com/..." target="_blank">يوتيوب</a></li>
@@ -218,12 +246,17 @@ a:hover {
     sidebar.classList.toggle('visible');
   }
 
+  // التحكم في فتح وإغلاق القوائم المنسدلة للعوائل
   document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function () {
       const family = this.parentElement;
+      
+      // إغلاق أي عائلة أخرى مفتوحة حالياً
       document.querySelectorAll('.family').forEach(f => {
         if (f !== family) f.classList.remove('open');
       });
+
+      // فتح أو إغلاق العائلة الحالية
       family.classList.toggle('open');
     });
   });
