@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="إقتباسات رواية أغنيَّة الجَليد والنَّار باللغة العربية" />
   <meta name="author" content="Akami Even" />
-  <title>إقتباسات رواية أغنيَّة الجَليد والنَّار - لانستر</title>
+  <meta name="keywords" content="أغنية الجليد والنار, إقتباسات, رواية, اللغة العربية" />
+  <meta name="google-site-verification" content="google9f8220d1561e8ece.html" />
+  <title>إقتباسات رواية أغنية الجليد والنار</title>
 
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
@@ -39,7 +41,6 @@ body {
   overflow-x: hidden;
 }
 
-/* تطبيق الخط الإنجليزي */
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
@@ -47,23 +48,24 @@ body {
 .overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
   pointer-events: none;
 }
 
-/* السايد بار (نفس ستايل الرئيسية) */
+/* تنسيق السايد بار الموحد من الرئيسية */
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
-  background: rgba(241, 210, 121, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   color: #f1d279;
-  border: 1px solid rgba(241, 210, 121, 0.4);
+  border: none;
   font-size: 28px;
   width: 50px; height: 50px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 2000;
+  box-shadow: 0 0 15px rgba(241, 210, 121, 0.5);
   transition: 0.3s;
 }
 
@@ -73,7 +75,7 @@ body {
   width: 300px; height: 100%;
   background: rgba(5, 5, 20, 0.95);
   backdrop-filter: blur(15px);
-  border-left: 2px solid rgba(241, 210, 121, 0.3);
+  border-left: 2px solid black;
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
@@ -90,7 +92,6 @@ body {
   color: white; font-size: 35px; cursor: pointer;
 }
 
-.family { margin-bottom: 5px; }
 .dropbtn {
   background: transparent; color: #eee;
   padding: 18px 25px; font-size: 18px;
@@ -117,41 +118,35 @@ body {
 .content {
   position: relative;
   z-index: 2;
-  padding: 80px 20px;
-  animation: fadeIn 1.2s ease-out;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-in;
 }
 
-h1 { font-size: clamp(32px, 8vw, 60px); color: #FFD700; margin-bottom: 10px; }
-.main-links a { color: #f1d279; text-decoration: none; font-size: 18px; border: 1px solid #f1d279; padding: 10px 20px; border-radius: 5px; }
-
 .character-section { margin-top: 50px; }
-.character { margin-bottom: 80px; }
-.character img { width: 180px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid #f1d279; }
-.character h2 { font-size: 32px; color: #FFD700; margin-top: 15px; }
+.character { margin-bottom: 50px; }
+.character img { width: 150px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); z-index: 5; position: relative; }
+.character h2 { font-size: 28px; margin-top: 10px; color: #FFD700; }
 
 .quote {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  margin: 25px auto;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 700px;
-  border-right: 4px solid #f1d279;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  position: relative;
   text-align: right;
   line-height: 1.8;
-  font-size: 18px;
-  position: relative;
+  z-index: 20;
 }
 
 .copy-btn {
-  position: absolute; bottom: 10px; left: 10px;
-  background: #f1d279; color: #000;
-  border: none; padding: 5px 15px;
-  border-radius: 4px; cursor: pointer;
-  font-family: sans-serif; font-weight: bold;
+  position: absolute; bottom: -10px; left: 10px;
+  background-color: white; color: #7b1e1e;
+  border: none; padding: 5px 10px; border-radius: 5px;
+  font-size: 14px; cursor: pointer;
 }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
@@ -165,22 +160,21 @@ h1 { font-size: clamp(32px, 8vw, 60px); color: #FFD700; margin-bottom: 10px; }
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3 style="padding-right: 25px; color: #f1d279;">العوائل</h3>
+      <h3 style="padding: 0 25px 20px; color: white;">العوائل</h3>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="lannister.html#cersei">سيرسي لانستر</a>
+          <a href="lannister.html#jaime">چايمي لانستر</a>
+          <a href="lannister.html#tyrion">تيريون لانستر</a>
+        </div>
+      </div>
 
       <div class="family">
         <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="stark.html#eddard">إدارد ستارك</a>
-          <a href="stark.html#jon">چون سنو</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="lannister.html#tyrion">تيريون لانستر</a>
-          <a href="lannister.html#jaime">چايمي لانستر</a>
-          <a href="lannister.html#cersei">سيرسي لانستر</a>
         </div>
       </div>
 
@@ -190,49 +184,67 @@ h1 { font-size: clamp(32px, 8vw, 60px); color: #FFD700; margin-bottom: 10px; }
           <a href="targaryen.html#dany">دنيريس تارجارين</a>
         </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="baratheon.html#stannis">ستانيس براثيون</a>
+        </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="tyrell.html#olenna">أولينا تايريل</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="other.html#baelish">بيتر بيليش «الإصبع الصغير»</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="content">
-    <h1 lang="en">Akami Even</h1>
-    <p style="font-size: 24px; color: #C0C0C0;">آل لانستر</p>
-    
-    <div class="main-links">
-        <a href="index.html">الصفحة الرئيسية</a>
-    </div>
+    <h1 lang="en"><strong>Akami Even</strong></h1>
+    <p style="font-size: 40px; color: #FFD700;">آل لانستر</p>
+    <a href="index.html" style="color: #C0C0C0; text-decoration: none; font-size: 18px;"><strong>الصفحة الرئيسية</strong></a>
 
     <div class="character-section">
       <div class="character" id="jaime">
         <img src="https://i.postimg.cc/MTb2msrd/a55fb4f630dc5670131938a46305c3dd.jpg" alt="جايمي لانستر">
         <h2>چايمي لانستر</h2>
         <div class="quote">
-          <strong>"كان العالم أبسط آنذاك، والرِّجال كالسُّيوف، مصنوعين من فولاذٍ أنقى... ذلك الصَّبي أرادَ أن يُصبِح السير آرثر داين، لكنه في مكانٍ ما في أثناء رحلته صارَ الفارس الباسم.."</strong>
+          <strong>"كان العالم أبسط آنذاك، والرِّجال كالسُّيوف، مصنوعين من فولاذٍ أنقى. أم أن السَّبب أنه كان صبيًّا في الخامسة عشرة؟ جميعهم في قبورهم الآن؛ سيف الصَّباح والفارس الباسم، والثَّور الأبيض والأمير ليوين، والسير أوزويل وِنت بروح دُعابته السَّوداء وچون داري بسجيَّته الجادَّة، وسيمون توين وإخوانه في عصابة غابة الملوك وسَمنر كراكهول العجوز الفَظ. وأنا، ذلك الصَّبي الذي كنته... متى ماتَ يا تُرى؟ حين ارتديتُ المعطف الأبيض؟ حين شققتُ حَلق إيرس؟ ذلك الصَّبي أرادَ أن يُصبِح السير آرثر داين، لكنه في مكانٍ ما في أثناء رحلته صارَ الفارس الباسم.."</strong>
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
         <div class="quote">
-            <strong>"ليس هناك رجال مِثلي، هناك أنا فقط."</strong>
-            <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+          <strong>- «لتُنقِذ حياتك».<br>قال كأنه وجد الفكرة طريفةً: «أتعتقدين أني أخشى الموت؟».<br>- «يَجدُر بك أن تخاف، فلا بُدَّ أن آثامك ضمنَت لك مكانًا في قرار أعمق الجحائم السَّبع إذا كانت الآلهة عادلةً».<br>- «أيُّ آلهةٍ تلك يا ليدي كاتلين؟ الآلهة التي كان زوجكِ يُصَلِّي لها؟ بِمَ نفعَته حين قطعَت أختي رأسه؟»، وأطلقَ چايمي ضحكةً قصيرةً، وتابعَ: «إذا كان للآلهة وجود، فلماذا يعجُّ العالم بالألم والظُّلم؟».<br>- «بسبب أمثالك من الرِّجال».<br>- «ليس هناك رجال مِثلي، هناك أنا فقط».</strong>
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
 
-      <hr style="width: 50%; border: 0; border-top: 1px solid rgba(241, 210, 121, 0.2); margin: 40px auto;">
+      <hr>
 
       <div class="character" id="tyrion">
         <img src="https://i.postimg.cc/Zn7QwXPF/IMG-20250501-015354.jpg" alt="تيريون لانستر">
         <h2>تيريون لانستر</h2>
         <div class="quote">
-          <strong>"هذا ما خُلِقتُ من أجله، ولتُسامِحني الآلهة، هذا ما أحبُّه..."</strong>
+          <strong>" «لم يكن حُلمًا». إنها حقيقة، كلُّ هذا حقيقة، الحروب والدَّسائس ولُعبة العروش الدَّامية، وأنا في مركزها بالضَّبط... أنا، القزم، الوحش، الذي تهكَّموا عليه وضحكوا منه، لكني أملكُ كلَّ شيءٍ الآن، السَّطوة والمدينة والفتاة. هذا ما خُلِقتُ من أجله، ولتُسامِحني الآلهة، هذا ما أحبُّه... وأحبُّها... وأحبُّها.."</strong>
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
 
-      <hr style="width: 50%; border: 0; border-top: 1px solid rgba(241, 210, 121, 0.2); margin: 40px auto;">
+      <hr>
 
       <div class="character" id="cersei">
-        <img src="https://i.postimg.cc/rFHbxXwq/21aa5dc90a1972e2aec5b788c4d215ea.jpg" alt="سيرسي لانستر">
-        <h2>سيرسي لانستر</h2>
+        <img src="https://i.postimg.cc/rFHbxXwq/21aa5dc90a1972e2aec5b788c4d215ea.jpg" alt="سرسي لانستر">
+        <h2>سرسي لانستر</h2>
         <div class="quote">
-          <strong>"عندما تلعب لُعبة العروش، إمَّا أن تربح أو تموت."</strong>
+          <strong>"طفا وجه سرسي لانستر أمامه في الظَّلام وقد أضاءَ شَعرها كنور الشَّمس وحملَت شفتاها ابتسامةً ساخرةً وهي تهمس: «عندما تلعب لُعبة العروش، إمَّا أن تربح أو تموت »."</strong>
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
@@ -246,15 +258,18 @@ h1 { font-size: clamp(32px, 8vw, 60px); color: #FFD700; margin-bottom: 10px; }
   }
 
   document.querySelectorAll('.dropbtn').forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
       const family = this.parentElement;
-      document.querySelectorAll('.family').forEach(f => { if (f !== family) f.classList.remove('open'); });
+      document.querySelectorAll('.family').forEach(f => {
+        if (f !== family) f.classList.remove('open');
+      });
       family.classList.toggle('open');
     });
   });
 
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.querySelector('strong').textContent;
+    const quoteText = button.parentElement.querySelector('strong').innerText;
     navigator.clipboard.writeText(quoteText).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
