@@ -24,28 +24,19 @@
 }
 
 body {
-  background-color: #000036;
+  background-color: #00001a;
   background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 100% auto;
+  background-size: cover;
   background-attachment: fixed;
   margin: 0;
   padding: 0;
   text-align: center;
   direction: rtl;
-  font-family: 'EnglishFont', 'GameOfThrones', serif;
+  font-family: 'GameOfThrones', serif;
   color: white;
   overflow-x: hidden;
-}
-
-/* ضمان عمل الخط الإنجليزي */
-[lang="en"] {
-  font-family: 'EnglishFont', serif !important;
-}
-
-:lang(ar) {
-  font-family: 'GameOfThrones', serif;
 }
 
 .overlay {
@@ -54,7 +45,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -62,64 +53,105 @@ body {
 .content {
   position: relative;
   z-index: 2;
-  padding: 40px 20px;
-  animation: fadeIn 1s ease-in;
+  padding: 80px 20px;
+  animation: fadeIn 1.2s ease-out;
 }
 
-.text {
-  position: relative;
-  z-index: 1000;
-  color: white;
+h1 { 
+  font-size: clamp(32px, 8vw, 60px); 
+  margin-bottom: 10px; 
+  color: #f1d279; 
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
-h1 { font-size: 48px; margin-bottom: 20px; }
-p { font-size: 20px; max-width: 600px; margin: 0 auto 30px; line-height: 1.8; }
+p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9; }
 
-ul { list-style: none; padding: 0; margin-top: 30px; }
-li { margin: 15px 0; }
-a { color: white; text-decoration: none; font-size: 18px; transition: 0.3s; }
-a:hover { color: #C0C0C0; }
+/* تنسيق الروابط السفلية */
+.main-links { list-style: none; padding: 0; }
+.main-links li { margin: 20px 0; }
+.main-links a { 
+  color: #fff; 
+  text-decoration: none; 
+  font-size: 20px; 
+  transition: 0.4s; 
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 40px;
+  border-radius: 30px;
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+}
+.main-links a:hover { 
+  background: #f1d279; 
+  color: #000; 
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(241, 210, 121, 0.4);
+}
 
-/* تنسيق السايد بار */
+/* تنسيق السايد بار الجديد */
 .menu-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  top: 25px;
+  right: 25px;
+  background: #f1d279;
+  color: #000;
   border: none;
-  font-size: 24px;
-  padding: 10px;
-  border-radius: 5px;
+  font-size: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 2000;
+  box-shadow: 0 0 15px rgba(241, 210, 121, 0.5);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.menu-toggle:hover { transform: scale(1.1); }
 
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px;
+  width: 300px;
   height: 100%;
-  background-color: black;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 1200;
-  padding-top: 60px;
+  background: rgba(5, 5, 20, 0.92);
+  backdrop-filter: blur(15px);
+  border-left: 2px solid #f1d279;
+  transform: translateX(105%);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 2100;
+  padding-top: 80px;
   overflow-y: auto;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.8);
 }
 
 .sidebar.visible { transform: translateX(0); }
 
-.house h3 { color: white; padding: 10px 20px; border-bottom: 1px solid #333; }
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #f1d279;
+  font-size: 35px;
+  cursor: pointer;
+}
 
-.family { border-bottom: 1px solid #222; }
+.house h3 { 
+  color: #f1d279; 
+  padding: 0 25px 20px; 
+  border-bottom: 1px solid rgba(241, 210, 121, 0.2);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.family { margin-bottom: 5px; }
 
 .dropbtn {
-  background: none;
-  color: white;
-  padding: 15px 20px;
-  font-size: 16px;
+  background: transparent;
+  color: #eee;
+  padding: 18px 25px;
+  font-size: 18px;
   font-family: 'GameOfThrones', serif;
   border: none;
   text-align: right;
@@ -128,34 +160,58 @@ a:hover { color: #C0C0C0; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 0.3s;
 }
+
+.dropbtn:hover { background: rgba(241, 210, 121, 0.1); color: #f1d279; }
 
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  background-color: #111;
-  transition: max-height 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.4s ease-out;
 }
 
 .dropdown-content a {
-  color: #C0C0C0;
-  padding: 12px 25px;
+  color: #bbb;
+  padding: 12px 40px;
   text-decoration: none;
   display: block;
-  font-size: 15px;
+  font-size: 16px;
+  transition: 0.3s;
+  position: relative;
 }
 
-.dropdown-content a:hover { background-color: #1a1a1a; color: white; }
+.dropdown-content a::before {
+  content: "•";
+  position: absolute;
+  right: 20px;
+  color: #f1d279;
+  opacity: 0;
+  transition: 0.3s;
+}
 
-.family.open .dropdown-content { max-height: 500px; }
-.family.open .arrow { transform: rotate(180deg); }
+.dropdown-content a:hover { 
+  color: #fff; 
+  background: rgba(255,255,255,0.05); 
+  padding-right: 50px;
+}
 
-.arrow { transition: transform 0.3s; font-size: 12px; }
+.dropdown-content a:hover::before { opacity: 1; }
+
+.family.open .dropdown-content { max-height: 600px; }
+.family.open .arrow { transform: rotate(180deg); color: #f1d279; }
+
+.arrow { transition: transform 0.3s; font-size: 14px; color: #666; }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* تخصيص السكرول بار */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #f1d279; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -167,17 +223,9 @@ a:hover { color: #C0C0C0; }
   </header>
 
   <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3>العوائل</h3>
-      
-      <div class="family">
-        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="lannister.html#cersei">سيرسي لانستر</a>
-          <a href="lannister.html#jaime">چايمي لانستر</a>
-          <a href="lannister.html#tyrion">تيريون لانستر</a>
-        </div>
-      </div>
+      <h3>المنازل الكبرى</h3>
 
       <div class="family">
         <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
@@ -185,6 +233,15 @@ a:hover { color: #C0C0C0; }
           <a href="stark.html#eddard">إدارد ستارك</a>
           <a href="stark.html#jon">چون سنو</a>
           <a href="stark.html#arya">آريا ستارك</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="lannister.html#tyrion">تيريون لانستر</a>
+          <a href="lannister.html#jaime">چايمي لانستر</a>
+          <a href="lannister.html#cersei">سيرسي لانستر</a>
         </div>
       </div>
 
@@ -223,21 +280,21 @@ a:hover { color: #C0C0C0; }
   <div class="content">
     <h1 class="text" lang="en">Akami Even</h1>
     <p class="text">إقتباسات رواية أغنية الجليد والنَّار باللغة العربية</p>
-    
-    <ul>
-      <li><a href="stark.html"><b>آل ستارك</b></a></li> 
-      <li><a href="lannister.html"><b>آل لانستر</b></a></li> 
-      <li><a href="targaryen.html"><b>آل تارجارين</b></a></li>
-      <li><a href="baratheon.html"><b>آل براثيون</b></a></li>
-      <li><a href="tyrell.html"><b>آل تايريل</b></a></li>
+
+    <ul class="main-links">
+      <li><a href="stark.html">آل ستارك</a></li> 
+      <li><a href="lannister.html">آل لانستر</a></li> 
+      <li><a href="targaryen.html">آل تارجارين</a></li>
+      <li><a href="baratheon.html">آل براثيون</a></li>
+      <li><a href="tyrell.html">آل تايريل</a></li>
     </ul>
-    
-    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px auto;">
-    
-    <ul>
-      <li><a href="https://youtube.com/..." target="_blank">يوتيوب</a></li>
-      <li><a href="https://www.facebook.com/..." target="_blank">فيسبوك</a></li>
-    </ul>
+
+    <hr style="width: 30%; border: 0; border-top: 1px solid rgba(241, 210, 121, 0.3); margin: 40px auto;">
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <a href="https://youtube.com/..." target="_blank" style="color: #f1d279; text-decoration: none;">يوتيوب</a>
+      <a href="https://www.facebook.com/..." target="_blank" style="color: #f1d279; text-decoration: none;">فيسبوك</a>
+    </div>
   </div>
 
 <script>
@@ -246,17 +303,24 @@ a:hover { color: #C0C0C0; }
     sidebar.classList.toggle('visible');
   }
 
-  // التحكم في فتح وإغلاق القوائم المنسدلة للعوائل
+  // إغلاق السايد بار عند الضغط في أي مكان خارجه
+  document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!sidebar.contains(event.target) && !menuToggle.contains(event.target) && sidebar.classList.contains('visible')) {
+      sidebar.classList.remove('visible');
+    }
+  });
+
   document.querySelectorAll('.dropbtn').forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation(); // منع إغلاق السايد بار عند الضغط على العائلة
       const family = this.parentElement;
-      
-      // إغلاق أي عائلة أخرى مفتوحة حالياً
+
       document.querySelectorAll('.family').forEach(f => {
         if (f !== family) f.classList.remove('open');
       });
 
-      // فتح أو إغلاق العائلة الحالية
       family.classList.toggle('open');
     });
   });
