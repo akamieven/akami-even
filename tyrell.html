@@ -153,10 +153,9 @@ body {
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
   background-color: black; color: #C0C0C0;
-  border: 1px solid rgba(0, 128, 0, 0.4); padding: 4px 10px; border-radius: 4px;
+  border: none; padding: 4px 10px; border-radius: 4px;
   font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
 }
-.copy-btn:hover { background-color: #008000; color: #fff; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
@@ -172,7 +171,7 @@ body {
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3>العوائل</h3>
+      <h3 style="color: #008000;">العوائل</h3>
   <div class="family">
         <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
