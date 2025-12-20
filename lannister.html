@@ -5,20 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="إقتباسات رواية أغنيَّة الجَليد والنَّار باللغة العربية" />
   <meta name="author" content="Akami Even" />
-  <meta name="keywords" content="أغنية الجليد والنار, إقتباسات, رواية, اللغة العربية" />
-  <meta name="google-site-verification" content="google9f8220d1561e8ece.html" />
-  <title>إقتباسات رواية أغنية الجليد والنار</title>
+  <title>آل لانستر - إقتباسات</title>
 
-  <!-- إضافة الأيقونة -->
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
   <style>
+/* 1. تعريف الخطوط */
+@font-face {
+  font-family: 'GameOfThrones';
+  src: url('booksfont.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EnglishFont';
+  src: url('Quintessential-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 body {
   background-color: #000000;
   background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: 100% auto;
+  background-size: cover;
   background-attachment: fixed;
   margin: 0;
   padding: 0;
@@ -26,402 +36,225 @@ body {
   direction: rtl;
   font-family: 'GameOfThrones', serif;
   color: #C0C0C0;
+  overflow-x: hidden;
+}
+
+/* تطبيق الخط الإنجليزي */
+[lang="en"] {
+  font-family: 'EnglishFont', cursive !important;
 }
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background-color: rgba(0, 0, 0, 0.7); /* أسود شفاف */
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
-  display: block;
-  pointer-events: none; /* هذا هو الأهم: يمنع الطبقة من اعتراض الضغط */
-}
-@font-face {
-    font-family: 'GameOfThrones';
-  src: url('booksfont.ttf') format('truetype');
-}
-.text {
-  position: relative;
-  z-index: 1000;
-  color: #FFD700;
-}
-.text:lang(ar) {
-  font-family: 'GameOfThrones', serif;
+  pointer-events: none;
 }
 
-.content {
-  position: relative;
-  text-align: center;
-  flex-direction: column; /* تأكد من أن العناصر ستكون عمودية */
-  justify-content: center; /* لضمان تمركز العناصر أفقياً */
-  align-items: center; /* لضمان تمركز العناصر عموديًا */
-  direction: rtl; /* وضع الاتجاه من اليمين لليسار */
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  animation: fadeIn 1s ease-in;
-}
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 40px;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.8;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 30px;
-      
-    }
-
-    li {
-      margin: 15px 0;
-      
-    }
-
-    a {
-      color: #C0C0C0;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
-      position: relative;
-      z-index: 10;
-    }
-
-    a:hover {
-      color: #fff;
-    }
-
-    button {
-      background-color: #000000;
-      color: #C0C0C0;
-      border: none;
-      padding: 14px 28px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    button:hover {
-      background-color: #000000;
-      transform: scale(1.05);
-    }
-
-    .character-section {
-      margin-top: 120vh;
-      padding: 40px 0;
-    }
-
-    .character {
-      margin-bottom: 50px;
-    }
-
-    .character img {
-      z-index: 5;
-      position: relative;
-      width: 150px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .character h2 {
-      font-size: 28px;
-      margin-top: 10px;
-    }
-
-    .quote {
-      background-color: rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      padding: 15px;
-      border-radius: 10px;
-      max-width: 600px;
-      position: relative;
-      text-align: right;
-      z-index: 20
-    }
-
-    .copy-btn {
-      position: absolute;
-      bottom: -10px; /* يبعد الزر عن أسفل الإقتباس */
-      left: 10px;  /* يضع الزر في الزاوية اليسرى */
-      background-color: white;
-      color: #7b1e1e;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .copy-btn:hover {
-      background-color: #ddd;
-    }
-   
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* السايد بار (نفس ستايل الرئيسية) */
 .menu-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0,0.1);
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  border-radius: 5px;
+  top: 25px; right: 25px;
+  background: rgba(241, 210, 121, 0.1);
+  color: #f1d279;
+  border: 1px solid rgba(241, 210, 121, 0.4);
+  font-size: 28px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 2000;
-
-}
-.menu-toggle:active, menu-toggle:focus{
-
- background-color: rgba(0, 0, 0, 0.2);
- outline: none;
-}
-
-/* حالة السايد بار المخفي */
-/* السايدبار بشكل افتراضي خارج الشاشة */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 150x;
-  transform: translateX(100%); /* السايدبار يبدأ خارج الشاشة */
-  height: 100%;
-  background-color: black;
-  padding-top: 60px;
-  transition: transform 0.3s ease; /* انتقال سلس عند التحرك */
-  z-index: 1200;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  overflow-x: hidden;
-}
-
-/* عندما يكون السايدبار مرئيًا */
-.sidebar.visible {
-  transform: translateX(0); /* السايدبار يظهر داخل الشاشة */
-}
-
-
-/* تصنيف الروابط داخل السايد بار */
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #C0C0C0;
-  display: block;
   transition: 0.3s;
 }
 
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-/* تنسيق السايدبار */
-#sidebar {
-  width: 150px;
-  background-color: black;
-  color: white;
-  padding: 15px;
-}
-
-.family {
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px;
-  overflow: hidden;
+.sidebar {
+  position: fixed;
+  top: 0; right: 0;
+  width: 300px; height: 100%;
+  background: rgba(5, 5, 20, 0.95);
+  backdrop-filter: blur(15px);
+  border-left: 2px solid rgba(241, 210, 121, 0.3);
+  transform: translateX(105%);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 2100;
+  padding-top: 80px;
+  overflow-y: auto;
 }
 
+.sidebar.visible { transform: translateX(0); }
+
+.close-btn {
+  position: absolute;
+  top: 20px; left: 20px;
+  background: none; border: none;
+  color: white; font-size: 35px; cursor: pointer;
+}
+
+.family { margin-bottom: 5px; }
 .dropbtn {
-  background-color: rgba(40, 40, 43, 0.9);
-  color: white;
-  padding: 10px;
-  font-size: 16px;
+  background: transparent; color: #eee;
+  padding: 18px 25px; font-size: 18px;
   font-family: 'GameOfThrones', serif;
-  border: none;
-  text-align: right;
-  width: 100%;
-  cursor: pointer;
+  border: none; text-align: right; width: 100%;
+  cursor: pointer; display: flex; justify-content: space-between;
 }
 
 .dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: #28282B;
-  transition: max-height 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  max-height: 0; overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.4s ease-out;
 }
 
 .dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+  color: #bbb; padding: 12px 40px;
+  text-decoration: none; display: block; font-size: 16px;
 }
 
-.dropdown-content a:hover {
-  background-color: #002366;
+.family.open .dropdown-content { max-height: 600px; }
+.family.open .arrow { transform: rotate(180deg); color: #f1d279; }
+
+/* محتوى الصفحة */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+  animation: fadeIn 1.2s ease-out;
 }
 
-/* عند الفتح */
-.family.open .dropdown-content {
-  max-height: 500px;
+h1 { font-size: clamp(32px, 8vw, 60px); color: #FFD700; margin-bottom: 10px; }
+.main-links a { color: #f1d279; text-decoration: none; font-size: 18px; border: 1px solid #f1d279; padding: 10px 20px; border-radius: 5px; }
+
+.character-section { margin-top: 50px; }
+.character { margin-bottom: 80px; }
+.character img { width: 180px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid #f1d279; }
+.character h2 { font-size: 32px; color: #FFD700; margin-top: 15px; }
+
+.quote {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  border-right: 4px solid #f1d279;
+  text-align: right;
+  line-height: 1.8;
+  font-size: 18px;
+  position: relative;
 }
- </style>
+
+.copy-btn {
+  position: absolute; bottom: 10px; left: 10px;
+  background: #f1d279; color: #000;
+  border: none; padding: 5px 15px;
+  border-radius: 4px; cursor: pointer;
+  font-family: sans-serif; font-weight: bold;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+</style>
 </head>
 <body>
 
   <div class="overlay"></div>
+
+  <header>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </header>
+
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+    <div class="house">
+      <h3 style="padding-right: 25px; color: #f1d279;">العوائل</h3>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="stark.html#eddard">إدارد ستارك</a>
+          <a href="stark.html#jon">چون سنو</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="lannister.html#tyrion">تيريون لانستر</a>
+          <a href="lannister.html#jaime">چايمي لانستر</a>
+          <a href="lannister.html#cersei">سيرسي لانستر</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="targaryen.html#dany">دنيريس تارجارين</a>
+        </div>
+      </div>
+      </div>
+  </div>
+
   <div class="content">
-    <!-- كل محتوى صفحتك هنا -->
-  </div>
-<!-- زر الثلاث نقاط --> <header>
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-</header>
+    <h1 lang="en">Akami Even</h1>
+    <p style="font-size: 24px; color: #C0C0C0;">آل لانستر</p>
+    
+    <div class="main-links">
+        <a href="index.html">الصفحة الرئيسية</a>
+    </div>
 
-<!-- القائمة الجانبية -->
-<div id="sidebar" class="sidebar hidden">
-  <div class="house">
-    <h3>العوائل</h3>
-<hr>
-    <div class="family">
-     <button class="dropbtn">
-  <span>آل لانستر</span>
-  <span class="arrow">▼</span> <!-- السهم -->
-</button>
-      <div class="dropdown-content">
-        <a href="lannister.html#cersei">سيرسي لانستر</a>
-        <a href="lannister.html#jaime">چايمي لانستر</a>
-        <a href="lannister.html#tyrion">تيريون لانستر</a>
+    <div class="character-section">
+      <div class="character" id="jaime">
+        <img src="https://i.postimg.cc/MTb2msrd/a55fb4f630dc5670131938a46305c3dd.jpg" alt="جايمي لانستر">
+        <h2>چايمي لانستر</h2>
+        <div class="quote">
+          <strong>"كان العالم أبسط آنذاك، والرِّجال كالسُّيوف، مصنوعين من فولاذٍ أنقى... ذلك الصَّبي أرادَ أن يُصبِح السير آرثر داين، لكنه في مكانٍ ما في أثناء رحلته صارَ الفارس الباسم.."</strong>
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+        </div>
+        <div class="quote">
+            <strong>"ليس هناك رجال مِثلي، هناك أنا فقط."</strong>
+            <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+        </div>
       </div>
-    </div>
-<hr>
- <div class="family">
-<button class="dropbtn">
-  <span>آل ستارك</span>
-  <span class="arrow">▼</span> <!-- السهم -->
-</button>
-      <div class="dropdown-content">
-        <a href="stark.html#eddard">إدارد ستارك</a>
-        <!-- أضف المزيد حسب الحاجة -->
-      </div>
-    </div>
-<hr>
- <div class="family">
-<button class="dropbtn">
-  <span>آل تارجارين</span>
-  <span class="arrow">▼</span> <!-- السهم -->
-</button>
-      <div class="dropdown-content">
-    <a href="targaryen.html#dany">دنيريس تارجارين</a>
- </div>
-    </div>
-<hr>
- <div class="family">
-<button class="dropbtn">
-  <span>آل براثيون</span>
-  <span class="arrow">▼</span> <!-- السهم -->
-</button>
-      <div class="dropdown-content">
- <a href="baratheon.html#stannis">ستانيس براثيون</a>
- </div>
-    </div>
-<hr>
- <div class="family">
-<button class="dropbtn">
-  <span>آل تايريل</span>
-  <span class="arrow">▼</span> <!-- السهم -->
-</button>
-      <div class="dropdown-content">
- <a href="tyrell.html#olenna">أولينا تايريل</a>
- </div>
-    </div>
-<hr>
-    <div class="family">
-      <button class="dropbtn">
-     <span>شخصيات أخرى</span>
-     <span class="arrow">▼</span>
-     </button>
-      <div class="dropdown-content">
-        <a href="other.html#baelish">بيتر بيليش «الإصبع الصغير»</a>
-        <!-- أضف المزيد حسب الحاجة -->
-      </div>
-    </div>
-  </div>
-</div>
-  <h1 class="text" lang="en"><strong>Akami Even</strong></h1>
-   <p class="text">آل لانستر</p>
- <ul>
-    <li><a href="index.html"><strong>الصفحة الرئيسية</strong></a></li> 
-</ul>
 
-<hr>
-    <div class="character"  id="jaime">
-      <img src="https://i.postimg.cc/MTb2msrd/a55fb4f630dc5670131938a46305c3dd.jpg" alt="جايمي لانستر">
-      <h2 class="text">چايمي لانستر</h2>
-      <div class="quote">
-<strong>
-        "كان العالم أبسط آنذاك، والرِّجال كالسُّيوف، مصنوعين من فولاذٍ أنقى. أم أن السَّبب أنه كان صبيًّا في الخامسة عشرة؟ جميعهم في قبورهم الآن؛ سيف الصَّباح والفارس الباسم، والثَّور الأبيض والأمير ليوين، والسير أوزويل وِنت بروح دُعابته السَّوداء وچون داري بسجيَّته الجادَّة، وسيمون توين وإخوانه في عصابة غابة الملوك وسَمنر كراكهول العجوز الفَظ. وأنا، ذلك الصَّبي الذي كنته... متى ماتَ يا تُرى؟ حين ارتديتُ المعطف الأبيض؟ حين شققتُ حَلق إيرس؟ ذلك الصَّبي أرادَ أن يُصبِح السير آرثر داين، لكنه في مكانٍ ما في أثناء رحلته صارَ الفارس الباسم.."
-</strong>
-   <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
- 
-</div>
+      <hr style="width: 50%; border: 0; border-top: 1px solid rgba(241, 210, 121, 0.2); margin: 40px auto;">
 
-<div class="quote">
-<strong>
-- «لتُنقِذ حياتك».
-قال كأنه وجد الفكرة طريفةً: «أتعتقدين أني أخشى الموت؟».
-- «يَجدُر بك أن تخاف، فلا بُدَّ أن آثامك ضمنَت لك مكانًا في قرار أعمق الجحائم السَّبع إذا كانت الآلهة عادلةً».
-- «أيُّ آلهةٍ تلك يا ليدي كاتلين؟ الآلهة التي كان زوجكِ يُصَلِّي لها؟ بِمَ نفعَته حين قطعَت أختي رأسه؟»، وأطلقَ چايمي ضحكةً قصيرةً، وتابعَ: «إذا كان للآلهة وجود، فلماذا يعجُّ العالم بالألم والظُّلم؟».
-- «بسبب أمثالك من الرِّجال».
-- «ليس هناك رجال مِثلي، هناك أنا فقط».
-</strong>
-        <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
- 
+      <div class="character" id="tyrion">
+        <img src="https://i.postimg.cc/Zn7QwXPF/IMG-20250501-015354.jpg" alt="تيريون لانستر">
+        <h2>تيريون لانستر</h2>
+        <div class="quote">
+          <strong>"هذا ما خُلِقتُ من أجله، ولتُسامِحني الآلهة، هذا ما أحبُّه..."</strong>
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+        </div>
       </div>
-<hr>
+
+      <hr style="width: 50%; border: 0; border-top: 1px solid rgba(241, 210, 121, 0.2); margin: 40px auto;">
+
+      <div class="character" id="cersei">
+        <img src="https://i.postimg.cc/rFHbxXwq/21aa5dc90a1972e2aec5b788c4d215ea.jpg" alt="سيرسي لانستر">
+        <h2>سيرسي لانستر</h2>
+        <div class="quote">
+          <strong>"عندما تلعب لُعبة العروش، إمَّا أن تربح أو تموت."</strong>
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+        </div>
+      </div>
     </div>
-<div class="character"  id="tyrion">
-  <img src="https://i.postimg.cc/Zn7QwXPF/IMG-20250501-015354.jpg" alt="تيريون لانستر">
-  <h2 class="text">تيريون لانستر</h2>
-  <div class="quote">
-<strong>
-    " «لم يكن حُلمًا». إنها حقيقة، كلُّ هذا حقيقة، الحروب والدَّسائس ولُعبة العروش الدَّامية، وأنا في مركزها بالضَّبط... أنا، القزم، الوحش، الذي تهكَّموا عليه وضحكوا منه، لكني أملكُ كلَّ شيءٍ الآن، السَّطوة والمدينة والفتاة. هذا ما خُلِقتُ من أجله، ولتُسامِحني الآلهة، هذا ما أحبُّه... وأحبُّها... وأحبُّها.."
-</strong>
-    <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
   </div>
-</div>
-<hr>
-<div class="character"  id="cersei">
-  <img src="https://i.postimg.cc/rFHbxXwq/21aa5dc90a1972e2aec5b788c4d215ea.jpg" alt="سرسي لانستر">
-  <h2 class="text">سرسي لانستر</h2>
-  <div class="quote">
-<strong>
-    "طفا وجه سرسي لانستر أمامه في الظَّلام وقد أضاءَ شَعرها كنور الشَّمس وحملَت شفتاها ابتسامةً ساخرةً وهي تهمس: «عندما تلعب لُعبة العروش، إمَّا أن تربح أو  تموت »."
-</strong>
-    <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
- 
-  </div>
-</div>
-<hr>
-</div>
+
 <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('visible');
+  }
+
+  document.querySelectorAll('.dropbtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const family = this.parentElement;
+      document.querySelectorAll('.family').forEach(f => { if (f !== family) f.classList.remove('open'); });
+      family.classList.toggle('open');
+    });
+  });
+
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.textContent.replace("نسخ", "").trim();
+    const quoteText = button.parentElement.querySelector('strong').textContent;
     navigator.clipboard.writeText(quoteText).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
@@ -429,36 +262,5 @@ body {
   }
 </script>
 
-<script>
-  document.querySelector('.menu-toggle').addEventListener('click', function () {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('visible');
-    sidebar.classList.toggle('hidden');
-  });
-
-  // القائمة المنسدلة
-  document.querySelectorAll('.dropbtn').forEach(button => {
-    button.addEventListener('click', function () {
-      const family = this.parentElement;
-
-      // إغلاق كل القوائم الأخرى
-      document.querySelectorAll('.family').forEach(f => {
-        if (f !== family) f.classList.remove('open');
-      });
-
-      // تبديل الفتح والإغلاق للعائلة الحالية
-      family.classList.toggle('open');
-    });
-  });
-
-</script>
-<script>
-  document.querySelectorAll("p, li, a, span").forEach(function(el) {
-    var strong = document.createElement("strong");
-    strong.innerHTML = el.innerHTML;
-    el.innerHTML = "";
-    el.appendChild(strong);
-  });
-</script>
- </body>
+</body>
 </html>
