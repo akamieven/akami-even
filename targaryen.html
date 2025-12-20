@@ -56,9 +56,9 @@ body {
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
-  background: rgba(178, 34, 34, 0.2); /* خلفية حمراء شفافة */
-  color: #B22222; /* لون أيقونة أحمر */
-  border: 1px solid rgba(178, 34, 34, 0.5);
+  background: rgba(0, 0, 0, 0.2);
+  color: #f1d279;
+  border: 1px #C0C0C0;
   font-size: 28px;
   width: 50px; height: 50px;
   border-radius: 50%;
@@ -71,14 +71,14 @@ body {
   position: fixed;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: rgba(10, 0, 0, 0.98); /* أسود أعمق */
+  background: rgba(5, 5, 20, 0.95);
   backdrop-filter: blur(15px);
+  border-left: 2px #C0C0C0;
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
   padding-top: 80px;
   overflow-y: auto;
-  border-left: 1px solid #B22222;
 }
 
 .sidebar.visible { transform: translateX(0); }
@@ -87,7 +87,7 @@ body {
   position: absolute;
   top: 20px; left: 20px;
   background: none; border: none;
-  color: #B22222; font-size: 35px; cursor: pointer;
+  color: white; font-size: 35px; cursor: pointer;
 }
 
 .dropbtn {
@@ -98,15 +98,19 @@ body {
   cursor: pointer; display: flex; justify-content: space-between;
 }
 
+.dropdown-content {
+  max-height: 0; overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.4s ease-out;
+}
+
 .dropdown-content a {
   color: #bbb; padding: 12px 40px;
   text-decoration: none; display: block; font-size: 16px;
 }
-.dropdown-content a:hover { color: #B22222; }
 
-.family.open .arrow { transform: rotate(180deg); color: #B22222; }
-
-/* المحتوى وتغيير الذهبي للأحمر */
+.family.open .dropdown-content { max-height: 600px; }
+.family.open .arrow { transform: rotate(180deg); color: #f1d279; }
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
 .character img { 
