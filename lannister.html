@@ -130,7 +130,7 @@ body::after {
 
 /* المحتوى */
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
-.character { margin-bottom: 60px; }
+.character { margin-bottom: 60px; scroll-margin-top: 80px; }
 .character img { width: 150px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); border: 1px solid #FFD700; }
 .character h2 { font-size: 28px; margin-top: 15px; color: #FFD700; }
 
@@ -158,7 +158,7 @@ body::after {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px); 
   -webkit-backdrop-filter: blur(10px);
-  
+
   border: 1px solid rgba(255, 215, 0, 0.2); 
   transition: 0.3s;
 }
@@ -300,8 +300,10 @@ body::after {
   });
 
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.querySelector('strong').innerText;
-    navigator.clipboard.writeText(quoteText).then(() => {
+    // تم التعديل هنا لنسخ النص من العنصر الأب مباشرة واستبعاد نص الزر
+    let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
     });
