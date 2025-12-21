@@ -11,10 +11,8 @@
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
-/* تفعيل السكرول سموث في البداية */
 html { scroll-behavior: smooth; }
 
-/* الخطوط */
 @font-face {
   font-family: 'GameOfThrones';
   src: url('booksfont.ttf') format('truetype');
@@ -70,7 +68,6 @@ body::after {
   pointer-events: none;
 }
 
-/* السايد بار */
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
@@ -131,7 +128,6 @@ body::after {
 .family.open .dropdown-content { max-height: 600px; }
 .family.open .arrow { transform: rotate(180deg); color: white; }
 
-/* المحتوى */
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
 .character { margin-bottom: 60px; scroll-margin-top: 90px; }
@@ -196,13 +192,54 @@ body::after {
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
       <h3 style="padding: 0 25px 20px; color: #FFD700;">العوائل</h3>
+
       <div class="family">
         <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="baratheon.html#stannis">ستانيس براثيون</a>
         </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="stark.html#eddard">إدارد ستارك</a>
+          <a href="stark.html#jon">چون سنو</a>
+          <a href="stark.html#arya">آريا ستارك</a>
+        </div>
       </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="lannister.html#tyrion">تيريون لانستر</a>
+          <a href="lannister.html#jaime">چايمي لانستر</a>
+          <a href="lannister.html#cersei">سيرسي لانستر</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="targaryen.html#dany">دنيريس تارجارين</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="tyrell.html#olenna">أولينا تايريل</a>
+        </div>
+      </div>
+
+      <div class="family">
+        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
+        <div class="dropdown-content">
+          <a href="other.html#baelish">بيتر بيليش</a>
+          <a href="other.html#varys">فاريس</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="content">
@@ -217,8 +254,8 @@ body::after {
         <div class="quote">
             "«لـ(وستروس) ملك واحد فقط. بهذا السَّيف أدافعُ عن رعاياي وأدمِّرُ من يهدَّدونهم. اركعوا وأعدكم بالطَّعام والأرض والعدل. اركعوا وعيشوا، أو اذهبوا وموتوا. الخيار لكم»، ودسَّ (جالِب الضِّياء) في غِمده ليُظلِم العالم من جديد، كأن الشَّمس اختبأَت وراء السَّحاب، وأردفَ الملك: «افتحوا البوَّابة».‬‬‬‬‬‬‬
             بين من يرتجف ومن أعجزَه الخدَر عن الارتجاف استمعوا لصوت الملك يتردَّد هادرًا على (الجِدار) إذ قال لهم ستانيس: «لكم أن تذهبوا. أخبِروا قومكم بما رأيتم، قولوا لهم إنكم رأيتم الملك الحقَّ وإنه يُرحِّب بهم في مملكته ما داموا سيحفظون سلامه، وإلَّا فعليهم أن يفرُّوا أو يختبئوا، فلن أسمح بعُدوانٍ آخر على جِــداري».‬‬‬‬‬‬‬
-            هتفَت الليدي مليساندرا: «مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكّ واحِـد!».‬‬‬‬‬‬‬
-            والتقطَ رجال الملكة منها الهتاف قارعين تروسهم بكعوبِ الحِراب، وردَّدوا: «مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس! مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس!».‬‬‬‬‬‬‬"
+            هتفَت الليدي مليساندرا: «مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكّ واحِـد!».‬‬‬‬‬‬‬
+            والتقطَ رجال الملكة منها الهتاف قارعين تروسهم بكعوبِ الحِراب، وردَّدوا: «مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس! مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس!».‬‬‬‬‬‬‬"
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
