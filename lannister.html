@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="إقتباسات رواية أغنيَّة الجَليد والنَّار باللغة العربية" />
   <meta name="author" content="Akami Even" />
-  <title>إقتباسات رواية أغنية الجليد والنار</title>
+  <title>إقتباسات رواية أغنية الجليد والنار - آل لانستر</title>
 
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
-/* الخطوط */
+html { scroll-behavior: smooth; }
+
 @font-face {
   font-family: 'GameOfThrones';
   src: url('booksfont.ttf') format('truetype');
@@ -38,6 +39,7 @@ body {
   font-family: 'GameOfThrones', serif;
   color: #C0C0C0;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 [lang="en"] {
@@ -45,6 +47,17 @@ body {
 }
 .content h1 {
   color: #FFD700;
+}
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh; /* ارتفاع منطقة التدرج */
+  background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+  pointer-events: none;
+  z-index: 1;
 }
 
 .overlay {
