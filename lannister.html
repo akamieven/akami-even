@@ -196,9 +196,17 @@ body::after {
 
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
-  background-color: black; color: #C0C0C0;
-  border: none; padding: 4px 10px; border-radius: 4px;
-  font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
+  background: rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #C0C0C0;
+  padding: 4px 10px; 
+  border-radius: 4px;
+  font-size: 12px;  
+cursor: pointer;
+ transition: 0.3s; 
+font-family: 'GameOfThrones';
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
