@@ -11,6 +11,9 @@
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
+/* تفعيل السكرول سموث في البداية */
+html { scroll-behavior: smooth; }
+
 /* الخطوط */
 @font-face {
   font-family: 'GameOfThrones';
@@ -53,7 +56,7 @@ body::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20vh; /* ارتفاع منطقة التدرج */
+  height: 20vh;
   background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
   pointer-events: none;
   z-index: 1;
@@ -67,7 +70,7 @@ body::after {
   pointer-events: none;
 }
 
-/* السايد بار الجديد والكامل */
+/* السايد بار */
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
@@ -131,6 +134,7 @@ body::after {
 /* المحتوى */
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
+.character { margin-bottom: 60px; scroll-margin-top: 90px; }
 .character img { 
   width: 150px; border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
@@ -149,6 +153,7 @@ body::after {
   text-align: right;
   line-height: 1.8;
   border-right: 3px solid #FFD700;
+  font-weight: bold;
 }
 
 .home-link {
@@ -173,7 +178,7 @@ body::after {
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
   background-color: black; color: #C0C0C0;
-  border: black; padding: 4px 10px; border-radius: 4px;
+  border: none; padding: 4px 10px; border-radius: 4px;
   font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -191,73 +196,29 @@ body::after {
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
       <h3 style="padding: 0 25px 20px; color: #FFD700;">العوائل</h3>
-
-  <div class="family">
+      <div class="family">
         <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="baratheon.html#stannis">ستانيس براثيون</a>
         </div>
       </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="stark.html#eddard">إدارد ستارك</a>
-          <a href="stark.html#jon">چون سنو</a>
-          <a href="stark.html#arya">آريا ستارك</a>
-        </div>
       </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="lannister.html#tyrion">تيريون لانستر</a>
-          <a href="lannister.html#jaime">چايمي لانستر</a>
-          <a href="lannister.html#cersei">سيرسي لانستر</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="targaryen.html#dany">دنيريس تارجارين</a>
-        </div>
-      </div>
-
-    
-      <div class="family">
-        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="tyrell.html#olenna">أولينا تايريل</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="other.html#baelish">بيتر بيليش</a>
-          <a href="other.html#varys">فاريس</a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="content">
     <h1 lang="en">Akami Even</h1>
     <p style="font-size: 35px; color: #FFD700;">آل براثيون</p>
-    <a href="index.html" class="home-link"><strong>الصفحة الرئيسية</strong></a>
+    <a href="index.html" class="home-link">الصفحة الرئيسية</a>
 
     <div class="character-section" style="margin-top: 50px;">
       <div class="character" id="stannis">
         <img src="https://i.ibb.co/LzjS0Pjf/Picsart-25-05-05-18-04-42-668.jpg" alt="ستانيس براثيون">
         <h2>ستانيس براثيون</h2>
         <div class="quote">
-          <strong>
             "«لـ(وستروس) ملك واحد فقط. بهذا السَّيف أدافعُ عن رعاياي وأدمِّرُ من يهدَّدونهم. اركعوا وأعدكم بالطَّعام والأرض والعدل. اركعوا وعيشوا، أو اذهبوا وموتوا. الخيار لكم»، ودسَّ (جالِب الضِّياء) في غِمده ليُظلِم العالم من جديد، كأن الشَّمس اختبأَت وراء السَّحاب، وأردفَ الملك: «افتحوا البوَّابة».‬‬‬‬‬‬‬
             بين من يرتجف ومن أعجزَه الخدَر عن الارتجاف استمعوا لصوت الملك يتردَّد هادرًا على (الجِدار) إذ قال لهم ستانيس: «لكم أن تذهبوا. أخبِروا قومكم بما رأيتم، قولوا لهم إنكم رأيتم الملك الحقَّ وإنه يُرحِّب بهم في مملكته ما داموا سيحفظون سلامه، وإلَّا فعليهم أن يفرُّوا أو يختبئوا، فلن أسمح بعُدوانٍ آخر على جِــداري».‬‬‬‬‬‬‬
-            هتفَت الليدي مليساندرا: «مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكّ واحِـد!».‬‬‬‬‬‬‬
-            والتقطَ رجال الملكة منها الهتاف قارعين تروسهم بكعوبِ الحِراب، وردَّدوا: «مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس! مملـكةٌ واحِـدة، إلهٌ واحِـد، ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس!».‬‬‬‬‬‬‬"
-          </strong>
+            هتفَت الليدي مليساندرا: «مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكّ واحِـد!».‬‬‬‬‬‬‬
+            والتقطَ رجال الملكة منها الهتاف قارعين تروسهم بكعوبِ الحِراب، وردَّدوا: «مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس! مملـكةٌ واحِـدة, إلهٌ واحِـد, ملكٌ واحِـد! ستـــانيــس! ستـــانيــس! ستـــانيــس!».‬‬‬‬‬‬‬"
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
@@ -281,8 +242,8 @@ body::after {
   });
 
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.querySelector('strong').innerText;
-    navigator.clipboard.writeText(quoteText).then(() => {
+    let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+    navigator.clipboard.writeText(textToCopy).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
     });
