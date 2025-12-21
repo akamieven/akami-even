@@ -14,7 +14,9 @@
       --glass-bg: rgba(0, 0, 0, 0.6);
       --glass-border: rgba(255, 255, 255, 0.1);
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --main-gold: #f1d279;
     }
+
 @font-face {
   font-family: 'GameOfThrones';
   src: url('booksfont.ttf') format('truetype');
@@ -42,6 +44,7 @@ body {
   color: white;
   overflow-x: hidden;
 }
+
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
@@ -80,7 +83,6 @@ h1 {
 
 p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9; }
 
-/* تنسيق الروابط السفلية */
 .main-links { list-style: none; padding: 0; }
 .main-links li { margin: 20px 0; }
 .main-links a { 
@@ -107,14 +109,15 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
 }
 
-/* تنسيق السايد بار الجديد */
 .menu-toggle {
   position: fixed;
   top: 25px;
   right: 25px;
-  background: rgba(0, 0, 0, 0.1);
-  color: #000;
-  border: none;
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
   font-size: 28px;
   width: 50px;
   height: 50px;
@@ -124,22 +127,23 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   transition: var(--transition);
 }
 
- .menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
+.menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
+
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
   width: 300px;
   height: 100%;
-  background: rgba(5, 5, 20, 0.92);
-  backdrop-filter: blur(15px);
-  border-left: 2px solid black;
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
   padding-top: 80px;
   overflow-y: auto;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.8);
 }
 
 .sidebar.visible { transform: translateX(0); }
@@ -163,7 +167,18 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   letter-spacing: 2px;
 }
 
-.family { margin-bottom: 5px; }
+.sword-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #888;
+}
+
+.sword-icon svg {
+  width: 100%;
+  height: 100%;
+}
 
 .dropbtn {
   background: transparent;
@@ -182,11 +197,17 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 }
 
 .dropbtn:hover { background: rgba(241, 210, 121, 0.1); color: white; }
+.dropbtn:hover .sword-icon { fill: var(--main-gold); }
+
+.family.open .sword-icon {
+  transform: rotate(180deg); 
+  fill: var(--main-gold);
+}
 
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   transition: max-height 0.4s ease-out;
 }
 
@@ -204,7 +225,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   content: "•";
   position: absolute;
   right: 20px;
-  color: white;
+  color: var(--main-gold);
   opacity: 0;
   transition: 0.3s;
 }
@@ -218,18 +239,14 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 .dropdown-content a:hover::before { opacity: 1; }
 
 .family.open .dropdown-content { max-height: 600px; }
-.family.open .arrow { transform: rotate(180deg); color: white; }
-
-.arrow { transition: transform 0.3s; font-size: 14px; color: #666; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* تخصيص السكرول بار */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: #f1d279; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: var(--main-gold); border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -245,8 +262,22 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
     <div class="house">
       <h3>العوائل</h3>
 
+      <template id="sword-template">
+        <svg fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-29.02 -29.02 348.27 348.27" xml:space="preserve" transform="rotate(-45)">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier"> 
+            <g> 
+              <path d="M63.951,243.575c-1.945-3.578-4.401-6.907-7.363-9.869c-3.106-3.102-6.626-5.633-10.4-7.63 c-4.51-2.387-0.945-7.5-0.945-7.5c4.616-7.023,8.825-14.079,12.305-20.226l-23.363-23.344H11.504c-4.362,0-7.898-3.539-7.898-7.902 c0-4.361,3.536-7.9,7.898-7.9h25.947c2.1,0,4.107,0.832,5.588,2.312l85.379,85.291c1.483,1.483,2.315,3.495,2.315,5.589v26.073 c0,4.365-3.537,7.897-7.9,7.897c-4.367,0-7.904-3.531-7.904-7.897v-22.798l-23.27-23.24c-6.281,3.707-13.582,8.252-20.816,13.25 C70.842,245.679,66.698,248.629,63.951,243.575z"></path> 
+              <path d="M26.61,237.102c-7.106,0-13.784,2.764-18.812,7.784c-5.019,5.015-7.782,11.686-7.782,18.778 c0,7.097,2.764,13.762,7.782,18.776c5.027,5.016,11.706,7.783,18.812,7.785c7.102,0,13.781-2.77,18.804-7.785 c5.023-5.015,7.79-11.682,7.79-18.776c0-7.093-2.768-13.764-7.79-18.778C40.392,239.866,33.712,237.102,26.61,237.102z"></path> 
+              <path d="M100.985,182.318c-3.502,3.499-9.232,3.499-12.734,0.001l-8.81-8.801c-3.502-3.498-3.502-9.223,0-12.721L229.832,10.564 c3.502-3.498,10.401-6.727,15.33-7.175l36.862-3.352c4.93-0.448,8.596,3.218,8.148,8.148l-3.346,36.791 c-0.448,4.93-3.68,11.825-7.182,15.324l-150.4,150.251c-3.502,3.498-9.232,3.498-12.734,0l-8.822-8.813 c-3.502-3.498-3.502-9.223,0-12.722L233.608,63.213c1.854-1.848,1.856-4.852,0.003-6.702c-1.848-1.853-4.853-1.853-6.709-0.002 L100.985,182.318z"></path> 
+            </g> 
+          </g>
+        </svg>
+      </template>
+
       <div class="family">
-        <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>آل ستارك</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="stark.html#eddard">إدارد ستارك</a>
           <a href="stark.html#jon">چون سنو</a>
@@ -255,7 +286,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
       </div>
 
       <div class="family">
-        <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>آل لانستر</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="lannister.html#tyrion">تيريون لانستر</a>
           <a href="lannister.html#jaime">چايمي لانستر</a>
@@ -264,28 +295,28 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
       </div>
 
       <div class="family">
-        <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>آل تارجارين</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="targaryen.html#dany">دنيريس تارجارين</a>
         </div>
       </div>
 
       <div class="family">
-        <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>آل براثيون</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="baratheon.html#stannis">ستانيس براثيون</a>
         </div>
       </div>
 
       <div class="family">
-        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>آل تايريل</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="tyrell.html#olenna">أولينا تايريل</a>
         </div>
       </div>
 
       <div class="family">
-        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
+        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="other.html#baelish">بيتر بيليش</a>
           <a href="other.html#varys">فاريس</a>
@@ -316,12 +347,18 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const template = document.getElementById('sword-template').innerHTML;
+    document.querySelectorAll('.sword-icon').forEach(icon => {
+      icon.innerHTML = template;
+    });
+  });
+
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('visible');
   }
 
-  // إغلاق السايد بار عند الضغط في أي مكان خارجه
   document.addEventListener('click', function(event) {
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -332,7 +369,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 
   document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function (e) {
-      e.stopPropagation(); // منع إغلاق السايد بار عند الضغط على العائلة
+      e.stopPropagation();
       const family = this.parentElement;
 
       document.querySelectorAll('.family').forEach(f => {
