@@ -77,17 +77,12 @@ body::after {
 
 .sigils {
     width: 100px;
-    height: 100px;
-    background-color: gold;
-    -webkit-mask-image: url('lannistersigil.svg'); 
-    mask-image: url('lannistersigil.svg');
-    -webkit-mask-size: contain;
-    mask-size: contain;   
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    margin: 20px auto; 
+    height: auto;
+    margin: 20px auto;
     display: block;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
 }
+
 
 .menu-toggle {
   position: fixed;
@@ -240,7 +235,7 @@ font-family: 'GameOfThrones';
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-<div class="sigils"></div>
+  <img src="lannistersigil.svg" class="sigils" alt="Lannister Sigil">
 
 
       <h3 style="padding: 0 25px 20px; color: #FFD700;font-size: 30px; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">العوائل</h3>
