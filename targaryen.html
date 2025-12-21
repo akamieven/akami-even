@@ -11,7 +11,9 @@
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
-/* الخطوط */
+/* الخطوط والسكرول */
+html { scroll-behavior: smooth; }
+
 @font-face {
   font-family: 'GameOfThrones';
   src: url('booksfont.ttf') format('truetype');
@@ -44,13 +46,14 @@ body {
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
+
 body::after {
   content: "";
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20vh; /* ارتفاع منطقة التدرج */
+  height: 20vh;
   background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
   pointer-events: none;
   z-index: 1;
@@ -63,12 +66,13 @@ body::after {
   z-index: 1;
   pointer-events: none;
 }
+
 .menu-toggle {
   position: fixed;
   top: 25px; right: 25px;
   background: rgba(0, 0, 0, 0.2);
   color: red;
-  border: 1px #C0C0C0;
+  border: 1px solid rgba(192, 192, 192, 0.3);
   font-size: 28px;
   width: 50px; height: 50px;
   border-radius: 50%;
@@ -83,7 +87,7 @@ body::after {
   width: 300px; height: 100%;
   background: rgba(5, 5, 20, 0.95);
   backdrop-filter: blur(15px);
-  border-left: 2px #C0C0C0;
+  border-left: 2px solid #C0C0C0;
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
@@ -121,14 +125,16 @@ body::after {
 
 .family.open .dropdown-content { max-height: 600px; }
 .family.open .arrow { transform: rotate(180deg); color: white; }
+
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
+.character { margin-bottom: 60px; scroll-margin-top: 90px; }
 .character img { 
   width: 150px; border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(178, 34, 34, 0.4); 
-  border: 1px solid #B22222; /* إطار أحمر للصورة */
+  border: 1px solid #B22222;
 }
-.character h2 { font-size: 28px; margin-top: 15px; color: #B22222; } /* عنوان الشخصية أحمر */
+.character h2 { font-size: 28px; margin-top: 15px; color: #B22222; }
 
 .quote {
   background-color: rgba(0, 0, 0, 0.3);
@@ -140,10 +146,10 @@ body::after {
   position: relative;
   text-align: right;
   line-height: 1.8;
-  border-right: 3px solid #B22222; /* خط الاقتباس أحمر */
+  border-right: 3px solid #B22222;
+  font-weight: bold; /* تم تفعيل الخط العريض برمجياً */
 }
 
-/* زر الصفحة الرئيسية بلمسة حمراء */
 .home-link {
   color: #C0C0C0;
   text-decoration: none;
@@ -185,7 +191,7 @@ body::after {
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
       <h3 style="padding: 0 25px 20px; color: red;">العوائل</h3>
-   <div class="family">
+      <div class="family">
         <button class="dropbtn"><span>آل تارجارين</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="targaryen.html#dany">دنيريس تارجارين</a>
@@ -199,7 +205,6 @@ body::after {
           <a href="stark.html#arya">آريا ستارك</a>
         </div>
       </div>
-
       <div class="family">
         <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
@@ -208,48 +213,22 @@ body::after {
           <a href="lannister.html#cersei">سيرسي لانستر</a>
         </div>
       </div>
-
-   
-
-      <div class="family">
-        <button class="dropbtn"><span>آل براثيون</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="baratheon.html#stannis">ستانيس براثيون</a>
-        </div>
       </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="tyrell.html#olenna">أولينا تايريل</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
-        <div class="dropdown-content">
-          <a href="other.html#baelish">بيتر بيليش</a>
-          <a href="other.html#varys">فاريس</a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="content">
     <h1 lang="en" style="color: #B22222;">Akami Even</h1>
     <p style="font-size: 35px; color: #B22222;">آل تارجارين</p>
-    <a href="index.html" class="home-link"><strong>الصفحة الرئيسية</strong></a>
-    
+    <a href="index.html" class="home-link">الصفحة الرئيسية</a>
+
     <div class="character-section">
       <div class="character" id="dany">
         <img src="https://i.postimg.cc/zBgSQtD7/5b9a350541270759b05c1e0b616d3c9d.jpg" alt="دنيريس تارجارين">
         <h2>دنيريس تارجارين</h2>
         <div class="quote">
-          <strong>
-            "زحفَ العجوز إلى أول صَفٍّ من المخصيِّين ودمه يتدفَّق على القرميد، لكن المطهَّرين لم يخفضوا أعيُنهم إليه حتى ليُشاهِدوه وهو يموت، وصَفًّا وراء صَفٍّ وراء صَفٍّ ظَلُّوا واقفين.
+            زحفَ العجوز إلى أول صَفٍّ من المخصيِّين ودمه يتدفَّق على القرميد، لكن المطهَّرين لم يخفضوا أعيُنهم إليه حتى ليُشاهِدوه وهو يموت، وصَفًّا وراء صَفٍّ وراء صَفٍّ ظَلُّوا واقفين.
             هرولَت داني أمامهم وضفيرتها الذَّهبيَّة الفضِّيَّة تُرَفرِف وراءها وجرسها يرنُّ، وصاحَت: «أيها المطهَّرون! اقتُلوا الأسياد الكرام، اقتُلوا الجنود، اقتُلوا كلَّ من يرتدي التوكار أو يحمل سوطًا، لكن لا تُؤذوا طفلًا تحت الثَّانية عشرة، واضربوا قيود كلِّ عبدٍ ترون»، ورفعَت أصابع الهارپي في الهواء... ثم ألقَت السَّوط أرضًا وردَّدت بنبرةٍ كأنها لحن: «الحرية! دراكارس! دراكارس!».
-            وهتفوا هُم بأعذب كلمةٍ سمعتها في حياتها: «دراكارس! دراكارس! دراكارس!»، وفي كلِّ مكانٍ حولهم جرى النَّخَّاسون وانتحبوا وتوسَّلوا وماتوا، وامتلأَ الهواء المغبَّر بالحِراب والنِّيران."
-          </strong>
+            وهتفوا هُم بأعذب كلمةٍ سمعتها في حياتها: «دراكارس! دراكارس! دراكارس!»، وفي كلِّ مكانٍ حولهم جرى النَّخَّاسون وانتحبوا وتوسَّلوا وماتوا، وامتلأَ الهواء المغبَّر بالحِراب والنِّيران.
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
@@ -273,8 +252,8 @@ body::after {
   });
 
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.querySelector('strong').innerText;
-    navigator.clipboard.writeText(quoteText).then(() => {
+    let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+    navigator.clipboard.writeText(textToCopy).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
     });
