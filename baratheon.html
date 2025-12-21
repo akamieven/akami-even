@@ -54,6 +54,7 @@ body {
 
 .content h1 {
   color: var(--main-gold);
+  font-size: 25px;
 }
 
 body::after {
@@ -118,7 +119,6 @@ body::after {
   color: white; font-size: 35px; cursor: pointer;
 }
 
-/* أيقونة السيف */
 .sword-icon {
   width: 22px;
   height: 22px;
@@ -177,6 +177,7 @@ body::after {
   text-align: right;
   line-height: 1.8;
   border-right: 3px solid var(--main-gold);
+  border-left: 3px solid var(--main-gold);
   font-weight: bold;
 }
 
@@ -201,8 +202,12 @@ body::after {
 
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
-  background-color: black; color: #C0C0C0;
-  border: none; padding: 4px 10px; border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #C0C0C0;
+  padding: 4px 10px; border-radius: 4px;
   font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
 }
 
@@ -223,7 +228,7 @@ body::after {
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3 style="padding: 0 25px 20px; color: var(--main-gold); border-bottom: 1px solid rgba(255, 215, 0, 0.2);">العوائل</h3>
+      <h3 style="padding: 0 25px 20px; color: var(--main-gold); font-size: 30px; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">العوائل</h3>
 
       <template id="sword-template">
         <svg fill="currentColor" version="1.1" viewBox="-29.02 -29.02 348.27 348.27" xml:space="preserve" transform="rotate(-45)">
@@ -283,7 +288,8 @@ body::after {
   </div>
 
   <div class="content">
-    <h1 lang="en">Akami Even</h1>
+    <h1 lang="en">Ours is the Fury</h1>
+    <p style="font-size: 25px; color: var(--main-gold);">آل براثيون</p>
     <p style="font-size: 35px; color: var(--main-gold);">آل براثيون</p>
     <a href="index.html" class="home-link">الصفحة الرئيسية</a>
 
