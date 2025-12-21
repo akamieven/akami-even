@@ -11,7 +11,11 @@
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
-/* تفعيل السكرول سموث */
+  :root {
+      --glass-bg: rgba(0, 0, 0, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 html { scroll-behavior: smooth; }
 
 /* الخطوط */
@@ -83,9 +87,10 @@ body::after {
   border-radius: 50%;
   cursor: pointer;
   z-index: 2000;
-  transition: 0.3s;
+    transition: var(--transition);
 }
 
+ .menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
 .sidebar {
   position: fixed;
   top: 0; right: 0;
