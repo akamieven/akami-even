@@ -51,7 +51,10 @@ body {
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
-
+.content h1{
+  color: #B22222;
+  font-size: 25px
+}
 body::after {
   content: "";
   position: fixed;
@@ -94,7 +97,7 @@ body::after {
   position: fixed;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* تعديل الشفافية لتناسب البقية */
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -173,6 +176,7 @@ body::after {
   text-align: right;
   line-height: 1.8;
   border-right: 3px solid #B22222;
+  border-left: 3px solid #B22222;
   font-weight: bold;
 }
 
@@ -197,8 +201,12 @@ body::after {
 
 .copy-btn {
   position: absolute; top: 5px; left: 5px;
-  background-color: black; color: #C0C0C0;
-  border: none; padding: 4px 10px; border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #C0C0C0;
+  padding: 4px 10px; border-radius: 4px;
   font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
 }
 
@@ -219,7 +227,7 @@ body::after {
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3 style="padding: 0 25px 20px; color: var(--main-red); border-bottom: 1px solid rgba(178, 34, 34, 0.2);">العوائل</h3>
+      <h3 style="padding: 0 25px 20px; color: font-size: 30px; var(--main-red); border-bottom: 1px solid rgba(178, 34, 34, 0.2);">العوائل</h3>
 
       <template id="sword-template">
         <svg fill="currentColor" version="1.1" viewBox="-29.02 -29.02 348.27 348.27" xml:space="preserve" transform="rotate(-45)">
@@ -279,8 +287,9 @@ body::after {
   </div>
 
   <div class="content">
-    <h1 lang="en" style="color: #B22222;">Akami Even</h1>
-    <p style="font-size: 35px; color: #B22222;">آل تارجارين</p>
+    <h1 lang="en" style="color: #B22222;">Fire and Blood</h1>
+<p style="font-size: 25px; color: #B22222;">«النَّار والدَّم»</p>
+    <p style="font-size: 40px; color: #B22222;">آل تارجارين</p>
     <a href="index.html" class="home-link">الصفحة الرئيسية</a>
 
     <div class="character-section">
