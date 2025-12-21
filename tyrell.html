@@ -11,6 +11,9 @@
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
 <style>
+/* تفعيل السكرول سموث */
+html { scroll-behavior: smooth; }
+
 /* الخطوط */
 @font-face {
   font-family: 'GameOfThrones';
@@ -44,16 +47,18 @@ body {
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
+
 .content h1 {
   color: #008000;
 }
+
 body::after {
   content: "";
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20vh; /* ارتفاع منطقة التدرج */
+  height: 20vh;
   background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
   pointer-events: none;
   z-index: 1;
@@ -72,7 +77,7 @@ body::after {
   top: 25px; right: 25px;
   background: rgba(0, 0, 0, 0.2);
   color: #008000;
-  border: 1px #C0C0C0;
+  border: 1px solid rgba(192, 192, 192, 0.2);
   font-size: 28px;
   width: 50px; height: 50px;
   border-radius: 50%;
@@ -87,7 +92,7 @@ body::after {
   width: 300px; height: 100%;
   background: rgba(5, 5, 20, 0.95);
   backdrop-filter: blur(15px);
-  border-left: 2px #C0C0C0;
+  border-left: 2px solid #C0C0C0;
   transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 2100;
@@ -128,6 +133,7 @@ body::after {
 
 .content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
 
+.character { margin-bottom: 60px; scroll-margin-top: 90px; }
 .character img { 
   width: 150px; border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 128, 0, 0.4); 
@@ -145,7 +151,8 @@ body::after {
   position: relative;
   text-align: right;
   line-height: 1.8;
-  border-right: 3px solid #008000; /* خط أخضر */
+  border-right: 3px solid #008000;
+  font-weight: bold;
 }
 
 .home-link {
@@ -188,16 +195,16 @@ body::after {
   <div id="sidebar" class="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <div class="house">
-      <h3 style="color: #008000;">العوائل</h3>
+      <h3 style="padding: 0 25px 20px; color: #008000;">العوائل</h3>
 
-  <div class="family">
+      <div class="family">
         <button class="dropbtn"><span>آل تايريل</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="tyrell.html#olenna">أولينا تايريل</a>
         </div>
       </div>
 
-   <div class="family">
+      <div class="family">
         <button class="dropbtn"><span>آل ستارك</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
           <a href="stark.html#eddard">إدارد ستارك</a>
@@ -209,9 +216,9 @@ body::after {
       <div class="family">
         <button class="dropbtn"><span>آل لانستر</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
-          <a href="lannister.html#cersei">سيرسي لانستر</a>
-          <a href="lannister.html#jaime">چايمي لانستر</a>
           <a href="lannister.html#tyrion">تيريون لانستر</a>
+          <a href="lannister.html#jaime">چايمي لانستر</a>
+          <a href="lannister.html#cersei">سيرسي لانستر</a>
         </div>
       </div>
 
@@ -229,8 +236,6 @@ body::after {
         </div>
       </div>
 
-    
-
       <div class="family">
         <button class="dropbtn"><span>شخصيات أخرى</span> <span class="arrow">▼</span></button>
         <div class="dropdown-content">
@@ -244,16 +249,14 @@ body::after {
   <div class="content">
     <h1 lang="en">Akami Even</h1>
     <p style="font-size: 35px; color: #008000;">آل تايريل</p>
-    <a href="index.html" class="home-link"><strong>الصفحة الرئيسية</strong></a>
+    <a href="index.html" class="home-link">الصفحة الرئيسية</a>
 
     <div class="character-section" style="margin-top: 50px;">
       <div class="character" id="olenna">
         <img src="https://i.ibb.co/PvrVjXkB/b5aa960ad702d19980300490860105c4.jpg" alt="أولينا تايريل">
         <h2>أولينا تايريل</h2>
         <div class="quote">
-          <strong>
-            "«لم أنجب إلَّا ابنًا واحدًا ونادرًا ما ضربته، والآن ينتبه إلى برميل الزُّبدة أكثر مما ينتبه إليَّ. قلتُ له إن الأسد ليس قطَّةً مدلَّلةً، لكنه لا يقول إلَّا تؤ تؤ يا أمِّي. هناك الكثير جدًّا من التَّأتأة في هذه البلاد إذا طلبتِ رأيي. من مصلحة كلِّ هؤلاء الملوك أن يُلقوا سيوفهم ويُصغوا لأمَّهاتهم»"
-          </strong>
+            «لم أنجب إلَّا ابنًا واحدًا ونادرًا ما ضربته، والآن ينتبه إلى برميل الزُّبدة أكثر مما ينتبه إليَّ. قلتُ له إن الأسد ليس قطَّةً مدلَّلةً، لكنه لا يقول إلَّا تؤ تؤ يا أمِّي. هناك الكثير جدًّا من التَّأتأة في هذه البلاد إذا طلبتِ رأيي. من مصلحة كلِّ هؤلاء الملوك أن يُلقوا سيوفهم ويُصغوا لأمَّهاتهم»
           <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
         </div>
       </div>
@@ -277,8 +280,8 @@ body::after {
   });
 
   function copyToClipboard(button) {
-    const quoteText = button.parentElement.querySelector('strong').innerText;
-    navigator.clipboard.writeText(quoteText).then(() => {
+    let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+    navigator.clipboard.writeText(textToCopy).then(() => {
       button.textContent = "تم النسخ";
       setTimeout(() => button.textContent = "نسخ", 1500);
     });
