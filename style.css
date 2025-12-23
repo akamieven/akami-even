@@ -216,4 +216,4 @@ h3:hover .sigils {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: var(--main-silver); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
