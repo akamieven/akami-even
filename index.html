@@ -85,47 +85,24 @@ backface-visibility: hidden;
 h1 { 
   font-size: clamp(32px, 8vw, 60px); 
   margin-bottom: 10px; 
-  color: white;
-  }
-
-p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9;  
- 
- }
-.glass-box {
-  border: 1px white;
-  border-bottom: 2px solid white;
-  border-top: 2px solid white;
-  margin-top: 90px;
+  padding: 20px 40px;
   display: inline-block;
-  flex-direction: column;
-  align-items: center;
-  
-  /* خصائص التأثير الزجاجي */
+  color: white;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  
-  /* مسافات داخلية متوازنة */
-  padding: 20px 30px;
-  color: white;
-  text-align: center;
 }
 
-.title {
-  font-size: clamp(32px, 5vw, 45px); /* صغرنا الحجم قليلاً ليتناسب مع الصندوق */
-  margin: 0 0 10px 0; /* مسافة بسيطة من الأسفل فقط */
-  line-height: 1.2;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  margin: 0;
-  opacity: 0.9; /* جعل النص العربي أخف قليلاً ليعطي جمالية */
-}
-
+p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9;   background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+ }
 
 .main-links { list-style: none; padding: 0; }
 .main-links li { margin: 20px 0; }
@@ -134,15 +111,15 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   text-decoration: none; 
   font-size: 20px; 
   transition: 0.4s; 
-  border: 1px white;
+  border: 1px #C0C0C0;
   padding: 12px 45px;
   border-radius: 5px;
   display: inline-block;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
   text-transform: uppercase;
-  border-right: 3px solid white;
-  border-left: 3px solid white;
+  border-right: 3px solid #C0C0C0;
+  border-left: 3px solid #C0C0C0;
   letter-spacing: 1px;
 }
 
@@ -358,14 +335,14 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
           <a href="tyrell.html#olenna">أولينا تايريل</a>
         </div>
       </div>
-
+      
 <div class="family">
         <button class="dropbtn"><span>آل چرايچوي</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
           <a href="greyjoy.html#euron">يورون چرايچوي</a>
         </div>
       </div>
-
+      
       <div class="family">
         <button class="dropbtn"><span>شخصيات أخرى</span> <span class="sword-icon"></span></button>
         <div class="dropdown-content">
@@ -377,17 +354,15 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
     </div>
   </div>
 
-<div class="glass-box">
-  <h1 class="title">Akami Even</h1>
-  <p class="subtitle">إقتباسات رواية أغنيَّة الجليد والنَّار باللغة العربية</p>
-</div>
+  <div class="content">
+    <h1 class="text" lang="en">Akami Even</h1>
+    <p class="text">إقتباسات رواية أغنيَّة الجليد والنَّار باللغة العربية</p>
 
     <ul class="main-links">
       <li><a href="stark.html">آل ستارك</a></li> 
       <li><a href="lannister.html">آل لانستر</a></li> 
       <li><a href="targaryen.html">آل تارجارين</a></li>
       <li><a href="baratheon.html">آل براثيون</a></li>
-      <li><a href="greyjoy.html">آل چرايچوي</a></li>
       <li><a href="tyrell.html">آل تايريل</a></li>
     </ul>
 
