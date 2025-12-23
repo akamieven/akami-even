@@ -54,6 +54,86 @@ body {
   -webkit-transform: translateZ(0);
   will-change: transform;
 }
+.starkpic::before {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -2; 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+.targaryenpic::before {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -2; 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+.baratheonpic::before {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -2; 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+.greyjoypic::before {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -2; 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+.tyrellpic::before {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -2; 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
 
 /* طبقة الـ Overlay (التعتيم) */
 .overlay {
