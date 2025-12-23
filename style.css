@@ -181,6 +181,7 @@ h3:hover .sigils {
   position: relative;
   text-align: right;
   line-height: 1.8;
+  color: #C0C0C0;
   border-right: 3px solid var(--accent-color);
   border-left: 3px solid var(--accent-color);
   font-weight: bold;
