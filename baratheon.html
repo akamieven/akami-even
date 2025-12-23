@@ -1,237 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta name="color-scheme" content="dark light">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="إقتباسات رواية أغنيَّة الجَليد والنَّار باللغة العربية" />
-  <meta name="author" content="Akami Even" />
   <title>إقتباسات رواية أغنية الجليد والنار - آل براثيون</title>
-
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
 
-<style>
-  :root {
-      --glass-bg: rgba(0, 0, 0, 0.6);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
       --main-gold: #FFD700;
     }
-html { scroll-behavior: smooth; }
-
-@font-face {
-  font-family: 'GameOfThrones';
-  src: url('booksfont.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'EnglishFont';
-  src: url('Quintessential-Regular.ttf') format('truetype');
-  font-display: swap;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  direction: rtl;
-  font-family: 'GameOfThrones', serif;
-  color: #C0C0C0;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-[lang="en"] {
-  font-family: 'EnglishFont', cursive !important;
-}
-
-.content h1 {
-  color: var(--main-gold);
-  font-size: 25px;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100lvh;
-  background-image: url('https://i.ibb.co/200CSJK5/IMG-20250505-182946.jpg'); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  z-index: -2; 
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform;
-}
-.overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100lvh;
-background-color: rgba(0, 0, 0, 0.6);
-z-index: -1;
-pointer-events: none;
-transform: translateZ(0);
--webkit-transform: translateZ(0);
-will-change: transform;
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
-}
-
-.menu-toggle {
-  position: fixed;
-  top: 25px; right: 25px;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--main-gold);
-  font-size: 28px;
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 2000;
-  transition: var(--transition);
-}
-
-.menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
-
-.sidebar {
-  position: fixed;
-  top: 0; right: 0;
-  width: 300px; height: 100%;
-  background: rgba(0, 0, 0, 0.4); 
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  transform: translateX(105%);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-  z-index: 2100;
-  padding-top: 80px;
-  overflow-y: auto;
-}
-
-.sidebar.visible { transform: translateX(0); }
-
-.close-btn {
-  position: absolute;
-  top: 20px; left: 20px;
-  background: none; border: none;
-  color: white; font-size: 35px; cursor: pointer;
-}
-
-.sword-icon {
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  fill: #888;
-}
-
-.dropbtn {
-  background: transparent; color: #eee;
-  padding: 18px 25px; font-size: 18px;
-  font-family: 'GameOfThrones', serif;
-  border: none; text-align: right; width: 100%;
-  cursor: pointer; display: flex; justify-content: space-between;
-  align-items: center;
-}
-
-.dropbtn:hover { color: white; }
-.dropbtn:hover .sword-icon { fill: var(--main-gold); }
-
-.dropdown-content {
-  max-height: 0; overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: max-height 0.4s ease-out;
-}
-
-.dropdown-content a {
-  color: #bbb; padding: 12px 40px;
-  text-decoration: none; display: block; font-size: 16px;
-  transition: 0.3s;
-}
-
-.dropdown-content a:hover { color: var(--main-gold); background: rgba(255,255,255,0.05); }
-
-.family.open .dropdown-content { max-height: 600px; }
-.family.open .sword-icon { transform: rotate(180deg); fill: var(--main-gold); }
-
-.content { position: relative; z-index: 2; padding: 60px 20px; animation: fadeIn 1s ease-in; }
-
-.character { margin-bottom: 60px; scroll-margin-top: 90px; }
-.character img { 
-  width: 150px; border-radius: 10px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
-  border: 1px solid var(--main-gold); 
-}
-.character h2 { font-size: 28px; margin-top: 15px; color: var(--main-gold); }
-
-.sigils {
-  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
-  transition: transform 0.3s ease;
-  width: 35px;
-  height: 35px;
-}
-
-h3:hover .sigils {
-  transform: scale(1.1) rotate(-5deg);
-}
-.quote {
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
-  margin: 20px auto;
-  padding: 30px 25px 25px 25px;
-  border-radius: 10px;
-  max-width: 650px;
-  position: relative;
-  text-align: right;
-  line-height: 1.8;
-  border-right: 3px solid var(--main-gold);
-  border-left: 3px solid var(--main-gold);
-  font-weight: bold;
-}
-
-.home-link {
-  color: #C0C0C0;
-  text-decoration: none;
-  font-size: 18px;
-  display: inline-block;
-  padding: 10px 25px;
-  margin-bottom: 20px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px); 
-  border: 1px solid rgba(255, 215, 0, 0.2); 
-  transition: 0.3s;
-}
-.home-link:hover {
-  background: rgba(255, 215, 0, 0.1);
-  border-color: var(--main-gold);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-}
-
-.copy-btn {
-  position: absolute; top: 5px; left: 5px;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #C0C0C0;
-  padding: 4px 10px; border-radius: 4px;
-  font-size: 12px; cursor: pointer; transition: 0.3s; font-family: 'GameOfThrones';
-}
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: var(--main-gold); border-radius: 10px; }
-</style>
+    body::before {
+      background-image: url('https://i.ibb.co/200CSJK5/IMG-20250505-182946.jpg') !important;
+    }
+    .content h1, .character h2 { color: var(--main-gold); }
+    .character img { border: 1px solid var(--main-gold); }
+    .quote { border-right: 3px solid var(--main-gold); border-left: 3px solid var(--main-gold); }
+  </style>
 </head>
 <body>
 
@@ -241,79 +28,7 @@ h3:hover .sigils {
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
   </header>
 
-  <div id="sidebar" class="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">&times;</button>
-    <div class="house">
-      <h3 style="padding: 0 25px 20px; color: var(--main-gold); font-size: 30px; border-bottom: 1px solid rgba(255, 215, 0, 0.2); display: flex; align-items: center; gap: 10px;">
-         <span>العوائل</span> 
-       <svg class="sigils" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,255.99271,255.99271">
-<g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(3.2,3.2)"><path d="M60.992,15.837v0c0.015,0.818 0.215,11 -21,11c-25.855,0 -30.623,-22.697 -31,-25h-1c0,0.258 3.826,26 32,26c22.714,0 21.997,-11.502 22,-12z" fill="#ffc000"></path><path d="M33.992,25.837c-7.055,-1.196 -12.992,-11.548 -12.992,-18.837h-1v0c0,8.697 7.002,20 16,20v-1c-0.172,0 -0.62,-0.163 -2.008,-0.163z" fill="#ffc000"></path><path d="M32.992,10.837h-1c0.003,0.721 -0.143,16 8,16v-1c-5.738,0 -7,-10.051 -7,-15z" fill="#ffc000"></path><path d="M41.992,77.337c-18.32,0 -22.759,-3.32 -25.003,-5.289c4.751,-1.487 7.894,-2.475 11.353,-5.853l0.696,-0.68l-0.959,-0.17c-0.067,-0.012 -6.31,-1.141 -9.164,-3.357c6.694,-2.943 11.24,-7.6 11.437,-7.803l0.574,-0.594l-0.792,-0.233c-0.054,-0.016 -5.037,-1.499 -7.39,-3.503c3.833,-3.358 6.661,-8.679 9.694,-15.59c1.303,-2.464 3.577,-3.73 6.745,-3.73c2.512,0 4.854,0.816 5.661,1.13v13.342c0.049,0.336 4.174,25.52 -0.694,31.264c-0.607,0.718 -1.313,1.066 -2.158,1.066z" fill="#000000"></path><path d="M39.185,30.034v1c2.155,0 4.189,0.626 5.16,0.976v12.996v0.083l0.014,0.082c1.164,6.993 3.328,26.154 -0.589,30.777c-0.514,0.607 -1.078,0.889 -1.777,0.889c-16.297,0 -21.572,-2.719 -23.976,-4.587c4.201,-1.325 7.357,-2.458 10.675,-5.698l1.393,-1.36l-1.917,-0.34c-1.642,-0.291 -5.777,-1.28 -8.238,-2.777c6.337,-2.988 10.591,-7.345 10.782,-7.543l1.147,-1.188l-1.584,-0.467c-1.325,-0.391 -4.759,-1.605 -6.754,-3.051c3.67,-3.426 6.425,-8.64 9.361,-15.327c1.227,-2.299 3.347,-3.465 6.302,-3.465l0.001,-1M39.184,30.034c-2.657,0 -5.534,0.869 -7.203,4.03c-3.414,7.78 -6.241,12.695 -9.989,15.773c2.248,2.308 8,4 8,4c0,0 -4.922,5.093 -12,8c2.623,2.693 10,4 10,4c-3.573,3.49 -6.837,4.376 -12,6c2.074,1.761 5.481,6 26,6c8.818,0 3.352,-32.83 3.352,-32.83v-13.679c0.001,0 -2.917,-1.294 -6.16,-1.294z" fill="#ffc000"></path><path d="M42.249,77.337c-6.406,-8.979 -7.757,-16.639 -7.757,-21.5c0,-11.481 7.998,-22.448 9.184,-24.009h3.759c-0.33,2.457 -1.464,11.943 0.107,16.092l1.947,4.021c3.689,6.317 6.644,15.097 7.951,23.592c-1.111,0.437 -5.324,1.781 -15.191,1.804z" fill="#000000"></path><path d="M46.865,32.328c-0.396,3.134 -1.299,11.789 0.209,15.769l0.016,0.042l0.02,0.04l1.93,3.979l0.017,0.035l0.019,0.033c3.584,6.133 6.479,14.669 7.807,22.978c-1.466,0.501 -5.646,1.59 -14.377,1.631c-6.2,-8.78 -7.514,-16.25 -7.514,-20.999c0,-10.918 7.374,-21.412 8.933,-23.509h2.94M48.009,31.328h-4.58c0,0 -9.437,11.855 -9.437,24.509c0,6.1 2.018,13.698 8,22c12.281,0 16,-2 16,-2c-1.187,-8.008 -3.983,-17.151 -8.053,-24.115l-1.93,-3.979c-1.748,-4.617 0,-16.415 0,-16.415z" fill="#ffc000"></path><path d="M61.961,57.369c-0.617,-0.001 -1.087,-0.12 -1.288,-0.328c-2.375,-2.115 -4.339,-3.689 -7.422,-5.552c-0.344,-0.178 -0.791,-0.394 -1.31,-0.644c-1.672,-0.807 -4.199,-2.025 -5.063,-2.786c-3.436,-2.727 -6.386,-5.067 -6.386,-12.223v-0.5h-0.5c-7.496,0 -10.309,-3.204 -12.362,-5.543c-0.713,-0.813 -1.366,-1.556 -2.108,-2.008c1.781,-0.563 5.509,-1.409 11.829,-1.409c0.27,0 0.876,-0.005 1.646,-0.012c1.328,-0.012 3.142,-0.028 4.538,-0.028c0.784,0 1.436,0.005 1.791,0.019c4.757,0.188 8.325,6.32 10.242,9.615c0.422,0.724 0.786,1.349 1.082,1.78c4.123,6.073 8.824,10.899 14.371,14.751c0.258,0.16 0.402,0.363 0.452,0.617c0.061,0.308 -0.026,0.659 -0.231,0.94c-0.78,0.794 -4.209,1.922 -6.05,2.528c-0.644,0.211 -1.175,0.387 -1.495,0.51c-0.482,0.165 -1.152,0.271 -1.729,0.271h-0.007z" fill="#000000"></path><path d="M43.542,26.837c0.857,0 1.451,0.006 1.763,0.019c4.483,0.177 7.962,6.155 9.831,9.367c0.426,0.732 0.794,1.365 1.098,1.807c4.16,6.127 8.903,10.996 14.501,14.884l0.023,0.016l0.023,0.014c0.116,0.072 0.179,0.156 0.201,0.273c0.03,0.152 -0.011,0.335 -0.107,0.492c-0.84,0.759 -4.204,1.866 -5.839,2.404c-0.66,0.217 -1.182,0.389 -1.485,0.506c-0.445,0.152 -1.067,0.251 -1.59,0.251c-0.611,-0.001 -0.884,-0.131 -0.931,-0.176l-0.025,-0.026l-0.027,-0.024c-2.371,-2.11 -4.354,-3.699 -7.471,-5.582l-0.03,-0.018l-0.031,-0.016c-0.317,-0.163 -0.77,-0.382 -1.295,-0.635c-1.546,-0.746 -4.133,-1.994 -4.944,-2.708l-0.019,-0.017l-0.02,-0.016c-3.83,-3.038 -6.177,-5.235 -6.177,-11.815v-1h-1c-7.27,0 -9.996,-3.105 -11.987,-5.373c-0.475,-0.541 -0.925,-1.053 -1.395,-1.479c1.967,-0.513 5.398,-1.107 10.74,-1.107c0.271,0 0.881,-0.005 1.654,-0.012c1.33,-0.013 3.144,-0.029 4.539,-0.029M43.542,25.837c-2.205,0 -5.456,0.041 -6.192,0.041c-9.715,0 -13.358,1.959 -13.358,1.959c3.553,0 4.064,8 16,8c0,7.182 2.825,9.639 6.556,12.599c1.187,1.045 5.087,2.786 6.444,3.482c2.883,1.741 4.779,3.21 7.323,5.473c0.338,0.347 0.97,0.478 1.645,0.479c0.003,0 0.005,0 0.008,0c0.678,0 1.399,-0.131 1.908,-0.305c1.357,-0.522 6.582,-1.991 7.77,-3.21c0.509,-0.696 0.509,-1.741 -0.339,-2.263c-5.766,-4.004 -10.344,-8.879 -14.244,-14.624c-1.663,-2.418 -5.641,-11.372 -11.717,-11.611c-0.36,-0.015 -1.015,-0.02 -1.804,-0.02z" fill="#fabc00"></path><g><path d="M53.463,41.2c-4.678,-1.245 -6.333,-5.242 -6.812,-6.812c2.525,0.371 6.438,2.74 6.812,6.812z" fill="#ffc000"></path><path d="M47.407,35.066c2.148,0.635 4.782,2.563 5.434,5.42c-3.284,-1.167 -4.79,-3.783 -5.434,-5.42M45.992,33.837c0,0 1.208,6.632 8,8c0,-5.073 -5.113,-8 -8,-8z" fill="#352c03"></path></g><path d="M23.992,27.837c12.574,0 18,6 18,6v2c-7.445,0 -10,-2 -10,-2c0,0 -5.453,-6 -8,-6z" fill="#fabc00"></path></g></g>
-</svg>
-      </h3>
-
-      <template id="sword-template">
-        <svg fill="currentColor" version="1.1" viewBox="-29.02 -29.02 348.27 348.27" xml:space="preserve" transform="rotate(-45)">
-          <path d="M63.951,243.575c-1.945-3.578-4.401-6.907-7.363-9.869c-3.106-3.102-6.626-5.633-10.4-7.63 c-4.51-2.387-0.945-7.5-0.945-7.5c4.616-7.023,8.825-14.079,12.305-20.226l-23.363-23.344H11.504c-4.362,0-7.898-3.539-7.898-7.902 c0-4.361,3.536-7.9,7.898-7.9h25.947c2.1,0,4.107,0.832,5.588,2.312l85.379,85.291c1.483,1.483,2.315,3.495,2.315,5.589v26.073 c0,4.365-3.537,7.897-7.9,7.897c-4.367,0-7.904-3.531-7.904-7.897v-22.798l-23.27-23.24c-6.281,3.707-13.582,8.252-20.816,13.25 C70.842,245.679,66.698,248.629,63.951,243.575z"></path> 
-          <path d="M26.61,237.102c-7.106,0-13.784,2.764-18.812,7.784c-5.019,5.015-7.782,11.686-7.782,18.778 c0,7.097,2.764,13.762,7.782,18.776c5.027,5.016,11.706,7.783,18.812,7.785c7.102,0,13.781-2.77,18.804-7.785 c5.023-5.015,7.79-11.682,7.79-18.776c0-7.093-2.768-13.764-7.79-18.778C40.392,239.866,33.712,237.102,26.61,237.102z"></path> 
-          <path d="M100.985,182.318c-3.502,3.499-9.232,3.499-12.734,0.001l-8.81-8.801c-3.502-3.498-3.502-9.223,0-12.721L229.832,10.564 c3.502-3.498,10.401-6.727,15.33-7.175l36.862-3.352c4.93-0.448,8.596,3.218,8.148,8.148l-3.346,36.791 c-0.448,4.93-3.68,11.825-7.182,15.324l-150.4,150.251c-3.502,3.498-9.232,3.498-12.734,0l-8.822-8.813 c-3.502-3.498-3.502-9.223,0-12.722L233.608,63.213c1.854-1.848,1.856-4.852,0.003-6.702c-1.848-1.853-4.853-1.853-6.709-0.002 L100.985,182.318z"></path> 
-        </svg>
-      </template>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل براثيون</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="baratheon.html#stannis">ستانيس براثيون</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل ستارك</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="stark.html#eddard">إدارد ستارك</a>
-          <a href="stark.html#jon">چون سنو</a>
-          <a href="stark.html#arya">آريا ستارك</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل لانستر</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="lannister.html#tyrion">تيريون لانستر</a>
-          <a href="lannister.html#jaime">چايمي لانستر</a>
-          <a href="lannister.html#cersei">سيرسي لانستر</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل تارجارين</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="targaryen.html#dany">دنيريس تارجارين</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>آل تايريل</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="tyrell.html#olenna">أولينا تايريل</a>
-        </div>
-      </div>
-
-<div class="family">
-        <button class="dropbtn"><span>آل چرايچوي</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="greyjoy.html#euron">يورون چرايچوي</a>
-        </div>
-      </div>
-
-      <div class="family">
-        <button class="dropbtn"><span>شخصيات أخرى</span> <span class="sword-icon"></span></button>
-        <div class="dropdown-content">
-          <a href="other.html#baelish">بيتر بيليش</a>
-          <a href="other.html#varys">فاريس</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="sidebar" class="sidebar"></div>
 
   <div class="content">
     <h1 lang="en">Ours is the Fury</h1>
@@ -336,47 +51,16 @@ h3:hover .sigils {
     </div>
   </div>
 
-<script>
-  // حقن السيف
-  document.addEventListener('DOMContentLoaded', () => {
-    const template = document.getElementById('sword-template').innerHTML;
-    document.querySelectorAll('.sword-icon').forEach(icon => {
-      icon.innerHTML = template;
-    });
-  });
-
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('visible');
-  }
-
-  // إغلاق عند النقر في الخارج
-  document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('sidebar');
-    const menuToggle = document.querySelector('.menu-toggle');
-    if (!sidebar.contains(event.target) && !menuToggle.contains(event.target) && sidebar.classList.contains('visible')) {
-      sidebar.classList.remove('visible');
-    }
-  });
-
-  document.querySelectorAll('.dropbtn').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const family = this.parentElement;
-      document.querySelectorAll('.family').forEach(f => {
-        if (f !== family) f.classList.remove('open');
+  <script src="sidebar.js"></script>
+  <script>
+    function toggleSidebar() { document.getElementById('sidebar').classList.toggle('visible'); }
+    function copyToClipboard(button) {
+      let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        button.textContent = "تم النسخ";
+        setTimeout(() => button.textContent = "نسخ", 1500);
       });
-      family.classList.toggle('open');
-    });
-  });
-
-  function copyToClipboard(button) {
-    let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      button.textContent = "تم النسخ";
-      setTimeout(() => button.textContent = "نسخ", 1500);
-    });
-  }
-</script>
-
+    }
+  </script>
 </body>
 </html>
