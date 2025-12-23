@@ -27,8 +27,8 @@ body {
   color: var(--accent-color);
   overflow-x: hidden;
   min-height: 100vh;
+  position: relative; /* ضروري لكي تعمل الطبقات التي بداخله */
 }
-
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
@@ -36,37 +36,36 @@ body {
  color: var(--accent-color);
  font-size: 25px;
 }
-.lannisterpic {
-  content: "";
+
+/* استخدام الـ Pseudo-element لإنشاء طبقة الصورة */
+.lannisterpic::before {
+  content: ""; /* الآن استخدامها صحيح */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100lvh;
+  height: 100%;
   background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  z-index: -2; 
+  z-index: -2; /* تكون خلف الـ overlay */
   transform: translateZ(0);
-  -webkit-transform: translateZ(0);
   will-change: transform;
 }
+
+/* طبقة الـ Overlay (التعتيم) */
 .overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100lvh;
-background-color: rgba(0, 0, 0, 0.8);
-z-index: -1;
-pointer-events: none;
-transform: translateZ(0);
--webkit-transform: translateZ(0);
-will-change: transform;
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* يمكنك التحكم في درجة التعتيم هنا */
+  z-index: -1; /* فوق الصورة وتحت المحتوى */
+  pointer-events: none;
 }
+
 
 
 .menu-toggle {
