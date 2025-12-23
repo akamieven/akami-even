@@ -243,7 +243,6 @@ backface-visibility: hidden;
   color: white; font-size: 35px; cursor: pointer;
 }
 
-/* أيقونة السيف المحدثة */
 .sword-icon {
   width: 22px;
   height: 22px;
@@ -273,6 +272,15 @@ backface-visibility: hidden;
 .dropdown-content a {
   color: #bbb; padding: 12px 40px;
   text-decoration: none; display: block; font-size: 16px;
+  transition: 0.3s;
+}
+
+.dropdown-content a::before {
+  content: "•";
+  position: absolute;
+  right: 20px;
+  color: white;
+  opacity: 0;
   transition: 0.3s;
 }
 
