@@ -168,7 +168,7 @@
       const data = await response.json();
 
       // نفترض أننا في صفحة اللانستر حالياً
-      const lannisterData = data.filter(item => item.family === 'lannister');
+      const targaryenData = data.filter(item => item.family === 'targaryen');
 
       container.innerHTML = ''; // تنظيف الحاوية قبل الوضع
 
