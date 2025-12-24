@@ -325,7 +325,7 @@ h3:hover .sigils {
   font-weight: bold;
 }
 .quote cite {
-    position: absolute; top: 1px; right: 5px;
+    position: absolute; bottom: 1px; right: 5px;
     font-weight: bold;
     display: block;
     text-align: right;
