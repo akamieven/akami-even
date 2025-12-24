@@ -302,8 +302,8 @@ backface-visibility: hidden;
 .sigils {
   filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
   transition: transform 0.3s ease;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
 h3:hover .sigils {
