@@ -107,33 +107,38 @@
     <p style="font-size: 45px; color: #B22222;">آل تارجارين</p>
     <a href="index.html" class="home-link">الصفحة الرئيسية</a>
 
-    <div id="character-container" class="character-section">
+    <div class="character-section">
+      <div class="character" id="dany">
+        <img src="https://i.postimg.cc/zBgSQtD7/5b9a350541270759b05c1e0b616d3c9d.jpg" alt="دنيريس تارجارين">
+        <h2>دنيريس تارجارين</h2>
+        <div class="quote">
+            زحفَ العجوز إلى أول صَفٍّ من المخصيِّين ودمه يتدفَّق على القرميد، لكن المطهَّرين لم يخفضوا أعيُنهم إليه حتى ليُشاهِدوه وهو يموت، وصَفًّا وراء صَفٍّ وراء صَفٍّ ظَلُّوا واقفين.
+            هرولَت داني أمامهم وضفيرتها الذَّهبيَّة الفضِّيَّة تُرَفرِف وراءها وجرسها يرنُّ، وصاحَت: «أيها المطهَّرون! اقتُلوا الأسياد الكرام، اقتُلوا الجنود، اقتُلوا كلَّ من يرتدي التوكار أو يحمل سوطًا، لكن لا تُؤذوا طفلًا تحت الثَّانية عشرة، واضربوا قيود كلِّ عبدٍ ترون»، ورفعَت أصابع الهارپي في الهواء... ثم ألقَت السَّوط أرضًا وردَّدت بنبرةٍ كأنها لحن: «الحرية! دراكارس! دراكارس!».
+            وهتفوا هُم بأعذب كلمةٍ سمعتها في حياتها: «دراكارس! دراكارس! دراكارس!»، وفي كلِّ مكانٍ حولهم جرى النَّخَّاسون وانتحبوا وتوسَّلوا وماتوا، وامتلأَ الهواء المغبَّر بالحِراب والنِّيران.
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+        </div>
+      </div>
     </div>
-   
-<script>
-  // 1. وظائف الواجهة (السايدبار، السيوف، القوائم) - حافظنا عليها كما هي
-  document.addEventListener('DOMContentLoaded', () => {
-    // حقن السيف
-    const swordTemplate = document.getElementById('sword-template');
-    if (swordTemplate) {
-      const template = swordTemplate.innerHTML;
-      document.querySelectorAll('.sword-icon').forEach(icon => {
-        icon.innerHTML = template;
-      });
-    }
+  </div>
 
-    // جلب الاقتباسات تلقائياً عند تحميل الصفحة
-    loadQuotes(); 
+<script>
+  // حقن السيف في كل العناصر عند التحميل
+  document.addEventListener('DOMContentLoaded', () => {
+    const template = document.getElementById('sword-template').innerHTML;
+    document.querySelectorAll('.sword-icon').forEach(icon => {
+      icon.innerHTML = template;
+    });
   });
 
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('visible');
   }
 
+  // إغلاق السايدبار عند النقر في الخارج
   document.addEventListener('click', function(event) {
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.querySelector('.menu-toggle');
-    if (sidebar && !sidebar.contains(event.target) && !menuToggle.contains(event.target) && sidebar.classList.contains('visible')) {
+    if (!sidebar.contains(event.target) && !menuToggle.contains(event.target) && sidebar.classList.contains('visible')) {
       sidebar.classList.remove('visible');
     }
   });
@@ -149,7 +154,6 @@
     });
   });
 
-  // 2. وظيفة النسخ الاحترافية
   function copyToClipboard(button) {
     let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
     navigator.clipboard.writeText(textToCopy).then(() => {
@@ -157,42 +161,7 @@
       setTimeout(() => button.textContent = "نسخ", 1500);
     });
   }
-
-  // 3. المحرك الجديد لجلب الاقتباسات من ملف JSON
-  async function loadQuotes() {
-    const container = document.getElementById('character-container');
-    if (!container) return; // تأكد أننا في صفحة تحتوي على مكان للاقتباسات
-
-    try {
-      const response = await fetch('quotes.json');
-      const data = await response.json();
-
-      // نفترض أننا في صفحة اللانستر حالياً
-      const targaryenData = data.filter(item => item.family === 'targaryen');
-
-      container.innerHTML = ''; // تنظيف الحاوية قبل الوضع
-
-      lannisterData.forEach(char => {
-        let quotesHTML = char.quotes.map(q => `
-          <div class="quote">
-            ${q}
-            <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
-          </div>
-        `).join('');
-
-        container.innerHTML += `
-          <div class="character" id="${char.id}">
-            <img src="${char.image}" alt="${char.name}">
-            <h2>${char.name}</h2>
-            ${quotesHTML}
-          </div>
-          <hr style="width: 40%; opacity: 0.2; margin: 40px auto;">
-        `;
-      });
-    } catch (error) {
-      console.error("خطأ في تحميل الاقتباسات:", error);
-    }
-  }
 </script>
+
 </body>
 </html>
