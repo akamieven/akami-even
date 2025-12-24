@@ -36,8 +36,11 @@ body {
  color: var(--accent-color);
  font-size: 25px;
 }
+
 .p {
 font-weight: bold;
+}
+
 .lannisterpic::before {
     content: "";
   position: fixed;
