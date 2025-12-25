@@ -305,7 +305,7 @@ backface-visibility: hidden;
 .character h2 { font-size: 28px; margin-top: 10px; color: var(--accent-color); }
 
 .sigils {
-  filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
+  filter: drop-shadow(0 0 2px var(--accent-color));
   transition: transform 0.5s ease;
   width: 45px;
   height: 45px;
