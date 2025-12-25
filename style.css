@@ -306,23 +306,14 @@ backface-visibility: hidden;
 .sigils {
   filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
   transition: transform 0.5s ease;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 
 h3:hover .sigils {
   transform: scale(1.3) rotate(-5deg);
 }
-. sigilbaratheon {
-  filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
-  transition: transform 0.3s ease;
-  width: 40px;
-  height: 40px;
-}
 
-h3:hover .sigilbaratheon {
-  transform: scale(1.1) rotate(-5deg);
-}
 .quote {
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
