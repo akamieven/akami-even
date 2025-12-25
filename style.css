@@ -315,10 +315,10 @@ h3:hover .sigils {
   transform: scale(1.5) rotate(-5deg);
 }
 .sigilbaratheon {
-  filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
-  transition: transform 0.3s ease;
-  width: 70px;
-  height: 70px;
+  filter: drop-shadow(0 0 2px var(--accent-color));
+  transition: transform 0.5s ease;
+  width: 75px;
+  height: 75px;
 }
 h3:hover .sigilbaratheon {
   transform: scale(1.5) rotate(-5deg);
