@@ -169,10 +169,7 @@ font-weight: bold;
   -webkit-transform: translateZ(0);
   will-change: transform;
 }
-.arrynpic .sigils{
-width: 60px;
-height: 60px;
-}
+
 .otherspic::before {
     content: "";
   position: fixed;
