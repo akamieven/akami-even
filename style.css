@@ -316,8 +316,8 @@ h3:hover .sigils {
 . sigilbaratheon {
   filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
   transition: transform 0.3s ease;
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
 }
 
 h3:hover .sigilbaratheon {
