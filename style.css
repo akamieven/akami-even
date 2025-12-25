@@ -314,6 +314,15 @@ backface-visibility: hidden;
 h3:hover .sigils {
   transform: scale(1.5) rotate(-5deg);
 }
+.sigilbaratheon {
+  filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.5));
+  transition: transform 0.3s ease;
+  width: 70px;
+  height: 70px;
+}
+h3:hover .sigilbaratheon {
+  transform: scale(1.5) rotate(-5deg);
+}
 
 .quote {
   background-color: rgba(0, 0, 0, 0.1);
