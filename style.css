@@ -33,13 +33,17 @@ body {
   font-family: 'EnglishFont', cursive !important;
 }
 .content h1{
- -webkit-text-stroke: 0.1px black;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
  color: var(--accent-color);
  font-size: 25px;
 }
 
 p {
--webkit-text-stroke: 0.1px black;
+
 font-weight: bold;
 }
 
