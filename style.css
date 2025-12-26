@@ -289,6 +289,11 @@ backface-visibility: hidden;
   border: none; text-align: right; width: 100%;
   cursor: pointer; display: flex; justify-content: space-between;
   align-items: center;
+text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
 
 .dropbtn:hover { color: white; }
@@ -304,6 +309,11 @@ backface-visibility: hidden;
   color: #bbb; padding: 12px 40px;
   text-decoration: none; display: block; font-size: 16px;
   transition: 0.3s;
+  text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
 
 .dropdown-content a::before {
