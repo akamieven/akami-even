@@ -146,7 +146,7 @@ font-weight: bold;
   height: 100lvh;
   background-image: url('https://i.postimg.cc/NjTHYKbd/enjon-chakraborty-sunspear.jpg'); 
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
   z-index: -2; 
   transform: translateZ(0);
@@ -190,18 +190,7 @@ font-weight: bold;
 @media (max-width: 768px) {
 .martellpic::before  {
         background-image: url('https://i.postimg.cc/SRnkFxwB/Picsart-25-12-24-21-47-35-178.jpg');
-   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  z-index: -2; 
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100lvh;
+  
 }
 }
 .overlay {
