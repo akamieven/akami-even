@@ -33,6 +33,7 @@ body {
   font-family: 'EnglishFont', cursive !important;
 }
 .content h1{
+ -webkit-text-stroke: 1px black;
  color: var(--accent-color);
  font-size: 25px;
 }
