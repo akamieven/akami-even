@@ -356,6 +356,15 @@ h3:hover .sigils {
 h3:hover .sigilbaratheon {
   transform: scale(1.5) rotate(-5deg);
 }
+.sigillannister {
+  filter: drop-shadow(0 0 2px var(--accent-color));
+  transition: transform 0.5s ease;
+  width: 5px;
+  height: 5px;
+}
+h3:hover .sigilbaratheon {
+  transform: scale(1.5) rotate(-5deg);
+}
 
 .quote {
   background-color: rgba(0, 0, 0, 0.1);
