@@ -42,7 +42,13 @@ body {
  color: var(--accent-color);
  font-size: 25px;
 }
-
+h2 {
+text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
 p {
 text-shadow: 
         -1px -1px 0 #000,  
