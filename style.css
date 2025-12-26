@@ -146,7 +146,7 @@ font-weight: bold;
   height: 100lvh;
   background-image: url('https://i.postimg.cc/NjTHYKbd/enjon-chakraborty-sunspear.jpg'); 
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left center;
   background-size: cover;
   z-index: -2; 
   transform: translateZ(0);
