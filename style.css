@@ -19,6 +19,11 @@ html { scroll-behavior: smooth; }
 }
 
 body {
+text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -34,20 +39,20 @@ body {
 }
 .content h1{
     text-shadow: 
-        -2px -2px 0 #000,  
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
  color: var(--accent-color);
  font-size: 25px;
 }
 
 p {
 text-shadow: 
-        -2px -2px 0 #000,  
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 font-weight: bold;
 }
 
