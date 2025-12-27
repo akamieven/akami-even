@@ -343,7 +343,7 @@ text-shadow:
   width: 45px;
   height: 45px;
 position: absolute;
-  left: 1px;
+  left: 10px;
 }
 
 h3:hover .sigils {
