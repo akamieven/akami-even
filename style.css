@@ -59,10 +59,11 @@ font-weight: bold;
 }
 #family-name {
 text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
+        -1px -1px 0 #000 !important,  
+         1px -1px 0 #000 !important,
+        -1px  1px 0 #000 !important,
+         1px  1px 0 #000 !important;
+
 }
 
 .lannisterpic::before {
