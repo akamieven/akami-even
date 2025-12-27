@@ -356,7 +356,7 @@ position: absolute;
 h3:hover .sigils {
   transform: scale(1.3) rotate(-5deg);
 }
-.sigilbaratheon {
+.sigils1 {
   filter: drop-shadow(0 0 2px var(--accent-color));
   transition: transform 0.5s ease;
   width: 75px;
@@ -364,10 +364,10 @@ h3:hover .sigils {
   position: absolute;
   left: 0;
 }
-h3:hover .sigilbaratheon {
+h3:hover .sigils1 {
   transform: scale(1.3) rotate(-5deg);
 }
-.sigillannister {
+.sigils2 {
   filter: drop-shadow(0 0 2px var(--accent-color));
   transition: transform 0.5s ease;
   width: 80px;
@@ -375,10 +375,10 @@ h3:hover .sigilbaratheon {
   position: absolute;
   left: 0;
 }
-h3:hover .sigillannister {
+h3:hover .sigils2 {
   transform: scale(1.3) rotate(-5deg);
 }
-.sigilgreyjoy {
+.sigis3 {
   filter: drop-shadow(0 0 2px var(--accent-color));
   transition: transform 0.5s ease;
   width: 90px;
@@ -386,7 +386,7 @@ h3:hover .sigillannister {
   position: absolute;
   left: 10px;
 }
-h3:hover .sigilgreyjoy {
+h3:hover .sigils3 {
   transform: scale(1.3) rotate(-5deg);
 }
 
