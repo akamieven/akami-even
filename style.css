@@ -217,6 +217,10 @@ text-shadow:
         background-image: url('https://i.postimg.cc/SRnkFxwB/Picsart-25-12-24-21-47-35-178.jpg');
   
 }
+.lannisterpic::before  {
+        background-image: url('https://i.postimg.cc/SRnkFxwB/Picsart-25-12-24-21-47-35-178.jpg');
+  
+}
 }
 .overlay {
   position: fixed;
