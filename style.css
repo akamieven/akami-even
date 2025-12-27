@@ -343,7 +343,7 @@ text-shadow:
   width: 45px;
   height: 45px;
 position: absolute;
-  left: 0;
+  left: 1px;
 }
 
 h3:hover .sigils {
@@ -354,8 +354,7 @@ h3:hover .sigils {
   transition: transform 0.5s ease;
   width: 75px;
   height: 75px;
-   <div id="sidebar-container"></div>
-position: absolute;
+  position: absolute;
   left: 0;
 }
 h3:hover .sigilbaratheon {
