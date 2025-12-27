@@ -73,7 +73,7 @@ text-shadow:
   left: 0;
   width: 100%;
   height: 100lvh;
-  background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg'); 
+  background-image: url('https://i.postimg.cc/63v56TGK/cc5f5690-feff-4f13-87dc-bc5ced0101e4.jpg'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -218,7 +218,7 @@ text-shadow:
   
 }
 .lannisterpic::before  {
-        background-image: url('https://i.postimg.cc/63v56TGK/cc5f5690-feff-4f13-87dc-bc5ced0101e4.jpg');
+        background-image: url('https://i.postimg.cc/WzT84cSb/IMG-20250503-172936.jpg');
   
 }
 }
