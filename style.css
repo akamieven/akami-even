@@ -153,7 +153,7 @@ text-shadow:
   left: 0;
   width: 100%;
   height: 100lvh;
-  background-image: url('https://i.ibb.co/r2pfjxxf/IMG-20250519-001608.jpg'); 
+  background-image: url('https://i.postimg.cc/jdRpPkLs/b7635f8d-8cec-47f7-bda7-9323e71e7eef-(1).jpg'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -235,6 +235,10 @@ text-shadow:
 }
 .greyjoypic::before  {
         background-image: url('https://i.postimg.cc/XYKwwp5c/Picsart-25-12-27-19-15-43-935.jpg');
+  
+}
+.tyrellpic::before  {
+        background-image: url('https://i.postimg.cc/6qCBq7jc/b7635f8d-8cec-47f7-bda7-9323e71e7eef.jpg');
   
 }
 .arrynpic::before  {
