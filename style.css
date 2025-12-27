@@ -378,7 +378,7 @@ h3:hover .sigils1 {
 h3:hover .sigils2 {
   transform: scale(1.3) rotate(-5deg);
 }
-.sigis3 {
+.sigils3 {
   filter: drop-shadow(0 0 2px var(--accent-color));
   transition: transform 0.5s ease;
   width: 90px;
