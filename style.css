@@ -185,7 +185,7 @@ text-shadow:
   left: 0;
   width: 100%;
   height: 100lvh;
-  background-image: url('https://i.postimg.cc/rwDr1zTk/Picsart-25-12-25-03-23-24-559.jpg'); 
+  background-image: url('https://i.postimg.cc/Pf4bpLmq/Picsart-25-12-27-19-32-20-162.jpg'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -231,6 +231,10 @@ text-shadow:
 }
 .greyjoypic::before  {
         background-image: url('https://i.postimg.cc/XYKwwp5c/Picsart-25-12-27-19-15-43-935.jpg');
+  
+}
+.arrynpic::before  {
+        background-image: url('https://i.postimg.cc/rwDr1zTk/Picsart-25-12-25-03-23-24-559.jpg');
   
 }
 }
