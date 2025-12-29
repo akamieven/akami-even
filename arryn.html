@@ -8,6 +8,8 @@
   <meta name="author" content="Akami Even" />
   <title>إقتباسات رواية أغنية الجليد والنار - آل آرين</title>
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
   <link rel="stylesheet" href="style.css">
   <style>
@@ -38,7 +40,19 @@
     <h1 lang="en">As High As Honor</h1>
       <p style="font-size: 25px;">«سامون كالشَّرف»<p>
     <p style="font-size: 45px;">آل آرن</p>
-    <a href="index.html" class="home-link">الصفحة الرئيسية</a>
+    <div class:"inline-controls">
+    <a href="index.html" class="home-link">
+    <span class="material-symbols-outlined">home</span>
+  </a>
+
+  <button class="home-link" onclick="toggleSearch()" title="بحث">
+    <span class="material-symbols-outlined">search</span>
+  </button>
+</div>
+
+<div id="searchPopup" class="search-popup-new">
+  <input type="text" id="floatingSearchInput" placeholder="أبحث في الإقتباسات" onkeyup="filterQuotes()">
+</div>
 
    <hr style="width: 100%; opacity: 0.5; margin: 30px auto;">
 
@@ -55,6 +69,7 @@
     </div>
   </div>
 
+
 <script>
 fetch('sidebar.html')
   .then(response => response.text())
@@ -62,12 +77,12 @@ fetch('sidebar.html')
     document.getElementById('sidebar-container').innerHTML = data;
 
     // حقن الهوية
-    const familyName = document.getElementById('family-name').innerText;
-    const familyLogo = document.getElementById('family-logo').innerHTML;
+    const familyNameSpan = document.getElementById('family-name');
+    const familyLogoDiv = document.getElementById('family-logo');
     const sidebarTitle = document.getElementById('sidebar-title');
 
-    if (sidebarTitle) {
-      sidebarTitle.innerHTML = `<span>${familyName}</span> ${familyLogo}`;
+    if (sidebarTitle && familyNameSpan && familyLogoDiv) {
+      sidebarTitle.innerHTML = `<span>${familyNameSpan.innerText}</span> ${familyLogoDiv.innerHTML}`;
     }
 
     // تفعيل السيوف
@@ -90,15 +105,99 @@ fetch('sidebar.html')
         family.classList.toggle('open');
       });
     });
-  }) // تم إغلاق بلوك الـ then هنا بشكل صحيح
+  })
   .catch(error => console.error('Error loading sidebar:', error));
 
-// الدوال العامة
+// --- الدوال العامة ---
+
+// 1. دالة البحث والفلترة المحدثة
+function toggleSearch() {
+  const popup = document.getElementById('searchPopup');
+  const input = document.getElementById('floatingSearchInput');
+  
+  popup.classList.toggle('active');
+  
+  if (popup.classList.contains('active')) {
+    input.focus();
+  } else {
+    input.value = ''; 
+    filterQuotes(); 
+  }
+}
+
+// دالة تصفية الاقتباسات وتمييز الكلمات
+function filterQuotes() {
+  const input = document.getElementById('floatingSearchInput');
+  const filter = input.value.trim().toLowerCase();
+  const characters = document.querySelectorAll('.character');
+
+  characters.forEach(char => {
+    let charHasVisibleQuotes = false;
+    const quotes = char.querySelectorAll('.quote');
+
+    quotes.forEach(quote => {
+      // حفظ النص الأصلي لمنع تداخل عمليات البحث
+      if (!quote.dataset.originalText) {
+        quote.dataset.originalText = quote.innerHTML;
+      }
+      
+      const originalHTML = quote.dataset.originalText;
+      // تنظيف النص للبحث بدون تأثير الوسوم
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = originalHTML;
+      const plainText = tempDiv.innerText.toLowerCase();
+
+      if (filter === "") {
+        // إعادة الحالة الطبيعية
+        quote.innerHTML = originalHTML;
+        quote.style.display = "";
+        charHasVisibleQuotes = true;
+      } else if (plainText.includes(filter)) {
+        // إظهار الاقتباس المطابق فقط
+        quote.style.display = "";
+        charHasVisibleQuotes = true;
+        
+        // تمييز الكلمة داخل النص
+        highlightText(quote, filter);
+      } else {
+        // إخفاء الاقتباس غير المطابق
+        quote.style.display = "none";
+      }
+    });
+
+    // التحكم في ظهور الشخصية (تظهر فقط إذا كان لها اقتباس مطابق)
+    if (charHasVisibleQuotes) {
+      char.style.display = "";
+      if (char.previousElementSibling && char.previousElementSibling.tagName === 'HR') {
+        char.previousElementSibling.style.display = "";
+      }
+    } else {
+      char.style.display = "none";
+      if (char.previousElementSibling && char.previousElementSibling.tagName === 'HR') {
+        char.previousElementSibling.style.display = "none";
+      }
+    }
+  });
+}
+
+// دالة تمييز النص (Highlight)
+function highlightText(element, filter) {
+  const originalHTML = element.dataset.originalText;
+  // استخدام RegExp للبحث عن الكلمة مع تجاهل حالة الأحرف
+  const regex = new RegExp(`(${filter})`, 'gi');
+  
+  // استبدال النص مع الحفاظ على التنسيق
+  // ملاحظة: الـ regex هنا بسيط، سيقوم بتمييز الكلمات حتى لو كانت جزءاً من الروابط
+  element.innerHTML = originalHTML.replace(regex, '<mark>$1</mark>');
+}
+
+// 2. دالة فتح القائمة الجانبية
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) sidebar.classList.toggle('visible');
 }
 
+// 3. إغلاق القائمة عند النقر خارجها
 document.addEventListener('click', function(event) {
   const sidebar = document.getElementById('sidebar');
   const menuToggle = document.querySelector('.menu-toggle');
@@ -107,11 +206,23 @@ document.addEventListener('click', function(event) {
   }
 });
 
+// 4. دالة نسخ الاقتباس
 function copyToClipboard(button) {
-  let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
+  // ننسخ النص من الداتا الأصلية لضمان عدم نسخ كلمة "تم النسخ" أو وسوم الـ <mark>
+  const quoteDiv = button.parentElement;
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = quoteDiv.dataset.originalText || quoteDiv.innerHTML;
+  
+  // إزالة زر النسخ من النص المنسوخ
+  const btnInTemp = tempDiv.querySelector('.copy-btn');
+  if(btnInTemp) btnInTemp.remove();
+  
+  let textToCopy = tempDiv.innerText.trim();
+  
   navigator.clipboard.writeText(textToCopy).then(() => {
+    const originalText = button.textContent;
     button.textContent = "تم النسخ";
-    setTimeout(() => button.textContent = "نسخ", 1500);
+    setTimeout(() => button.textContent = originalText, 1500);
   });
 }
 </script>
