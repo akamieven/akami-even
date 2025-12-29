@@ -273,7 +273,7 @@ backface-visibility: hidden;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--accent-color);
   font-size: 28px;
-  width: 40px; height: 40px;
+  width: 60px; height: 60px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 2000;
