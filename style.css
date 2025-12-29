@@ -449,7 +449,7 @@ h3:hover .sigils3 {
 }
 
 .home-link {
-  color: #C0C0C0;
+  color: var(--accent-color);
   text-decoration: none;
   font-size: 18px;
   display: inline-block;
