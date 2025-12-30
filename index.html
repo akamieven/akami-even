@@ -6,15 +6,24 @@
   <meta name="description" content="إقتباسات رواية أغنيَّة الجَليد والنَّار باللغة العربية" />
   <meta name="author" content="Akami Even" />
   <title>إقتباسات رواية أغنية الجليد والنار</title>
-<meta name="color-scheme" content="dark light">
+  <meta name="color-scheme" content="dark light">
   <link rel="icon" href="https://i.postimg.cc/1zw198Pr/Picsart-25-05-01-18-19-21-090.jpg" type="image/png" />
+
+  <!-- (C) LCP Optimization: Preload Background Image -->
+  <link rel="preload" href="https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg" as="image">
+
+  <!-- Google Fonts for Search Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <style>
  :root {
       --glass-bg: rgba(0, 0, 0, 0.6);
       --glass-border: rgba(255, 255, 255, 0.1);
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --main-gold: grey;
+      --accent-color: white;
     }
+
 @font-face {
   font-family: 'GameOfThrones';
   src: url('booksfont.ttf') format('truetype');
@@ -36,13 +45,15 @@ body {
   color: white;
   overflow-x: hidden;
 }
+
 p {
-font-weight: bold;
+  font-weight: bold;
 }
 
 [lang="en"] {
   font-family: 'EnglishFont', cursive !important;
 }
+
 body::before {
   content: "";
   position: fixed;
@@ -50,7 +61,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100lvh;
-    background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg');
+  background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -61,19 +72,17 @@ body::before {
 }
 
 .overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100lvh;
-background-color: rgba(0, 0, 0, 0.6);
-z-index: -1;
-pointer-events: none;
-transform: translateZ(0);
--webkit-transform: translateZ(0);
-will-change: transform;
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 .content {
@@ -89,11 +98,9 @@ h1 {
   padding: 20px 40px;
   display: inline-block;
   color: white;
-  
 }
 
-p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9;   
- }
+p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; opacity: 0.9; }
 
 .main-links { list-style: none; padding: 0; }
 .main-links li { margin: 20px 0; }
@@ -118,6 +125,149 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
 }
 
+/* --- Search Styles --- */
+.inline-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.search-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background: var(--main-gold);
+  color: black;
+  transform: scale(1.1);
+}
+
+.search-popup-new {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  width: 90%;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid var(--accent-color);
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-popup-new.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.search-popup-new input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-family: inherit;
+  font-size: 18px;
+  text-align: right;
+  outline: none;
+  box-sizing: border-box; 
+}
+
+.search-popup-new input:focus {
+  border-color: var(--accent-color);
+}
+
+/* Results Container */
+#global-search-results {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* (C) Spinner Styles */
+.loading-spinner {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: var(--accent-color); /* اللون الأبيض للدوران */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-result-item {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-right: 3px solid var(--accent-color);
+  transition: 0.3s;
+}
+
+.search-result-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.search-result-item h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.search-result-item p {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.8;
+  font-family: sans-serif; 
+  line-height: 1.5;
+}
+
+.search-result-item .source-badge {
+  display: inline-block;
+  font-size: 12px;
+  background: rgba(0,0,0,0.5);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  color: #aaa;
+}
+
+.search-result-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* --- Menu & Sidebar --- */
 .menu-toggle {
   position: fixed;
   top: 25px;
@@ -168,85 +318,16 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   cursor: pointer;
 }
 
-.house h3 { 
-  color: white; 
-  padding: 0 25px 20px; 
-  border-bottom: 1px solid rgba(241, 210, 121, 0.2);
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-}
-
-.sword-icon {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  fill: #888;
-}
-
-.sword-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.dropbtn {
-  background: transparent;
-  color: #eee;
-  padding: 18px 25px;
-  font-size: 18px;
-  font-family: 'GameOfThrones', serif;
-  border: none;
-  text-align: right;
-  width: 100%;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.3s;
-}
-
+/* Sidebar Dropdowns */
+.house h3 { color: white; padding: 0 25px 20px; border-bottom: 1px solid rgba(241, 210, 121, 0.2); margin-bottom: 10px; letter-spacing: 2px; }
+.sword-icon { width: 24px; height: 24px; display: inline-block; transition: transform 0.5s; fill: #888; }
+.sword-icon svg { width: 100%; height: 100%; }
+.dropbtn { background: transparent; color: #eee; padding: 18px 25px; font-size: 18px; font-family: 'GameOfThrones', serif; border: none; text-align: right; width: 100%; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
 .dropbtn:hover { background: rgba(241, 210, 121, 0.1); color: white; }
-.dropbtn:hover .sword-icon { fill: white; }
-
-.family.open .sword-icon {
-  transform: rotate(180deg); 
-  fill: white;
-}
-
-.dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: max-height 0.4s ease-out;
-}
-
-.dropdown-content a {
-  color: #bbb;
-  padding: 12px 40px;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  transition: 0.3s;
-  position: relative;
-}
-
-.dropdown-content a::before {
-  content: "•";
-  position: absolute;
-  right: 20px;
-  color: white;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.dropdown-content a:hover { 
-  color: #fff; 
-  background: rgba(255,255,255,0.05); 
-  padding-right: 50px;
-}
-
-.dropdown-content a:hover::before { opacity: 1; }
-
+.family.open .sword-icon { transform: rotate(180deg); fill: white; }
+.dropdown-content { max-height: 0; overflow: hidden; background-color: rgba(0, 0, 0, 0.2); transition: max-height 0.4s ease-out; }
+.dropdown-content a { color: #bbb; padding: 12px 40px; text-decoration: none; display: block; font-size: 16px; transition: 0.3s; position: relative; }
+.dropdown-content a:hover { color: #fff; background: rgba(255,255,255,0.05); padding-right: 50px; }
 .family.open .dropdown-content { max-height: 600px; }
 
 @keyframes fadeIn {
@@ -255,7 +336,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: var(--main-gold); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -269,16 +350,28 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 <div id="sidebar-container"></div>
 <div id="family-identity" style="display: none;">
     <span id="family-name">العوائل</span>
-    <div id="family-logo">
-
-    </div>
+    <div id="family-logo"></div>
 </div>
 
   <div class="content">
     <h1 class="text" lang="en">Akami Even</h1>
     <p class="text">إقتباسات رواية أغنيَّة الجليد والنَّار باللغة العربية</p>
 
-    <ul class="main-links">
+    <!-- Search Button -->
+    <div class="inline-controls">
+      <button class="search-btn" onclick="toggleSearch()" title="بحث شامل في كل الصفحات">
+        <span class="material-symbols-outlined">search</span>
+        <span style="margin-right: 8px;">بحث شامل</span>
+      </button>
+    </div>
+
+    <!-- Search Popup -->
+    <div id="searchPopup" class="search-popup-new">
+      <input type="text" id="globalSearchInput" placeholder="أبحث عن اقتباس أو شخصية في كل العوائل..." onkeyup="debouncedSearch()">
+      <div id="global-search-results"></div>
+    </div>
+
+    <div class="main-links" id="pages-list">
       <li><a href="stark.html"> ستارك</a></li> 
       <li><a href="lannister.html"> لانستر</a></li> 
       <li><a href="targaryen.html">تارجارين</a></li>
@@ -287,9 +380,8 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
        <li><a href="martell.html"> مارتل</a></li>
       <li><a href="tyrell.html"> تايريل</a></li>
        <li><a href="arryn.html"> آرن</a></li>
-       <li><a href="tyrell.html">شخصيات أخرى</a></li>
-
-    </ul>
+       <li><a href="others.html">شخصيات أخرى</a></li>
+    </div>
 
     <hr style="width: 50%; border: 0; border-top: 1px solid rgba(128, 128, 128, 0.8); margin: 40px auto;">
 
@@ -298,22 +390,21 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
       <a href="https://www.facebook.com/..." target="_blank" style="color: white; text-decoration: none;">فيسبوك</a>
     </div>
   </div>
+
 <script>
+// --- Sidebar Loading Logic ---
 fetch('sidebar.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('sidebar-container').innerHTML = data;
 
-    // حقن الهوية
     const familyName = document.getElementById('family-name').innerText;
-    const familyLogo = document.getElementById('family-logo').innerHTML;
     const sidebarTitle = document.getElementById('sidebar-title');
 
     if (sidebarTitle) {
-      sidebarTitle.innerHTML = `<span>${familyName}</span> ${familyLogo}`;
+      sidebarTitle.innerHTML = `<span>${familyName}</span>`;
     }
 
-    // تفعيل السيوف
     const template = document.getElementById('sword-template');
     if (template) {
        const swordContent = template.innerHTML;
@@ -322,7 +413,6 @@ fetch('sidebar.html')
        });
     }
 
-    // تفعيل القوائم
     document.querySelectorAll('.dropbtn').forEach(button => {
       button.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -333,31 +423,205 @@ fetch('sidebar.html')
         family.classList.toggle('open');
       });
     });
-  }) // تم إغلاق بلوك الـ then هنا بشكل صحيح
+  })
   .catch(error => console.error('Error loading sidebar:', error));
 
-// الدوال العامة
+// --- Main Interactions ---
+
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) sidebar.classList.toggle('visible');
 }
 
+// Global click handler
 document.addEventListener('click', function(event) {
   const sidebar = document.getElementById('sidebar');
   const menuToggle = document.querySelector('.menu-toggle');
+  
   if (sidebar && sidebar.classList.contains('visible') && !sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
     sidebar.classList.remove('visible');
   }
+
+  const searchPopup = document.getElementById('searchPopup');
+  const searchBtn = document.querySelector('.search-btn');
+  if (searchPopup && searchPopup.classList.contains('active') && !searchPopup.contains(event.target) && !searchBtn.contains(event.target)) {
+     searchPopup.classList.remove('active');
+  }
+
+  // --- (b) Optimized Highlight Removal ---
+  // يعمل فقط إذا كان هناك هاش يخص التظليل في الرابط لتقليل العمليات غير الضرورية
+  if (window.location.hash && window.location.hash.includes(':~:text=')) {
+     const cleanUrl = window.location.href.split('#')[0];
+     history.replaceState(null, null, cleanUrl);
+     
+     if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+     }
+  }
 });
 
-function copyToClipboard(button) {
-  let textToCopy = button.parentElement.innerText.replace("نسخ", "").replace("تم النسخ", "").trim();
-  navigator.clipboard.writeText(textToCopy).then(() => {
-    button.textContent = "تم النسخ";
-    setTimeout(() => button.textContent = "نسخ", 1500);
+// --- CROSS-PAGE SEARCH LOGIC WITH CACHING & PRELOAD ---
+
+const pagesToSearch = [
+  { file: 'baratheon.html', name: 'براثيون' },
+  { file: 'stark.html', name: 'ستارك' },
+  { file: 'lannister.html', name: 'لانستر' },
+  { file: 'targaryen.html', name: 'تارجارين' },
+  { file: 'greyjoy.html', name: 'چرايچوي' },
+  { file: 'martell.html', name: 'مارتل' },
+  { file: 'tyrell.html', name: 'تايريل' },
+  { file: 'arryn.html', name: 'آرن' },
+  { file: 'others.html', name: 'شخصيات أخرى' }
+];
+
+// (a) Page Cache Object: لتخزين الصفحات المحملة
+const pageCache = {}; 
+
+// (Preload) Function: تحميل جميع الصفحات في الخلفية مرة واحدة
+function preloadPages() {
+  pagesToSearch.forEach(page => {
+    if (!pageCache[page.file]) {
+      // نخزن الوعد (Promise) بدلاً من الانتظار لضمان عدم التكرار
+      pageCache[page.file] = fetch(page.file)
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .catch(error => {
+          console.error(`Failed to preload ${page.file}:`, error);
+          delete pageCache[page.file]; // حذف من الكاش في حال الفشل للمحاولة لاحقاً
+          return null;
+        });
+    }
   });
 }
+
+function toggleSearch() {
+  const popup = document.getElementById('searchPopup');
+  const input = document.getElementById('globalSearchInput');
+  popup.classList.toggle('active');
+  
+  if (popup.classList.contains('active')) {
+    input.focus();
+    // (Preload) بمجرد فتح النافذة، نبدأ التحميل المسبق
+    preloadPages();
+  } else {
+    input.value = '';
+    document.getElementById('global-search-results').innerHTML = '';
+  }
+}
+
+let debounceTimer;
+function debouncedSearch() {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(performGlobalSearch, 500); 
+}
+
+async function performGlobalSearch() {
+  const input = document.getElementById('globalSearchInput');
+  const query = input.value.trim().toLowerCase();
+  const resultsContainer = document.getElementById('global-search-results');
+
+  if (query.length < 2) {
+    resultsContainer.innerHTML = '';
+    return;
+  }
+
+  // (C) Spinner: عرض أيقونة التحميل الدوارة
+  resultsContainer.innerHTML = '<div class="loading-spinner"></div>';
+  
+  let allResults = [];
+
+  // التأكد من بدء التحميل (في حال لم يفتح المستخدم النافذة من قبل - احتياطياً)
+  preloadPages();
+
+  const searchPromises = pagesToSearch.map(async (page) => {
+    try {
+      // (a) استخدام الكاش: ننتظر الوعد المخزن مسبقاً
+      const text = await pageCache[page.file];
+      if (!text) return;
+      
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const quotes = doc.querySelectorAll('.quote');
+      
+      quotes.forEach(quoteDiv => {
+        const quoteTextRaw = quoteDiv.innerText;
+        const cleanQuote = quoteTextRaw.replace(/\s+/g, ' ').trim();
+        const characterName = quoteDiv.parentElement.querySelector('h2')?.innerText || "شخصية غير معروفة";
+
+        if (cleanQuote.toLowerCase().includes(query) || characterName.toLowerCase().includes(query)) {
+          
+          let fragment = "";
+          // منطق التظليل
+          if (characterName.toLowerCase().includes(query) && !cleanQuote.toLowerCase().includes(query)) {
+             fragment = `text=${encodeURIComponent(characterName.trim())}`;
+          } else {
+             const index = cleanQuote.toLowerCase().indexOf(query);
+             const originalMatch = cleanQuote.substring(index, index + query.length);
+             let prefix = cleanQuote.substring(0, index).trim();
+             const prefixWords = prefix.split(' ');
+             if (prefixWords.length > 5) prefix = prefixWords.slice(-5).join(' ');
+             let suffix = cleanQuote.substring(index + query.length).trim();
+             const suffixWords = suffix.split(' ');
+             if (suffixWords.length > 5) suffix = suffixWords.slice(0, 5).join(' ');
+
+             fragment = "text=";
+             if (prefix) fragment += `${encodeURIComponent(prefix)}-,`;
+             fragment += encodeURIComponent(originalMatch);
+             if (suffix) fragment += `,-${encodeURIComponent(suffix)}`;
+          }
+
+          const deepLink = `${page.file}#:~:${fragment}`;
+          const snippet = getSnippet(cleanQuote, query);
+          
+          allResults.push({
+            pageName: page.name,
+            file: deepLink,
+            character: characterName,
+            text: snippet
+          });
+        }
+      });
+    } catch (e) {
+      console.warn(`Error searching in ${page.file}`, e);
+    }
+  });
+
+  await Promise.all(searchPromises);
+
+  resultsContainer.innerHTML = '';
+  if (allResults.length === 0) {
+    resultsContainer.innerHTML = '<div style="padding:15px;">لم يتم العثور على نتائج.</div>';
+  } else {
+    allResults.forEach(res => {
+      const div = document.createElement('div');
+      div.className = 'search-result-item';
+      div.innerHTML = `
+        <a href="${res.file}">
+          <span class="source-badge">آل ${res.pageName}</span>
+          <h3>${res.character}</h3>
+          <p>...${res.text}...</p>
+        </a>
+      `;
+      resultsContainer.appendChild(div);
+    });
+  }
+}
+
+function getSnippet(fullText, query) {
+  const lowerText = fullText.toLowerCase();
+  const index = lowerText.indexOf(query);
+  if (index === -1) return fullText.substring(0, 100); 
+  
+  const start = Math.max(0, index - 30);
+  const end = Math.min(fullText.length, index + query.length + 60);
+  return fullText.substring(start, end).replace(new RegExp(`(${query})`, 'gi'), '<mark style="background:var(--main-gold); color:black;">$1</mark>');
+}
+
 </script>
 
+<!-- (Clean Code): Removed duplicate Cloudflare script -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9166d45131dc47f3a1583bb5909a68ea","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>

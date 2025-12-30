@@ -222,5 +222,87 @@ function copyToClipboard(button) {
   });
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. قراءة الكلمة من الرابط
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+
+    if (query) {
+        const searchText = decodeURIComponent(query).trim();
+        // نحدد منطقة البحث (داخل المحتوى فقط لتجنب القوائم الجانبية)
+        const contentArea = document.querySelector('.content') || document.body;
+
+        if(searchText.length > 0) {
+            // استدعاء دالة البحث والتلوين
+            highlightTextRecursive(contentArea, searchText);
+        }
+    }
+});
+
+// دالة البحث داخل العناصر
+function highlightTextRecursive(element, text) {
+    if (element.hasChildNodes()) {
+        for (let i = 0; i < element.childNodes.length; i++) {
+            const child = element.childNodes[i];
+            
+            // تجاهل وسوم السكربت والستايل والصور
+            if (['SCRIPT', 'STYLE', 'TEXTAREA', 'IMG', 'SVG'].includes(child.nodeName)) continue;
+            
+            // بحث عميق (Recursive) - إذا وجد نتيجة يتوقف ويعيد true
+            if (highlightTextRecursive(child, text)) return true;
+        }
+    } else if (element.nodeType === 3) { // 3 تعني عقدة نصية (Text Node)
+        const innerText = element.nodeValue;
+        const index = innerText.toLowerCase().indexOf(text.toLowerCase());
+        
+        if (index >= 0) {
+            // إنشاء عنصر سبان جديد ليحل محل النص القديم
+            const wrapper = document.createElement('span');
+            
+            const before = innerText.substring(0, index);
+            const match = innerText.substring(index, index + text.length);
+            const after = innerText.substring(index + text.length);
+            
+            // وضع HTML الجديد: النص السابق + الماركر مع زر X + النص اللاحق
+            // (يعتمد على كلاسات CSS التي قمت بإضافتها مسبقاً)
+            wrapper.innerHTML = `${before}<span class="custom-marker" id="active-marker">${match}<span class="marker-close" onclick="removeMyHighlight(this)" title="إزالة">✕</span></span>${after}`;
+            
+            // استبدال النص الأصلي بالعنصر الجديد
+            element.replaceWith(wrapper);
+            
+            // التمرير (Scroll) التلقائي لمكان الكلمة
+            setTimeout(() => {
+                const marker = document.getElementById('active-marker');
+                if (marker) {
+                    marker.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            }, 500);
+
+            return true; // تم العثور على النص وتلوينه، نتوقف هنا
+        }
+    }
+    return false;
+}
+
+// دالة حذف التظليل عند الضغط على X
+function removeMyHighlight(btn) {
+    const marker = btn.parentElement; // العنصر الملون (الأب)
+    
+    // الحصول على النص الأصلي (الكلمة الملونة فقط، لأنها أول عنصر ابن للماركر)
+    const originalText = marker.childNodes[0].textContent; 
+    
+    // إنشاء عقدة نصية عادية
+    const textNode = document.createTextNode(originalText);
+    
+    // استبدال الماركر (والزر داخله) بالنص العادي فقط
+    marker.parentNode.replaceChild(textNode, marker);
+    
+    // تنظيف الرابط في شريط العنوان (إزالة ?q=...)
+    const cleanUrl = window.location.href.split('?')[0];
+    window.history.replaceState(null, null, cleanUrl);
+}
+</script>
+
 </body>
 </html>
