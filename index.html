@@ -1,4 +1,3 @@
-<file name="index.html">
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -21,7 +20,7 @@
       --glass-bg: rgba(0, 0, 0, 0.6);
       --glass-border: rgba(255, 255, 255, 0.1);
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --main-gold: rgba(255, 255, 255, 0.3);
+     --main-gold: rgba(255, 255, 255, 0.3);
       --accent-color: white;
     }
 
@@ -161,7 +160,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   transform: translateX(-50%) translateY(-20px);
   width: 90%;
   max-width: 600px;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9); /* خلفية أغمق قليلاً للقراءة الأفضل */
   backdrop-filter: blur(15px);
   padding: 15px;
   border-radius: 15px;
@@ -208,6 +207,20 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   text-align: right;
 }
 
+/* عناوين الأقسام في البحث */
+.search-section-title {
+    color: var(--accent-color); /* لون ذهبي */
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 5px 5px;
+    margin: 15px 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif; /* خط أوضح للعناوين */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 /* (C) Spinner Styles */
 .loading-spinner {
   display: block;
@@ -215,7 +228,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   height: 40px;
   margin: 20px auto;
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-left-color: var(--accent-color); /* اللون الأبيض للدوران */
+  border-left-color: var(--accent-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -227,20 +240,21 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 
 .search-result-item {
   background: rgba(255,255,255,0.05);
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 12px 15px;
+  margin-bottom: 8px;
   border-radius: 8px;
   border-right: 3px solid var(--accent-color);
   transition: 0.3s;
 }
 
 .search-result-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-5px);
 }
 
 .search-result-item h3 {
   margin: 0 0 5px 0;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--accent-color);
 }
 
@@ -254,9 +268,9 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 
 .search-result-item .source-badge {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   background: rgba(0,0,0,0.5);
-  padding: 2px 8px;
+  padding: 2px 6px;
   border-radius: 4px;
   margin-bottom: 5px;
   color: #aaa;
@@ -368,7 +382,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
 
     <!-- Search Popup -->
     <div id="searchPopup" class="search-popup-new">
-      <input type="text" id="globalSearchInput" placeholder="أبحث عن اقتباس أو شخصية في كل العوائل..." onkeyup="debouncedSearch()">
+      <input type="text" id="globalSearchInput" placeholder="أبحث عن اقتباس أو شخصية..." onkeyup="debouncedSearch()">
       <div id="global-search-results"></div>
     </div>
 
@@ -464,14 +478,11 @@ const pagesToSearch = [
   { file: 'others.html', name: 'شخصيات أخرى' }
 ];
 
-// (a) Page Cache Object: لتخزين الصفحات المحملة
 const pageCache = {}; 
 
-// (Preload) Function: تحميل جميع الصفحات في الخلفية مرة واحدة
 function preloadPages() {
   pagesToSearch.forEach(page => {
     if (!pageCache[page.file]) {
-      // نخزن الوعد (Promise) بدلاً من الانتظار لضمان عدم التكرار
       pageCache[page.file] = fetch(page.file)
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
@@ -479,7 +490,7 @@ function preloadPages() {
         })
         .catch(error => {
           console.error(`Failed to preload ${page.file}:`, error);
-          delete pageCache[page.file]; // حذف من الكاش في حال الفشل للمحاولة لاحقاً
+          delete pageCache[page.file]; 
           return null;
         });
     }
@@ -493,7 +504,6 @@ function toggleSearch() {
   
   if (popup.classList.contains('active')) {
     input.focus();
-    // (Preload) بمجرد فتح النافذة، نبدأ التحميل المسبق
     preloadPages();
   } else {
     input.value = '';
@@ -517,17 +527,19 @@ async function performGlobalSearch() {
     return;
   }
 
-  // (C) Spinner: عرض أيقونة التحميل الدوارة
   resultsContainer.innerHTML = '<div class="loading-spinner"></div>';
   
-  let allResults = [];
+  // مصفوفات منفصلة للنتائج
+  let characterResults = [];
+  let quoteResults = [];
+  
+  // Set لمنع تكرار الشخصيات
+  let seenCharacters = new Set();
 
-  // التأكد من بدء التحميل (في حال لم يفتح المستخدم النافذة من قبل - احتياطياً)
   preloadPages();
 
   const searchPromises = pagesToSearch.map(async (page) => {
     try {
-      // (a) استخدام الكاش: ننتظر الوعد المخزن مسبقاً
       const text = await pageCache[page.file];
       if (!text) return;
       
@@ -540,31 +552,42 @@ async function performGlobalSearch() {
         const cleanQuote = quoteTextRaw.replace(/\s+/g, ' ').trim();
         const characterName = quoteDiv.parentElement.querySelector('h2')?.innerText || "شخصية غير معروفة";
 
-        if (cleanQuote.toLowerCase().includes(query) || characterName.toLowerCase().includes(query)) {
-          
-          // --- التغيير الحاسم هنا ---
-          // نستخدم ?q= لإرسال الكلمة بدلاً من الهاش المعقد
-          let targetText = "";
+        // 1. فحص تطابق الاسم (للقسم الخاص بالشخصيات)
+        if (characterName.toLowerCase().includes(query)) {
+            // نستخدم مفتاح فريد يجمع اسم الصفحة واسم الشخصية لمنع التكرار
+            const uniqueKey = `${page.name}-${characterName}`;
+            if (!seenCharacters.has(uniqueKey)) {
+                seenCharacters.add(uniqueKey);
+                
+                // رابط الشخصية يذهب للاسم
+                const charDeepLink = `${page.file}?q=${encodeURIComponent(characterName.trim())}`;
+                
+                characterResults.push({
+                    pageName: page.name,
+                    file: charDeepLink,
+                    character: characterName,
+                    text: "انتقل لصفحة الشخصية"
+                });
+            }
+        }
 
-          // إذا كان البحث عن اسم شخصية
-          if (characterName.toLowerCase().includes(query) && !cleanQuote.toLowerCase().includes(query)) {
-             targetText = characterName.trim();
-          } else {
-             // نرسل الكلمة التي بحث عنها المستخدم كما هي ليقوم الطرف الآخر بتلوينها
-             // هذا أسهل وأضمن لعملية المطابقة في الطرف الآخر
-             targetText = query;
-          }
-
-          // بناء الرابط بالنظام الجديد
-          const deepLink = `${page.file}?q=${encodeURIComponent(targetText)}`;
-          const snippet = getSnippet(cleanQuote, query);
-          
-          allResults.push({
-            pageName: page.name,
-            file: deepLink,
-            character: characterName,
-            text: snippet
-          });
+        // 2. فحص تطابق الاقتباس (للقسم الخاص بالاقتباسات)
+        if (cleanQuote.toLowerCase().includes(query)) {
+            // منطق المقتطف السياقي
+            const index = cleanQuote.toLowerCase().indexOf(query);
+            const start = Math.max(0, index - 15);
+            const end = Math.min(cleanQuote.length, index + query.length + 15);
+            const targetText = cleanQuote.substring(start, end).trim();
+            
+            const quoteDeepLink = `${page.file}?q=${encodeURIComponent(targetText)}`;
+            const snippet = getSnippet(cleanQuote, query);
+            
+            quoteResults.push({
+                pageName: page.name,
+                file: quoteDeepLink,
+                character: characterName,
+                text: snippet
+            });
         }
       });
     } catch (e) {
@@ -575,21 +598,49 @@ async function performGlobalSearch() {
   await Promise.all(searchPromises);
 
   resultsContainer.innerHTML = '';
-  if (allResults.length === 0) {
+  
+  if (characterResults.length === 0 && quoteResults.length === 0) {
     resultsContainer.innerHTML = '<div style="padding:15px;">لم يتم العثور على نتائج.</div>';
-  } else {
-    allResults.forEach(res => {
-      const div = document.createElement('div');
-      div.className = 'search-result-item';
-      div.innerHTML = `
-        <a href="${res.file}">
-          <span class="source-badge">آل ${res.pageName}</span>
-          <h3>${res.character}</h3>
-          <p>...${res.text}...</p>
-        </a>
-      `;
-      resultsContainer.appendChild(div);
-    });
+    return;
+  }
+
+  // --- عرض قسم الشخصيات ---
+  if (characterResults.length > 0) {
+      const charSection = document.createElement('div');
+      charSection.innerHTML = `<div class="search-section-title"><span class="material-symbols-outlined">person</span>الشخصيات</div>`;
+      
+      characterResults.forEach(res => {
+          const div = document.createElement('div');
+          div.className = 'search-result-item';
+          div.innerHTML = `
+            <a href="${res.file}">
+              <span class="source-badge">آل ${res.pageName}</span>
+              <h3>${res.character}</h3>
+            </a>
+          `;
+          charSection.appendChild(div);
+      });
+      resultsContainer.appendChild(charSection);
+  }
+
+  // --- عرض قسم الاقتباسات ---
+  if (quoteResults.length > 0) {
+      const quoteSection = document.createElement('div');
+      quoteSection.innerHTML = `<div class="search-section-title"><span class="material-symbols-outlined">format_quote</span>الاقتباسات</div>`;
+      
+      quoteResults.forEach(res => {
+          const div = document.createElement('div');
+          div.className = 'search-result-item';
+          div.innerHTML = `
+            <a href="${res.file}">
+              <span class="source-badge">آل ${res.pageName}</span>
+              <h3>${res.character}</h3>
+              <p>...${res.text}...</p>
+            </a>
+          `;
+          quoteSection.appendChild(div);
+      });
+      resultsContainer.appendChild(quoteSection);
   }
 }
 
@@ -605,8 +656,6 @@ function getSnippet(fullText, query) {
 
 </script>
 
-<!-- (Clean Code): Removed duplicate Cloudflare script -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9166d45131dc47f3a1583bb5909a68ea","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-</file>
