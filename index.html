@@ -1,3 +1,4 @@
+<file name="index.html">
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -371,7 +372,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
       <div id="global-search-results"></div>
     </div>
 
-    <div class="main-links" id="pages-list">
+    <ul class="main-links" id="pages-list">
       <li><a href="stark.html"> ستارك</a></li> 
       <li><a href="lannister.html"> لانستر</a></li> 
       <li><a href="targaryen.html">تارجارين</a></li>
@@ -381,7 +382,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
       <li><a href="tyrell.html"> تايريل</a></li>
        <li><a href="arryn.html"> آرن</a></li>
        <li><a href="others.html">شخصيات أخرى</a></li>
-    </div>
+    </ul>
 
     <hr style="width: 50%; border: 0; border-top: 1px solid rgba(128, 128, 128, 0.8); margin: 40px auto;">
 
@@ -446,17 +447,6 @@ document.addEventListener('click', function(event) {
   const searchBtn = document.querySelector('.search-btn');
   if (searchPopup && searchPopup.classList.contains('active') && !searchPopup.contains(event.target) && !searchBtn.contains(event.target)) {
      searchPopup.classList.remove('active');
-  }
-
-  // --- (b) Optimized Highlight Removal ---
-  // يعمل فقط إذا كان هناك هاش يخص التظليل في الرابط لتقليل العمليات غير الضرورية
-  if (window.location.hash && window.location.hash.includes(':~:text=')) {
-     const cleanUrl = window.location.href.split('#')[0];
-     history.replaceState(null, null, cleanUrl);
-     
-     if (window.getSelection) {
-        window.getSelection().removeAllRanges();
-     }
   }
 });
 
@@ -552,27 +542,21 @@ async function performGlobalSearch() {
 
         if (cleanQuote.toLowerCase().includes(query) || characterName.toLowerCase().includes(query)) {
           
-          let fragment = "";
-          // منطق التظليل
-          if (characterName.toLowerCase().includes(query) && !cleanQuote.toLowerCase().includes(query)) {
-             fragment = `text=${encodeURIComponent(characterName.trim())}`;
-          } else {
-             const index = cleanQuote.toLowerCase().indexOf(query);
-             const originalMatch = cleanQuote.substring(index, index + query.length);
-             let prefix = cleanQuote.substring(0, index).trim();
-             const prefixWords = prefix.split(' ');
-             if (prefixWords.length > 5) prefix = prefixWords.slice(-5).join(' ');
-             let suffix = cleanQuote.substring(index + query.length).trim();
-             const suffixWords = suffix.split(' ');
-             if (suffixWords.length > 5) suffix = suffixWords.slice(0, 5).join(' ');
+          // --- التغيير الحاسم هنا ---
+          // نستخدم ?q= لإرسال الكلمة بدلاً من الهاش المعقد
+          let targetText = "";
 
-             fragment = "text=";
-             if (prefix) fragment += `${encodeURIComponent(prefix)}-,`;
-             fragment += encodeURIComponent(originalMatch);
-             if (suffix) fragment += `,-${encodeURIComponent(suffix)}`;
+          // إذا كان البحث عن اسم شخصية
+          if (characterName.toLowerCase().includes(query) && !cleanQuote.toLowerCase().includes(query)) {
+             targetText = characterName.trim();
+          } else {
+             // نرسل الكلمة التي بحث عنها المستخدم كما هي ليقوم الطرف الآخر بتلوينها
+             // هذا أسهل وأضمن لعملية المطابقة في الطرف الآخر
+             targetText = query;
           }
 
-          const deepLink = `${page.file}#:~:${fragment}`;
+          // بناء الرابط بالنظام الجديد
+          const deepLink = `${page.file}?q=${encodeURIComponent(targetText)}`;
           const snippet = getSnippet(cleanQuote, query);
           
           allResults.push({
@@ -625,3 +609,4 @@ function getSnippet(fullText, query) {
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9166d45131dc47f3a1583bb5909a68ea","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
+</file>
