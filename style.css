@@ -202,7 +202,7 @@ text-shadow:
   left: 0;
   width: 100%;
   height: 100lvh;
-  background-image: url('https://i.ibb.co/r2pfjxxf/IMG-20250519-001608.jpg'); 
+  background-image: url('https://i.postimg.cc/k47GqqVd/Asoiaf-World.jpg'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -245,6 +245,10 @@ text-shadow:
         background-image: url('https://i.postimg.cc/rwDr1zTk/Picsart-25-12-25-03-23-24-559.jpg');
   
 }
+.otherspic::before  {
+        background-image: url('https://i.postimg.cc/QxqQ7vMH/Picsart-25-12-29-12-58-04-978.webp');
+  
+}
 }
 .overlay {
   position: fixed;
@@ -285,7 +289,7 @@ backface-visibility: hidden;
 .sidebar {
   position: fixed;
   top: 0; right: 0;
-  width: 300px; height: 100%;
+  width: 290px; height: 90%;
   background: rgba(0, 0, 0, 0.4); 
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);

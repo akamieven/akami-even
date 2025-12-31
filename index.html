@@ -61,7 +61,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100lvh;
-  background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg');
+  background-image:
+  url('https://i.postimg.cc/zXxMqrfj/549af8a6-21fe-432c-876c-75af246a92b1.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -70,7 +71,11 @@ body::before {
   -webkit-transform: translateZ(0);
   will-change: transform;
 }
-
+@media (max-width: 768px) {
+  body: :before {
+    background-image: url('https://i.postimg.cc/WbHktP1p/IMG-20250503-181856.jpg')
+  }
+}
 .overlay {
   position: fixed;
   top: 0;
@@ -307,8 +312,7 @@ p { font-size: 22px; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; op
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100%;
+  width: 290px; height: 90%;
   background: rgba(0, 0, 0, 0.4); 
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
